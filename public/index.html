@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cubrin | Find, Connect, Order</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=MuseoModerno:wght@700;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            "cubrin-green": "#16FF67",
+                            "cubrin-yellow": "#EBFC04",
+                            "cubrin-dark": "#1F2937",
+                            "cubrin-bg": "#FFFDF7",
+                        },
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                            museo: ["MuseoModerno", "sans-serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+    </head>
+    <body
+        class="bg-cubrin-bg text-cubrin-dark antialiased overflow-x-hidden font-sans"
+    >
+        <section class="relative pt-6 pb-32 md:pb-56 overflow-hidden">
+            <div
+                class="absolute top-20 left-32 w-6 h-6 bg-gradient-to-br from-cubrin-green to-cubrin-yellow rounded-tl-full rounded-br-full rotate-45 opacity-80 hidden md:block shadow-sm"
+            ></div>
+            <div
+                class="absolute top-40 right-40 w-4 h-12 bg-gradient-to-b from-cubrin-yellow to-cubrin-green rounded-full rotate-[30deg] opacity-70 hidden md:block"
+            ></div>
+            <div
+                class="absolute bottom-40 left-1/4 w-3 h-3 bg-cubrin-yellow rounded-full opacity-80 hidden md:block shadow-sm"
+            ></div>
+            <div
+                class="absolute bottom-32 right-1/4 w-6 h-6 bg-gradient-to-tr from-cubrin-green to-cubrin-yellow rounded-tl-full rounded-br-full -rotate-12 opacity-80 hidden md:block shadow-sm"
+            ></div>
+
+            <img
+                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop"
+                alt="Burger"
+                class="absolute -left-24 bottom-10 w-64 h-64 object-cover rounded-full border-8 border-white shadow-2xl z-20 hidden lg:block transform -rotate-12"
+            />
+            <img
+                src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=400&auto=format&fit=crop"
+                alt="Fries"
+                class="absolute -right-16 bottom-20 w-64 h-64 object-cover rounded-3xl border-8 border-white shadow-2xl z-20 hidden md:block transform rotate-6"
+            />
+
+            <nav
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative z-30"
+            >
+                <a href="/" class="flex-shrink-0 flex items-center">
+                    <img
+                        src="./cubrinlogo.svg"
+                        alt="Cubrin Logo"
+                        class="h-10 md:h-12 w-auto drop-shadow-sm"
+                    />
+                </a>
+
+                <div
+                    class="hidden md:flex space-x-8 text-sm font-semibold text-gray-700"
+                >
+                    <a href="#" class="hover:text-cubrin-green transition"
+                        >Vendors</a
+                    >
+                    <a href="#" class="hover:text-cubrin-green transition"
+                        >Riders</a
+                    >
+                    <a href="#" class="hover:text-cubrin-green transition"
+                        >Company</a
+                    >
+                    <a href="#" class="hover:text-cubrin-green transition"
+                        >FAQs</a
+                    >
+                    <a href="#" class="hover:text-cubrin-green transition"
+                        >Contact</a
+                    >
+                </div>
+
+                <button class="md:hidden text-gray-800">
+                    <svg
+                        class="w-7 h-7"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"
+                        ></path>
+                    </svg>
+                </button>
+            </nav>
+
+            <div
+                class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:mt-24 relative z-30 text-center flex flex-col items-center"
+            >
+                <h1
+                    class="font-museo font-black text-5xl md:text-6xl lg:text-7xl text-gray-900 leading-[1.1] tracking-tight drop-shadow-sm"
+                >
+                    Find
+                    <span
+                        class="bg-gradient-to-r from-cubrin-green to-cubrin-yellow bg-clip-text text-transparent pb-2"
+                        >Connect</span
+                    >
+                    Order <br class="hidden md:block" />
+                    <span
+                        class="font-sans font-bold text-2xl md:text-3xl text-gray-800 mt-3 md:mt-4 block tracking-normal"
+                    >
+                        from your favourite local spots
+                    </span>
+                </h1>
+
+                <div
+                    class="mt-10 md:mt-14 w-full max-w-xl mx-auto relative group"
+                >
+                    <div
+                        class="flex items-center bg-white rounded-xl p-2 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 transition-shadow duration-300 group-hover:shadow-[0_8px_30px_rgba(74,222,128,0.2)]"
+                    >
+                        <div class="pl-4 pr-2 text-gray-400">
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                                ></path>
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Enter delivery address"
+                            class="flex-1 bg-transparent border-none outline-none text-gray-700 placeholder-gray-400 text-sm md:text-base py-3 focus:ring-0"
+                        />
+
+                        <button
+                            class="bg-gradient-to-r from-cubrin-green to-cubrin-yellow text-gray-900 px-6 py-3 rounded-lg font-bold hover:scale-[1.02] hover:shadow-lg hover:shadow-cubrin-green/30 transition-all duration-300 flex items-center justify-center"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div
+                    class="mt-10 flex flex-row items-center justify-center gap-4"
+                >
+                    <a
+                        href="#"
+                        class="flex items-center gap-2 bg-black text-white px-4 py-2.5 rounded-xl hover:-translate-y-1 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-800"
+                    >
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 384 512">
+                            <path
+                                d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+                            />
+                        </svg>
+                        <div class="text-left">
+                            <div
+                                class="text-[10px] leading-none text-gray-300 mb-0.5"
+                            >
+                                Download on the
+                            </div>
+                            <div class="text-sm font-semibold leading-none">
+                                App Store
+                            </div>
+                        </div>
+                    </a>
+                    <a
+                        href="#"
+                        class="flex items-center gap-2 bg-black text-white px-4 py-2.5 rounded-xl hover:-translate-y-1 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-800"
+                    >
+                        <svg class="w-6 h-6" viewBox="0 0 512 512">
+                            <path
+                                fill="#4ADE80"
+                                d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"
+                            />
+                            <path
+                                fill="#FACC15"
+                                d="M104.6 13L16 68.3v375.4l88.6-55.3L325.3 234.3z"
+                            />
+                            <path
+                                fill="#3B82F6"
+                                d="M104.6 499l280.8-161.2-60.1-60.1-220.7 221.3z"
+                            />
+                            <path
+                                fill="#EF4444"
+                                d="M385.4 337.8l82.2-47.2c16.5-9.5 16.5-24.9 0-34.4l-82.2-47.2-60.1 60.1 60.1 60.1z"
+                            />
+                        </svg>
+                        <div class="text-left">
+                            <div
+                                class="text-[10px] leading-none text-gray-300 mb-0.5"
+                            >
+                                GET IT ON
+                            </div>
+                            <div class="text-sm font-semibold leading-none">
+                                Google Play
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="absolute bottom-0 w-full overflow-hidden leading-none z-10"
+            >
+                <svg
+                    viewBox="0 0 1440 320"
+                    preserveAspectRatio="none"
+                    class="w-full h-24 md:h-48 lg:h-64 fill-white block"
+                >
+                    <path
+                        d="M0,160L80,176C160,192,320,224,480,218.7C640,213,800,171,960,160C1120,149,1280,171,1360,181.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+                    ></path>
+                </svg>
+            </div>
+        </section>
+    </body>
+</html>
