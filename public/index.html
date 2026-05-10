@@ -285,76 +285,576 @@
 
             <div
                 class="absolute bottom-0 w-full overflow-hidden leading-none z-10"
-            >
-                <svg
-                    viewBox="0 0 1440 320"
-                    preserveAspectRatio="none"
-                    class="w-full h-24 md:h-48 lg:h-64 fill-white block"
-                >
-                    <path
-                        d="M0,160L80,176C160,192,320,224,480,218.7C640,213,800,171,960,160C1120,149,1280,171,1360,181.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-                    ></path>
-                </svg>
-            </div>
+            ></div>
         </section>
-        <section class="bg-white py-16 md:py-24 relative z-10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-4xl mx-auto">
-                    <h2
-                        class="font-museo font-black text-3xl md:text-5xl text-gray-900 mb-6 tracking-tight"
-                    >
-                        Food You Love,
-                        <span class="text-cubrin-green">Delivered Right</span>
-                    </h2>
+        <section
+            class="bg-cubrin-bg py-20 md:py-32 relative z-10 overflow-hidden"
+        >
+            <div
+                class="absolute top-10 right-[10%] text-4xl opacity-80 animate-pulse hidden lg:block"
+            >
+                🍅
+            </div>
+            <div
+                class="absolute bottom-20 left-[5%] text-4xl opacity-80 transform -rotate-12 hidden lg:block"
+            >
+                🌶️
+            </div>
+            <div
+                class="absolute top-40 left-[15%] text-4xl opacity-80 transform rotate-45 hidden lg:block"
+            >
+                🌿
+            </div>
 
-                    <p
-                        class="text-gray-600 text-base md:text-lg leading-relaxed md:leading-8 max-w-3xl mx-auto font-medium"
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+                <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                    <h2
+                        class="font-museo font-black text-4xl md:text-5xl text-gray-900 mb-6 tracking-tight"
                     >
-                        At Cubrin, we know how serious food is. Whether you're
-                        craving that steaming hot Amala from the corner Buka, or
-                        splitting a massive platter of grills with your guys, we
-                        make it happen without the group chat arguments. We
-                        connect you to the best local vendors, bringing
-                        delicious meals straight to your door, fast, fresh, and
-                        exactly how you ordered it.
+                        More than delivery. <br class="hidden md:block" />
+                        <span class="text-cubrin-green">It’s a lifestyle.</span>
+                    </h2>
+                    <p
+                        class="text-gray-600 text-base md:text-lg leading-relaxed font-medium"
+                    >
+                        Experience food delivery built for the way you actually
+                        live. From sharing costs to ordering as a group, we make
+                        connecting over food entirely effortless.
                     </p>
                 </div>
 
                 <div
-                    class="mt-16 md:mt-24 flex flex-col md:flex-row justify-center items-center gap-10 md:gap-6 lg:gap-10"
+                    class="max-w-5xl mx-auto bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-gray-50 px-8 py-12 md:p-16"
                 >
                     <div
-                        class="w-72 md:w-64 lg:w-80 h-64 md:h-72 lg:h-80 border-[12px] md:border-[16px] border-cubrin-yellow rounded-2xl md:rounded-3xl shadow-xl transform md:-rotate-6 md:translate-y-8 overflow-hidden transition-transform duration-300 hover:rotate-0 hover:z-20"
+                        class="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-gray-100"
                     >
+                        <div
+                            class="flex flex-col items-center text-center md:px-6 pt-6 md:pt-0"
+                        >
+                            <div
+                                class="text-6xl mb-6 transform hover:scale-110 transition-transform duration-300"
+                            >
+                                🍣
+                            </div>
+                            <h3
+                                class="font-sans font-extrabold text-xl text-gray-900 mb-3"
+                            >
+                                Split the Bill
+                            </h3>
+                            <p
+                                class="text-gray-500 text-sm leading-relaxed mb-8 px-2"
+                            >
+                                Deciding what to eat is hard enough. Paying
+                                shouldn't be. Use our custom sliders to split
+                                the cost seamlessly.
+                            </p>
+                        </div>
+
+                        <div
+                            class="flex flex-col items-center text-center md:px-6 pt-10 md:pt-0"
+                        >
+                            <div
+                                class="text-6xl mb-6 transform hover:scale-110 transition-transform duration-300 drop-shadow-xl"
+                            >
+                                🍟
+                            </div>
+                            <h3
+                                class="font-sans font-extrabold text-xl text-gray-900 mb-3"
+                            >
+                                Send a Lifeline
+                            </h3>
+                            <p
+                                class="text-gray-500 text-sm leading-relaxed mb-8 px-2"
+                            >
+                                Hunger strikes but the wallet is empty? Tap one
+                                button to ping your squad to cover your meal.
+                            </p>
+                        </div>
+
+                        <div
+                            class="flex flex-col items-center text-center md:px-6 pt-10 md:pt-0"
+                        >
+                            <div
+                                class="text-6xl mb-6 transform hover:scale-110 transition-transform duration-300"
+                            >
+                                🍢
+                            </div>
+                            <h3
+                                class="font-sans font-extrabold text-xl text-gray-900 mb-3"
+                            >
+                                Squad Carts
+                            </h3>
+                            <p
+                                class="text-gray-500 text-sm leading-relaxed mb-8 px-2"
+                            >
+                                One person starts the order, everyone adds their
+                                cravings, and it all arrives together.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            id="why-cubrin"
+            class="bg-[#143D01] relative z-10 pt-16 md:pt-24 pb-0"
+        >
+            <style>
+                @keyframes marquee {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(-100%);
+                    }
+                }
+                .animate-scroll-text {
+                    animation: marquee 30s linear infinite;
+                }
+                .animate-scroll-phones {
+                    animation: marquee 45s linear infinite;
+                }
+                /* Pause on hover for desktop users */
+                .group:hover .animate-scroll-text,
+                .group:hover .animate-scroll-phones {
+                    animation-play-state: paused;
+                }
+                /* Hide scrollbar completely across browsers */
+                .hide-scroll::-webkit-scrollbar {
+                    display: none;
+                }
+                .hide-scroll {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            </style>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+                <div
+                    class="bg-cubrin-yellow rounded-[40px] px-6 pt-10 pb-12 md:p-16 text-center shadow-2xl max-w-2xl mx-auto relative mb-16 border-4 border-[#143D01]/10"
+                >
+                    <h3
+                        class="font-museo font-black text-4xl md:text-5xl text-gray-900 tracking-tight mb-12"
+                    >
+                        Share meals, <br />
+                        not stress.
+                    </h3>
+
+                    <img
+                        src="./images/eating.svg"
+                        alt="Friends eating together"
+                        class="w-full max-w-[250px] md:max-w-xs mx-auto h-auto object-contain animate-[spin_25s_linear_infinite]"
+                    />
+                </div>
+
+                <div
+                    class="max-w-2xl text-left md:text-center mx-auto mb-10 md:mb-16"
+                >
+                    <h2
+                        class="font-museo font-black text-4xl md:text-5xl text-white mb-6 tracking-tight flex flex-wrap md:justify-center items-center gap-3"
+                    >
+                        Cubrin has <br class="md:hidden" />
+                        you covered
+                        <span
+                            class="text-4xl md:text-5xl bg-white/10 p-2 rounded-2xl border border-white/20 shadow-lg"
+                            >🥡</span
+                        >
+                    </h2>
+                    <p
+                        class="text-gray-300 text-base md:text-lg leading-relaxed font-medium"
+                    >
+                        What do you need? A quick fix after lectures?
+                        Last-minute dinner backup with the squad? Download
+                        Cubrin and let’s deliver the soft life to your doorstep
+                        in minutes.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="w-full relative z-20 mb-12 py-4 flex overflow-hidden group"
+            >
+                <div
+                    class="absolute inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-[#143D01] to-transparent z-30 pointer-events-none"
+                ></div>
+                <div
+                    class="absolute inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-[#143D01] to-transparent z-30 pointer-events-none"
+                ></div>
+
+                <div
+                    class="flex shrink-0 animate-scroll-text items-center gap-4 px-2"
+                >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >🛵 Verified Swift Riders</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >💸 Split the Bill</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >🛟 Send a Lifeline</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >🛍️ Skip the Wait</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >🛒 Squad Carts</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >⭐ Eat & Earn</span
+                    >
+                </div>
+                <div
+                    class="flex shrink-0 animate-scroll-text items-center gap-4 px-2"
+                    aria-hidden="true"
+                >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >🛵 Verified Swift Riders</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >💸 Split the Bill</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >🛟 Send a Lifeline</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >🛍️ Skip the Wait</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >🛒 Squad Carts</span
+                    >
+                    <span
+                        class="border border-white/20 bg-white/10 rounded-full px-6 py-2.5 text-white text-sm font-bold whitespace-nowrap backdrop-blur-sm shadow-sm"
+                        >⭐ Eat & Earn</span
+                    >
+                </div>
+            </div>
+
+            <div
+                class="w-full relative z-20 h-[450px] md:h-[550px] flex items-end overflow-hidden group pb-8"
+            >
+                <div
+                    class="absolute inset-y-0 left-0 w-8 md:w-40 bg-gradient-to-r from-[#143D01] to-transparent z-30 pointer-events-none"
+                ></div>
+                <div
+                    class="absolute inset-y-0 right-0 w-8 md:w-40 bg-gradient-to-l from-[#143D01] to-transparent z-30 pointer-events-none"
+                ></div>
+
+                <div
+                    class="flex shrink-0 animate-scroll-phones items-end gap-6 md:gap-10 px-3 md:px-5"
+                >
+                    <div
+                        class="shrink-0 h-[380px] md:h-[480px] aspect-[590/1280] bg-white/10 backdrop-blur-md rounded-[2rem] p-1.5 md:p-2 relative border border-white/20 flex flex-col justify-end transform transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                    >
+                        <div
+                            class="absolute top-3 left-1/2 -translate-x-1/2 w-[30%] max-w-[100px] h-4 md:h-[22px] bg-black rounded-full z-30 shadow-md"
+                        ></div>
                         <img
-                            src="https://images.unsplash.com/photo-1530554764233-e79e16c91d08?q=80&w=600&auto=format&fit=crop"
-                            alt="Happy customer eating"
-                            class="w-full h-full object-cover"
+                            src="./screen1.jpeg"
+                            alt="Cubrin Profile"
+                            class="w-full h-full object-cover rounded-[1.5rem] bg-white"
                         />
                     </div>
 
                     <div
-                        class="w-72 md:w-64 lg:w-80 h-64 md:h-72 lg:h-80 border-[12px] md:border-[16px] border-cubrin-green rounded-2xl md:rounded-3xl shadow-[0_20px_50px_rgba(22,255,103,0.3)] transform md:-translate-y-4 z-10 overflow-hidden transition-transform duration-300 hover:scale-105 hover:z-20"
+                        class="shrink-0 h-[380px] md:h-[480px] aspect-[590/1280] bg-white/10 backdrop-blur-md rounded-[2rem] p-1.5 md:p-2 relative border border-white/20 flex flex-col justify-end transform -translate-y-8 md:-translate-y-12 transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
                     >
+                        <div
+                            class="absolute top-3 left-1/2 -translate-x-1/2 w-[30%] max-w-[100px] h-4 md:h-[22px] bg-black rounded-full z-30 shadow-md"
+                        ></div>
                         <img
-                            src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=600&auto=format&fit=crop"
-                            alt="Delicious local food platter"
-                            class="w-full h-full object-cover"
+                            src="./screen2.jpeg"
+                            alt="Cubrin Chats"
+                            class="w-full h-full object-cover rounded-[1.5rem] bg-white"
                         />
                     </div>
 
                     <div
-                        class="w-72 md:w-64 lg:w-80 h-64 md:h-72 lg:h-80 border-[12px] md:border-[16px] border-cubrin-dark rounded-2xl md:rounded-3xl shadow-xl transform md:rotate-6 md:translate-y-8 overflow-hidden transition-transform duration-300 hover:rotate-0 hover:z-20"
+                        class="shrink-0 h-[380px] md:h-[480px] aspect-[590/1280] bg-white/10 backdrop-blur-md rounded-[2rem] p-1.5 md:p-2 relative border border-white/20 flex flex-col justify-end transform transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
                     >
+                        <div
+                            class="absolute top-3 left-1/2 -translate-x-1/2 w-[30%] max-w-[100px] h-4 md:h-[22px] bg-black rounded-full z-30 shadow-md"
+                        ></div>
                         <img
-                            src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop"
-                            alt="Vendor preparing food"
-                            class="w-full h-full object-cover"
+                            src="./screen3.jpeg"
+                            alt="Cubrin Payment"
+                            class="w-full h-full object-cover rounded-[1.5rem] bg-white"
+                        />
+                    </div>
+
+                    <div
+                        class="shrink-0 h-[380px] md:h-[480px] aspect-[590/1280] bg-white/10 backdrop-blur-md rounded-[2rem] p-1.5 md:p-2 relative border border-white/20 flex flex-col justify-end transform -translate-y-4 md:-translate-y-6 transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                    >
+                        <div
+                            class="absolute top-3 left-1/2 -translate-x-1/2 w-[30%] max-w-[100px] h-4 md:h-[22px] bg-black rounded-full z-30 shadow-md"
+                        ></div>
+                        <img
+                            src="./screen4.jpeg"
+                            alt="Cubrin Split Bill"
+                            class="w-full h-full object-cover rounded-[1.5rem] bg-white"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="flex shrink-0 animate-scroll-phones items-end gap-6 md:gap-10 px-3 md:px-5"
+                    aria-hidden="true"
+                >
+                    <div
+                        class="shrink-0 h-[380px] md:h-[480px] aspect-[590/1280] bg-white/10 backdrop-blur-md rounded-[2rem] p-1.5 md:p-2 relative border border-white/20 flex flex-col justify-end transform transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                    >
+                        <div
+                            class="absolute top-3 left-1/2 -translate-x-1/2 w-[30%] max-w-[100px] h-4 md:h-[22px] bg-black rounded-full z-30 shadow-md"
+                        ></div>
+                        <img
+                            src="./screen1.jpeg"
+                            alt="Cubrin Profile"
+                            class="w-full h-full object-cover rounded-[1.5rem] bg-white"
+                        />
+                    </div>
+
+                    <div
+                        class="shrink-0 h-[380px] md:h-[480px] aspect-[590/1280] bg-white/10 backdrop-blur-md rounded-[2rem] p-1.5 md:p-2 relative border border-white/20 flex flex-col justify-end transform -translate-y-8 md:-translate-y-12 transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                    >
+                        <div
+                            class="absolute top-3 left-1/2 -translate-x-1/2 w-[30%] max-w-[100px] h-4 md:h-[22px] bg-black rounded-full z-30 shadow-md"
+                        ></div>
+                        <img
+                            src="./screen2.jpeg"
+                            alt="Cubrin Chats"
+                            class="w-full h-full object-cover rounded-[1.5rem] bg-white"
+                        />
+                    </div>
+
+                    <div
+                        class="shrink-0 h-[380px] md:h-[480px] aspect-[590/1280] bg-white/10 backdrop-blur-md rounded-[2rem] p-1.5 md:p-2 relative border border-white/20 flex flex-col justify-end transform transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                    >
+                        <div
+                            class="absolute top-3 left-1/2 -translate-x-1/2 w-[30%] max-w-[100px] h-4 md:h-[22px] bg-black rounded-full z-30 shadow-md"
+                        ></div>
+                        <img
+                            src="./screen3.jpeg"
+                            alt="Cubrin Payment"
+                            class="w-full h-full object-cover rounded-[1.5rem] bg-white"
+                        />
+                    </div>
+
+                    <div
+                        class="shrink-0 h-[380px] md:h-[480px] aspect-[590/1280] bg-white/10 backdrop-blur-md rounded-[2rem] p-1.5 md:p-2 relative border border-white/20 flex flex-col justify-end transform -translate-y-4 md:-translate-y-6 transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                    >
+                        <div
+                            class="absolute top-3 left-1/2 -translate-x-1/2 w-[30%] max-w-[100px] h-4 md:h-[22px] bg-black rounded-full z-30 shadow-md"
+                        ></div>
+                        <img
+                            src="./screen4.jpeg"
+                            alt="Cubrin Split Bill"
+                            class="w-full h-full object-cover rounded-[1.5rem] bg-white"
                         />
                     </div>
                 </div>
             </div>
         </section>
+        <section class="bg-white py-20 md:py-32 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2
+                        class="font-museo font-black text-4xl md:text-5xl text-gray-900 mb-6 tracking-tight"
+                    >
+                        Everything you need. <br />
+                        <span class="text-cubrin-green">All in one app.</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg font-medium">
+                        We packed the Cubrin app with features designed to make
+                        ordering, sharing, and paying as smooth as possible.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                >
+                    <div
+                        class="lg:col-span-2 bg-[#143D01] rounded-3xl p-8 border border-[#1a4a02] shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
+                    >
+                        <div
+                            class="absolute -right-10 -bottom-10 w-48 h-48 bg-cubrin-green opacity-10 rounded-full blur-3xl group-hover:opacity-30 transition-opacity"
+                        ></div>
+                        <div
+                            class="w-12 h-12 bg-[#1a4a02] rounded-xl flex items-center justify-center text-2xl mb-6 border border-cubrin-green/20"
+                        >
+                            🛵
+                        </div>
+                        <h3
+                            class="font-sans font-bold text-2xl text-white mb-3"
+                        >
+                            Verified Swift Riders
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed max-w-md">
+                            Handpicked riders who know every shortcut. Fast,
+                            secure, and absolutely zero navigation headaches
+                            when they deliver to your door.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-cubrin-bg rounded-3xl p-8 border border-gray-100 hover:border-cubrin-green/50 hover:shadow-lg transition-all duration-300"
+                    >
+                        <div
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"
+                        >
+                            ⭐
+                        </div>
+                        <h3
+                            class="font-sans font-bold text-xl text-gray-900 mb-3"
+                        >
+                            Eat. Earn. Repeat.
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Rack up points with every single order to unlock
+                            exclusive freebies, secret menus, and heavy
+                            discounts.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-cubrin-bg rounded-3xl p-8 border border-gray-100 hover:border-cubrin-green/50 hover:shadow-lg transition-all duration-300"
+                    >
+                        <div
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"
+                        >
+                            💳
+                        </div>
+                        <h3
+                            class="font-sans font-bold text-xl text-gray-900 mb-3"
+                        >
+                            Instant Wallet
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Top up your secure Cubrin wallet in seconds for
+                            lightning-fast, one-tap checkouts. Never wait on
+                            bank network issues again.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-cubrin-bg rounded-3xl p-8 border border-gray-100 hover:border-cubrin-green/50 hover:shadow-lg transition-all duration-300"
+                    >
+                        <div
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"
+                        >
+                            🛍️
+                        </div>
+                        <h3
+                            class="font-sans font-bold text-xl text-gray-900 mb-3"
+                        >
+                            Skip the Wait
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            In the area? Order ahead on the app and just walk in
+                            to grab your food. Zero queues, zero waiting.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-cubrin-bg rounded-3xl p-8 border border-gray-100 hover:border-cubrin-green/50 hover:shadow-lg transition-all duration-300"
+                    >
+                        <div
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"
+                        >
+                            🥂
+                        </div>
+                        <h3
+                            class="font-sans font-bold text-xl text-gray-900 mb-3"
+                        >
+                            Plan a Date
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Shoot your shot. Book a table and pre-order a meal
+                            for two directly from the app to impress.
+                        </p>
+                    </div>
+
+                    <div
+                        class="lg:col-span-2 bg-gradient-to-r from-cubrin-green/20 to-cubrin-yellow/20 rounded-3xl p-8 border border-cubrin-green/30 hover:shadow-lg transition-all duration-300"
+                    >
+                        <div
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"
+                        >
+                            🤝
+                        </div>
+                        <h3
+                            class="font-sans font-bold text-2xl text-gray-900 mb-3"
+                        >
+                            Refer & Earn
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed max-w-md">
+                            Bring your guys to the soft life. Earn instant
+                            wallet cash for every friend who signs up using your
+                            code and makes their first order.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const steps = document.querySelectorAll(".scroll-step");
+                const images = document.querySelectorAll(".sticky-img");
+
+                // Setup the observer options
+                // rootMargin '-40% 0px -40% 0px' means the trigger happens in the middle 20% of the screen
+                const options = {
+                    root: null,
+                    rootMargin: "-40% 0px -40% 0px",
+                    threshold: 0,
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const index =
+                                entry.target.getAttribute("data-index");
+
+                            // 1. Crossfade the Images inside the Phone
+                            images.forEach((img, i) => {
+                                if (i == index) {
+                                    img.classList.remove("opacity-0");
+                                    img.classList.add("opacity-100");
+                                } else {
+                                    img.classList.add("opacity-0");
+                                    img.classList.remove("opacity-100");
+                                }
+                            });
+
+                            // 2. Dim inactive text, highlight active text
+                            steps.forEach((step, i) => {
+                                if (i == index) {
+                                    step.classList.remove("opacity-30");
+                                    step.classList.add("opacity-100");
+                                } else {
+                                    step.classList.add("opacity-30");
+                                    step.classList.remove("opacity-100");
+                                }
+                            });
+                        }
+                    });
+                }, options);
+
+                // Start observing all the text blocks
+                steps.forEach((step) => observer.observe(step));
+            });
+        </script>
 
         <script>
             const btn = document.getElementById("mobile-menu-btn");
