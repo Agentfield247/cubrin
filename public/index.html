@@ -77,7 +77,9 @@
                 <div
                     class="hidden md:flex flex-1 justify-center space-x-8 text-sm font-semibold text-gray-700"
                 >
-                    <a href="#" class="hover:text-cubrin-green transition"
+                    <a
+                        href="terms.html"
+                        class="hover:text-cubrin-green transition"
                         >Terms and Policy</a
                     >
                     <a href="#" class="hover:text-cubrin-green transition"
@@ -208,9 +210,10 @@
 
                         <button
                             id="search-btn"
-                            class="bg-gradient-to-r from-cubrin-green to-cubrin-yellow text-gray-900 px-6 py-3 rounded-lg font-bold hover:scale-[1.02] hover:shadow-lg hover:shadow-cubrin-green/30 transition-all duration-300 flex items-center justify-center shrink-0"
+                            class="bg-gradient-to-r from-cubrin-green to-cubrin-yellow text-gray-900 px-6 py-3 rounded-lg font-bold hover:scale-[1.02] hover:shadow-lg hover:shadow-cubrin-green/30 transition-all duration-300 flex items-center justify-center shrink-0 h-12 w-16"
                         >
                             <svg
+                                id="btn-arrow"
                                 class="w-5 h-5"
                                 fill="none"
                                 stroke="currentColor"
@@ -223,6 +226,27 @@
                                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                                 ></path>
                             </svg>
+                            <svg
+                                id="btn-spinner"
+                                class="hidden w-5 h-5 animate-spin text-gray-900"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <circle
+                                    class="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    stroke-width="4"
+                                ></circle>
+                                <path
+                                    class="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                ></path>
+                            </svg>
                         </button>
                     </div>
 
@@ -232,35 +256,14 @@
                     >
                         <ul
                             id="suggestions-list"
-                            class="divide-y divide-gray-50"
+                            class="divide-y divide-gray-50 max-h-60 overflow-y-auto text-left"
                         ></ul>
                     </div>
 
                     <div
                         id="search-error"
-                        class="hidden absolute top-full left-0 w-full mt-2 p-4 bg-red-50 text-red-600 rounded-xl border border-red-100 text-sm font-medium shadow-lg z-50"
+                        class="hidden absolute top-full left-0 w-full mt-2 p-4 bg-red-50 text-red-600 rounded-xl border border-red-100 text-sm font-medium shadow-lg z-50 text-left"
                     ></div>
-
-                    <div
-                        id="search-results"
-                        class="hidden absolute top-full left-0 w-full mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex-col z-50"
-                    >
-                        <div
-                            class="p-4 bg-gray-50 border-b border-gray-100 text-xs font-bold text-gray-500 uppercase tracking-wider flex justify-between items-center"
-                        >
-                            <span>Discovered Shops</span>
-                            <button
-                                id="close-results"
-                                class="text-gray-400 hover:text-gray-700"
-                            >
-                                ✕
-                            </button>
-                        </div>
-                        <div
-                            id="results-list"
-                            class="max-h-80 overflow-y-auto divide-y divide-gray-50"
-                        ></div>
-                    </div>
                 </div>
 
                 <div
@@ -1255,20 +1258,15 @@
             document.addEventListener("DOMContentLoaded", () => {
                 const searchInput = document.getElementById("search-input");
                 const searchBtn = document.getElementById("search-btn");
-                const searchBtnText =
-                    document.getElementById("search-btn-text");
+                const btnArrow = document.getElementById("btn-arrow");
+                const btnSpinner = document.getElementById("btn-spinner");
                 const searchError = document.getElementById("search-error");
-                const searchResults = document.getElementById("search-results");
-                const resultsList = document.getElementById("results-list");
-                const closeResults = document.getElementById("close-results");
                 const suggestionsBox = document.getElementById(
                     "location-suggestions",
                 );
                 const suggestionsList =
                     document.getElementById("suggestions-list");
 
-                let selectedLat = null;
-                let selectedLng = null;
                 let typingTimer;
 
                 // 1. AUTO-FILL LOCATION ON PAGE LOAD
@@ -1278,8 +1276,6 @@
                             try {
                                 const lat = position.coords.latitude;
                                 const lng = position.coords.longitude;
-                                selectedLat = lat;
-                                selectedLng = lng;
 
                                 const response = await fetch(
                                     `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`,
@@ -1300,11 +1296,9 @@
                     );
                 }
 
-                // 2. LIVE TYPING AUTOCOMPLETE (NIGERIA ONLY)
+                // 2. LIVE TYPING AUTOCOMPLETE
                 searchInput.addEventListener("input", (e) => {
                     const query = e.target.value.trim();
-                    selectedLat = null;
-                    selectedLng = null;
                     clearTimeout(typingTimer);
 
                     if (query.length < 3) {
@@ -1333,8 +1327,6 @@
 
                                     li.onclick = () => {
                                         searchInput.value = cleanName;
-                                        selectedLat = parseFloat(place.lat);
-                                        selectedLng = parseFloat(place.lon);
                                         suggestionsBox.classList.add("hidden");
                                     };
                                     suggestionsList.appendChild(li);
@@ -1349,6 +1341,7 @@
                     }, 500);
                 });
 
+                // Hide dropdown if clicked outside
                 document.addEventListener("click", (e) => {
                     if (
                         !searchInput.contains(e.target) &&
@@ -1358,134 +1351,39 @@
                     }
                 });
 
-                // 3. SEARCH BUTTON LOGIC
-                const showError = (msg) => {
-                    searchError.textContent = msg;
-                    searchError.classList.remove("hidden");
-                    searchResults.classList.add("hidden");
-                };
-
-                if (closeResults) {
-                    closeResults.addEventListener("click", () =>
-                        searchResults.classList.add("hidden"),
-                    );
-                }
-
-                function resetBtn() {
-                    if (searchBtnText) searchBtnText.textContent = "Find Food";
-                    searchBtn.classList.remove(
-                        "opacity-50",
-                        "cursor-not-allowed",
-                    );
-                }
-
-                searchBtn.addEventListener("click", () => {
-                    const query = searchInput.value.trim();
-                    if (!query) return;
-
-                    if (searchBtnText)
-                        searchBtnText.textContent = "Searching...";
-                    searchBtn.classList.add("opacity-50", "cursor-not-allowed");
-                    searchError.classList.add("hidden");
-                    searchResults.classList.add("hidden");
-                    suggestionsBox.classList.add("hidden");
-
-                    if (selectedLat && selectedLng) {
-                        fetchShops(selectedLat, selectedLng, "");
-                    } else if ("geolocation" in navigator) {
-                        navigator.geolocation.getCurrentPosition(
-                            (position) => {
-                                fetchShops(
-                                    position.coords.latitude,
-                                    position.coords.longitude,
-                                    "",
-                                );
-                            },
-                            (err) => {
-                                showError(
-                                    "Please select a location from the dropdown suggestions.",
-                                );
-                                resetBtn();
-                            },
-                        );
-                    } else {
-                        showError(
-                            "Please select a location from the dropdown suggestions.",
-                        );
-                        resetBtn();
+                // Allow 'Enter' key to trigger search
+                searchInput.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter") {
+                        e.preventDefault();
+                        searchBtn.click();
                     }
                 });
 
-                // 4. QUADRIFX API CONNECTION
-                async function fetchShops(lat, lng, search) {
-                    try {
-                        const response = await fetch(
-                            "https://api.cubrin.com/v1/users/shop/discovery/index.php",
-                            {
-                                method: "POST",
-                                headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                        "Bearer a7f9k2m8p3q5r7t9v2w4x6y8z1b3",
-                                },
-                                body: JSON.stringify({
-                                    user_latitude: lat,
-                                    user_longitude: lng,
-                                    filters: { is_open: true },
-                                    pagination: { page: 1, limit: 5 },
-                                }),
-                            },
-                        );
+                // 3. SEARCH BUTTON LOGIC (IMMEDIATE REDIRECT)
+                searchBtn.addEventListener("click", () => {
+                    const query = searchInput.value.trim();
 
-                        const result = await response.json();
-
-                        if (result.success && result.data.shops.length > 0) {
-                            renderShops(result.data.shops);
-                        } else {
-                            // REDIRECT IF NO SHOPS ARE FOUND
-                            window.location.href = `results.html?loc=${encodeURIComponent(searchInput.value)}`;
-                        }
-                    } catch (error) {
-                        console.error(error);
-                        showError(
-                            "Network error. Could not connect to server.",
-                        );
-                    } finally {
-                        resetBtn();
+                    if (!query) {
+                        searchError.textContent =
+                            "Please enter a delivery address first.";
+                        searchError.classList.remove("hidden");
+                        return;
                     }
-                }
 
-                // 5. RENDER SHOP RESULTS
-                function renderShops(shops) {
-                    resultsList.innerHTML = "";
-                    shops.forEach((shop) => {
-                        const coverPhoto =
-                            shop.media.cover_photo ||
-                            "https://via.placeholder.com/50";
-                        const rating = shop.status.average_rating || "New";
-                        const time =
-                            shop.location.travel_time_text || "Unknown";
+                    // Hide Error & Suggestions
+                    searchError.classList.add("hidden");
+                    suggestionsBox.classList.add("hidden");
 
-                        const shopHTML = `
-                            <div class="flex items-center gap-4 p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-50 last:border-0 transition-colors">
-                                <div class="w-12 h-12 rounded-xl bg-gray-100 overflow-hidden shrink-0">
-                                    <img src="${coverPhoto}" alt="${shop.name}" class="w-full h-full object-cover" />
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="font-bold text-gray-900 truncate">${shop.name}</h4>
-                                    <p class="text-xs text-gray-500 truncate">${shop.description}</p>
-                                    <div class="flex items-center gap-2 mt-1">
-                                        <span class="text-[10px] font-bold bg-cubrin-yellow/20 text-[#143D01] px-2 py-0.5 rounded-md">⭐ ${rating}</span>
-                                        <span class="text-[10px] font-bold text-gray-400">${time} away</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        resultsList.insertAdjacentHTML("beforeend", shopHTML);
-                    });
-                    searchResults.classList.remove("hidden");
-                    searchResults.classList.add("flex");
-                }
+                    // UI Loading state (Show Spinner, Hide Arrow)
+                    btnArrow.classList.add("hidden");
+                    btnSpinner.classList.remove("hidden");
+                    searchBtn.classList.add("opacity-50", "cursor-not-allowed");
+
+                    // Add a tiny 300ms delay so the user actually sees the spinner activate before the page unloads
+                    setTimeout(() => {
+                        window.location.href = `results.html?loc=${encodeURIComponent(query)}`;
+                    }, 300);
+                });
             });
         </script>
     </body>
