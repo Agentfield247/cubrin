@@ -201,7 +201,8 @@
                         <input
                             type="text"
                             id="search-input"
-                            placeholder="Enter delivery address or craving..."
+                            placeholder="Enter delivery address..."
+                            autocomplete="off"
                             class="flex-1 bg-transparent border-none outline-none text-gray-700 placeholder-gray-400 text-sm md:text-base py-3 focus:ring-0"
                         />
 
@@ -223,6 +224,16 @@
                                 ></path>
                             </svg>
                         </button>
+                    </div>
+
+                    <div
+                        id="location-suggestions"
+                        class="hidden absolute top-full left-0 w-full mt-2 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden z-[60]"
+                    >
+                        <ul
+                            id="suggestions-list"
+                            class="divide-y divide-gray-50"
+                        ></ul>
                     </div>
 
                     <div
@@ -1245,22 +1256,31 @@
                 const searchInput = document.getElementById("search-input");
                 const searchBtn = document.getElementById("search-btn");
                 const searchBtnText =
-                    document.getElementById("search-btn-text"); // Targets just the text, not the SVG
+                    document.getElementById("search-btn-text");
                 const searchError = document.getElementById("search-error");
                 const searchResults = document.getElementById("search-results");
                 const resultsList = document.getElementById("results-list");
                 const closeResults = document.getElementById("close-results");
+                const suggestionsBox = document.getElementById(
+                    "location-suggestions",
+                );
+                const suggestionsList =
+                    document.getElementById("suggestions-list");
 
-                // ==========================================
+                let selectedLat = null;
+                let selectedLng = null;
+                let typingTimer;
+
                 // 1. AUTO-FILL LOCATION ON PAGE LOAD
-                // ==========================================
                 if ("geolocation" in navigator) {
                     navigator.geolocation.getCurrentPosition(
                         async (position) => {
                             try {
                                 const lat = position.coords.latitude;
                                 const lng = position.coords.longitude;
-                                // Call free reverse geocoding API
+                                selectedLat = lat;
+                                selectedLng = lng;
+
                                 const response = await fetch(
                                     `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`,
                                 );
@@ -1269,7 +1289,6 @@
                                 const city = data.city || data.locality || "";
                                 const state = data.principalSubdivision || "";
 
-                                // If input is empty, fill it with their city!
                                 if (city && searchInput && !searchInput.value) {
                                     searchInput.value = `${city}, ${state}`;
                                 }
@@ -1277,81 +1296,127 @@
                                 console.error("Auto-location failed:", error);
                             }
                         },
-                        (error) => {
-                            console.log(
-                                "User denied location on load. Leaving bar empty.",
-                            );
-                        },
+                        (error) => console.log("User denied location on load."),
                     );
                 }
 
-                // ==========================================
-                // 2. HELPER FUNCTIONS
-                // ==========================================
+                // 2. LIVE TYPING AUTOCOMPLETE (NIGERIA ONLY)
+                searchInput.addEventListener("input", (e) => {
+                    const query = e.target.value.trim();
+                    selectedLat = null;
+                    selectedLng = null;
+                    clearTimeout(typingTimer);
+
+                    if (query.length < 3) {
+                        suggestionsBox.classList.add("hidden");
+                        return;
+                    }
+
+                    typingTimer = setTimeout(async () => {
+                        try {
+                            const res = await fetch(
+                                `https://nominatim.openstreetmap.org/search?format=json&countrycodes=ng&limit=5&q=${encodeURIComponent(query)}`,
+                            );
+                            const places = await res.json();
+                            suggestionsList.innerHTML = "";
+
+                            if (places.length > 0) {
+                                places.forEach((place) => {
+                                    const li = document.createElement("li");
+                                    const cleanName = place.display_name
+                                        .split(",")
+                                        .slice(0, 3)
+                                        .join(",");
+                                    li.className =
+                                        "p-3 hover:bg-gray-50 cursor-pointer text-sm text-gray-700 font-medium flex items-center gap-3";
+                                    li.innerHTML = `<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path></svg> <span class="truncate">${cleanName}</span>`;
+
+                                    li.onclick = () => {
+                                        searchInput.value = cleanName;
+                                        selectedLat = parseFloat(place.lat);
+                                        selectedLng = parseFloat(place.lon);
+                                        suggestionsBox.classList.add("hidden");
+                                    };
+                                    suggestionsList.appendChild(li);
+                                });
+                                suggestionsBox.classList.remove("hidden");
+                            } else {
+                                suggestionsBox.classList.add("hidden");
+                            }
+                        } catch (e) {
+                            console.error("Autocomplete failed", e);
+                        }
+                    }, 500);
+                });
+
+                document.addEventListener("click", (e) => {
+                    if (
+                        !searchInput.contains(e.target) &&
+                        !suggestionsBox.contains(e.target)
+                    ) {
+                        suggestionsBox.classList.add("hidden");
+                    }
+                });
+
+                // 3. SEARCH BUTTON LOGIC
                 const showError = (msg) => {
                     searchError.textContent = msg;
                     searchError.classList.remove("hidden");
                     searchResults.classList.add("hidden");
                 };
 
-                const hideError = () => {
-                    searchError.classList.add("hidden");
-                };
-
-                // Allow user to close the dropdown manually
                 if (closeResults) {
-                    closeResults.addEventListener("click", () => {
-                        searchResults.classList.add("hidden");
-                    });
+                    closeResults.addEventListener("click", () =>
+                        searchResults.classList.add("hidden"),
+                    );
                 }
 
                 function resetBtn() {
-                    searchBtnText.textContent = "Find Food";
+                    if (searchBtnText) searchBtnText.textContent = "Find Food";
                     searchBtn.classList.remove(
                         "opacity-50",
                         "cursor-not-allowed",
                     );
                 }
 
-                // ==========================================
-                // 3. SEARCH BUTTON CLICK HANDLER
-                // ==========================================
                 searchBtn.addEventListener("click", () => {
                     const query = searchInput.value.trim();
                     if (!query) return;
 
-                    // UI Loading state
-                    searchBtnText.textContent = "Searching...";
+                    if (searchBtnText)
+                        searchBtnText.textContent = "Searching...";
                     searchBtn.classList.add("opacity-50", "cursor-not-allowed");
-                    hideError();
+                    searchError.classList.add("hidden");
                     searchResults.classList.add("hidden");
+                    suggestionsBox.classList.add("hidden");
 
-                    if ("geolocation" in navigator) {
+                    if (selectedLat && selectedLng) {
+                        fetchShops(selectedLat, selectedLng, "");
+                    } else if ("geolocation" in navigator) {
                         navigator.geolocation.getCurrentPosition(
                             (position) => {
-                                const lat = position.coords.latitude;
-                                const lng = position.coords.longitude;
-                                fetchShops(lat, lng, query);
+                                fetchShops(
+                                    position.coords.latitude,
+                                    position.coords.longitude,
+                                    "",
+                                );
                             },
                             (err) => {
-                                console.error(err);
                                 showError(
-                                    "Please allow location access to find shops near you.",
+                                    "Please select a location from the dropdown suggestions.",
                                 );
                                 resetBtn();
                             },
                         );
                     } else {
                         showError(
-                            "Geolocation is not supported by your browser.",
+                            "Please select a location from the dropdown suggestions.",
                         );
                         resetBtn();
                     }
                 });
 
-                // ==========================================
-                // 4. QUADRIFX API CALL & REDIRECT LOGIC
-                // ==========================================
+                // 4. QUADRIFX API CONNECTION
                 async function fetchShops(lat, lng, search) {
                     try {
                         const response = await fetch(
@@ -1366,14 +1431,8 @@
                                 body: JSON.stringify({
                                     user_latitude: lat,
                                     user_longitude: lng,
-                                    filters: {
-                                        search: search,
-                                        is_open: true, // Remove this line if you want to see closed shops during testing
-                                    },
-                                    pagination: {
-                                        page: 1,
-                                        limit: 5,
-                                    },
+                                    filters: { is_open: true },
+                                    pagination: { page: 1, limit: 5 },
                                 }),
                             },
                         );
@@ -1381,11 +1440,10 @@
                         const result = await response.json();
 
                         if (result.success && result.data.shops.length > 0) {
-                            // Shops found! Show the dropdown.
                             renderShops(result.data.shops);
                         } else {
-                            // ZERO SHOPS FOUND! Redirect to the "Coming Soon" page.
-                            window.location.href = `results.html?loc=${encodeURIComponent(search)}`;
+                            // REDIRECT IF NO SHOPS ARE FOUND
+                            window.location.href = `results.html?loc=${encodeURIComponent(searchInput.value)}`;
                         }
                     } catch (error) {
                         console.error(error);
@@ -1397,12 +1455,9 @@
                     }
                 }
 
-                // ==========================================
-                // 5. RENDER DROPDOWN HTML
-                // ==========================================
+                // 5. RENDER SHOP RESULTS
                 function renderShops(shops) {
                     resultsList.innerHTML = "";
-
                     shops.forEach((shop) => {
                         const coverPhoto =
                             shop.media.cover_photo ||
@@ -1416,9 +1471,9 @@
                                 <div class="w-12 h-12 rounded-xl bg-gray-100 overflow-hidden shrink-0">
                                     <img src="${coverPhoto}" alt="${shop.name}" class="w-full h-full object-cover" />
                                 </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-gray-900">${shop.name}</h4>
-                                    <p class="text-xs text-gray-500 line-clamp-1">${shop.description}</p>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-gray-900 truncate">${shop.name}</h4>
+                                    <p class="text-xs text-gray-500 truncate">${shop.description}</p>
                                     <div class="flex items-center gap-2 mt-1">
                                         <span class="text-[10px] font-bold bg-cubrin-yellow/20 text-[#143D01] px-2 py-0.5 rounded-md">⭐ ${rating}</span>
                                         <span class="text-[10px] font-bold text-gray-400">${time} away</span>
@@ -1428,7 +1483,6 @@
                         `;
                         resultsList.insertAdjacentHTML("beforeend", shopHTML);
                     });
-
                     searchResults.classList.remove("hidden");
                     searchResults.classList.add("flex");
                 }
