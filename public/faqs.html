@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cubrin - FAQs</title>
+        <!-- Using Google Fonts (Outfit for Headers to match the bold rounded look, Inter for body) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800;900&family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                /* Extracted from image_982964.png */
+                --bg-cream: #fdfcf7;
+                --text-dark: #1b1e25;
+                --text-gray: #4b5563;
+                --nav-gray: #374151;
+                --btn-dark-green: #0a4f1a;
+                --gradient-start: #31ed5d;
+                --gradient-end: #d8ff14;
+                --card-bg: #ffffff;
+
+                --font-head: "Outfit", sans-serif;
+                --font-body: "Inter", sans-serif;
+            }
+
+            body {
+                background-color: var(--bg-cream);
+                color: var(--text-dark);
+                font-family: var(--font-body);
+                margin: 0;
+                padding: 0;
+                line-height: 1.6;
+            }
+
+            /* --- NAVIGATION --- */
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 24px 60px;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .logo {
+                height: 45px;
+                width: auto;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 35px;
+                align-items: center;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--nav-gray);
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: color 0.2s;
+            }
+
+            .nav-links a:hover {
+                color: var(--btn-dark-green);
+            }
+
+            .btn-primary {
+                background-color: var(--btn-dark-green);
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 28px;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition:
+                    transform 0.2s,
+                    background-color 0.2s;
+                border: none;
+                cursor: pointer;
+            }
+
+            .btn-primary:hover {
+                background-color: #073b12;
+                transform: translateY(-2px);
+            }
+
+            /* --- PAGE HEADER --- */
+            .page-header {
+                text-align: center;
+                margin-top: 60px;
+                margin-bottom: 50px;
+                padding: 0 20px;
+            }
+
+            .page-header h1 {
+                font-family: var(--font-head);
+                font-size: 3.5rem;
+                font-weight: 900;
+                letter-spacing: -0.02em;
+                color: var(--text-dark);
+                margin: 0;
+            }
+
+            .text-gradient {
+                background: linear-gradient(
+                    90deg,
+                    var(--gradient-start),
+                    var(--gradient-end)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .page-header p {
+                font-family: var(--font-head);
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--nav-gray);
+                margin-top: 10px;
+            }
+
+            /* --- MAIN CONTAINER --- */
+            .container {
+                max-width: 850px;
+                margin: 0 auto;
+                padding: 0 20px 80px 20px;
+            }
+
+            /* --- TABS --- */
+            .tabs {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-bottom: 40px;
+            }
+
+            .tab-btn {
+                background: #ffffff;
+                border: 1px solid #e5e7eb;
+                color: var(--text-gray);
+                font-family: var(--font-body);
+                font-size: 1rem;
+                font-weight: 600;
+                padding: 12px 24px;
+                cursor: pointer;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            }
+
+            .tab-btn:hover {
+                border-color: var(--gradient-start);
+                color: var(--text-dark);
+            }
+
+            .tab-btn.active {
+                background: linear-gradient(
+                    90deg,
+                    var(--gradient-start),
+                    var(--gradient-end)
+                );
+                color: var(--text-dark);
+                border: none;
+                box-shadow: 0 4px 15px rgba(49, 237, 93, 0.2);
+            }
+
+            .tab-content {
+                display: none;
+                animation: fadeIn 0.4s ease;
+            }
+
+            .tab-content.active {
+                display: block;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* --- FAQ ACCORDION --- */
+            details {
+                background-color: var(--card-bg);
+                border-radius: 16px;
+                margin-bottom: 16px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+                border: 1px solid #f3f4f6;
+                overflow: hidden;
+                transition: all 0.2s ease;
+            }
+
+            details:hover {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+                border-color: #e5e7eb;
+            }
+
+            summary {
+                padding: 24px;
+                font-family: var(--font-head);
+                font-weight: 600;
+                font-size: 1.15rem;
+                color: var(--text-dark);
+                cursor: pointer;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            summary::-webkit-details-marker {
+                display: none;
+            }
+
+            summary::after {
+                content: "+";
+                color: var(--gradient-start);
+                font-size: 2rem;
+                font-weight: 400;
+                line-height: 1;
+                transition: transform 0.3s ease;
+            }
+
+            details[open] summary::after {
+                transform: rotate(45deg);
+                color: var(--text-dark);
+            }
+
+            .faq-answer {
+                padding: 0 24px 24px 24px;
+                color: var(--text-gray);
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            /* --- DOWNLOAD APP SECTION --- */
+            .download-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 60px;
+                padding-top: 40px;
+                border-top: 1px solid #e5e7eb;
+            }
+
+            .app-buttons {
+                display: flex;
+                gap: 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .store-btn {
+                background-color: #000000;
+                color: #ffffff;
+                border-radius: 8px;
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-decoration: none;
+                transition: transform 0.2s;
+            }
+
+            .store-btn:hover {
+                transform: translateY(-2px);
+            }
+
+            .store-btn img {
+                height: 24px;
+            }
+
+            .store-btn div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .store-btn span:first-child {
+                font-size: 0.65rem;
+                text-transform: uppercase;
+            }
+
+            .store-btn span:last-child {
+                font-size: 1.1rem;
+                font-weight: 600;
+                font-family: var(--font-head);
+                letter-spacing: 0.5px;
+            }
+
+            .qr-code {
+                background-color: #ffffff;
+                padding: 15px;
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                text-align: center;
+                border: 2px solid var(--gradient-end);
+            }
+
+            /* --- CONTACT SECTION --- */
+            .contact-box {
+                text-align: center;
+                margin-top: 40px;
+            }
+
+            .contact-box p {
+                color: var(--text-gray);
+                font-size: 1.1rem;
+            }
+
+            .contact-email {
+                display: inline-block;
+                margin-top: 10px;
+                font-family: var(--font-head);
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: var(--text-dark);
+                text-decoration: none;
+                border-bottom: 2px solid var(--gradient-start);
+                padding-bottom: 2px;
+                transition: color 0.2s;
+            }
+
+            .contact-email:hover {
+                color: var(--gradient-start);
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .navbar {
+                    flex-direction: column;
+                    padding: 20px;
+                    gap: 20px;
+                }
+                .page-header h1 {
+                    font-size: 2.5rem;
+                }
+                .tabs {
+                    flex-wrap: wrap;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- NAVBAR matching image_982964.png -->
+        <nav class="navbar">
+            <a href="https://cubrin.com">
+                <img src="cubrinlogo.svg" alt="Cubrin Logo" class="logo" />
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="support.html">support</a>
+                <a href="#">Ambassadors</a>
+                <a href="#">Support</a>
+            </div>
+            <a href="#" class="btn-primary">Download Now</a>
+        </nav>
+
+        <!-- HEADER matching style -->
+        <header class="page-header">
+            <h1>Got <span class="text-gradient">Questions?</span> We've</h1>
+            <h1>got answers.</h1>
+            <p>Everything you need to know about the Cubrin ecosystem.</p>
+        </header>
+
+        <main class="container">
+            <!-- TABS -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab('users')">
+                    Users & Shoppers
+                </button>
+                <button class="tab-btn" onclick="openTab('ambassadors')">
+                    Ambassadors
+                </button>
+                <button class="tab-btn" onclick="openTab('partners')">
+                    Merchants & Partners
+                </button>
+            </div>
+
+            <!-- USERS TAB (No BNPL) -->
+            <div id="users" class="tab-content active">
+                <details>
+                    <summary>What exactly is Cubrin?</summary>
+                    <div class="faq-answer">
+                        Cubrin is a robust social commerce and hyperlocal
+                        delivery platform designed to connect local communities,
+                        students, and merchants. We make it seamless to find
+                        local food, coordinate group payments, and get items
+                        delivered instantly.
+                    </div>
+                </details>
+                <details>
+                    <summary>How does the "Split Bill" feature work?</summary>
+                    <div class="faq-answer">
+                        Ordering with roommates or friends? Instead of one
+                        person paying and hunting down everyone else for cash,
+                        you can split the cost of your cart directly inside the
+                        app before the order is placed. Everyone pays their
+                        share from their Cubrin wallet.
+                    </div>
+                </details>
+                <details>
+                    <summary>What is the "Pay for Me" feature?</summary>
+                    <div class="faq-answer">
+                        If you are out of funds or want someone else to treat
+                        you, you can build your cart and send a "Pay for Me"
+                        request directly to a friend or partner's app. Once they
+                        approve and pay, your local delivery is processed
+                        immediately.
+                    </div>
+                </details>
+                <details>
+                    <summary>
+                        Is my money safe if my order isn't delivered?
+                    </summary>
+                    <div class="faq-answer">
+                        Absolutely. Cubrin uses an Escrow-Backed Delivery
+                        system. When you pay, your funds are held securely in a
+                        dedicated ledger. The merchant only receives the funds
+                        once the delivery is verified by both you and the
+                        merchant, eliminating any risk.
+                    </div>
+                </details>
+                <details>
+                    <summary>
+                        Can I use Cubrin to see food prices before I travel?
+                    </summary>
+                    <div class="faq-answer">
+                        Yes! Our Hyperlocal Price Radar acts as a cost-of-living
+                        map. If you are moving to a new campus or neighborhood,
+                        you can search that specific area to instantly view the
+                        average cost of meals and locate the most affordable
+                        spots before you arrive.
+                    </div>
+                </details>
+                <details>
+                    <summary>Can I book group outings or send gifts?</summary>
+                    <div class="faq-answer">
+                        Yes. Cubrin features an integrated booking engine that
+                        allows you to plan dates, coordinate group schedules,
+                        and send localized meals or gifts directly to loved
+                        ones.
+                    </div>
+                </details>
+            </div>
+
+            <!-- AMBASSADORS TAB -->
+            <div id="ambassadors" class="tab-content">
+                <details>
+                    <summary>What is a Cubrin Ambassador (Connector)?</summary>
+                    <div class="faq-answer">
+                        Ambassadors are the driving force of our decentralized
+                        network. They act as local scouts who onboard
+                        neighborhood merchants, Bukas, and fast-food spots onto
+                        the platform using our proprietary Ambassador Portal.
+                    </div>
+                </details>
+                <details>
+                    <summary>How do I earn money as an Ambassador?</summary>
+                    <div class="faq-answer">
+                        You earn passive, recurring income. Ambassadors receive
+                        up to 10% of the platform fees generated by every single
+                        merchant they successfully onboard, creating a
+                        sustainable commission stream.
+                    </div>
+                </details>
+                <details>
+                    <summary>How do I register local merchants?</summary>
+                    <div class="faq-answer">
+                        Once accepted into the program, you will gain access to
+                        the secure Cubrin Management Panel. From there, you can
+                        easily register local spots without them needing to buy
+                        expensive POS hardware or go through complicated setups.
+                    </div>
+                </details>
+                <details>
+                    <summary>When and how do I get paid?</summary>
+                    <div class="faq-answer">
+                        Commissions are routed through our automated settlement
+                        API. Payouts are sent programmatically to your
+                        registered bank account or Cubrin wallet based on our
+                        standard tier-payout structures.
+                    </div>
+                </details>
+                <details>
+                    <summary>
+                        Do I have to pay to join the Ambassador program?
+                    </summary>
+                    <div class="faq-answer">
+                        No. Joining the program is entirely free. You simply
+                        need to apply through our waitlist. We review and
+                        approve Ambassadors based on campus density and
+                        location.
+                    </div>
+                </details>
+            </div>
+
+            <!-- PARTNERS TAB (BNPL is here) -->
+            <div id="partners" class="tab-content">
+                <details>
+                    <summary>
+                        How does the "Eat Now, Pay Later" (ENPL) feature work?
+                    </summary>
+                    <div class="faq-answer">
+                        Partnering with Cubrin provides lending companies
+                        zero-CAC access to a high-volume, verified youth
+                        demographic. Since loans are for low-value food
+                        transactions and funds never leave our closed-loop
+                        escrow ecosystem, partners can safely underwrite
+                        micro-credit risk.
+                    </div>
+                </details>
+                <details>
+                    <summary>
+                        As a local merchant, why should I sell on Cubrin?
+                    </summary>
+                    <div class="faq-answer">
+                        Cubrin gives you immediate access to digital
+                        infrastructure without the overhead. You receive a
+                        dynamic virtual NUBAN for settlements, a digital
+                        storefront, and access to a highly engaged community of
+                        students.
+                    </div>
+                </details>
+                <details>
+                    <summary>Are there hidden fees for merchants?</summary>
+                    <div class="faq-answer">
+                        No. Cubrin charges a flat percentage applied strictly to
+                        transactions. Our automated split-payment APIs
+                        seamlessly route platform fees and taxes (VAT), so what
+                        hits your settlement account is purely yours.
+                    </div>
+                </details>
+                <details>
+                    <summary>
+                        How does the Escrow ledger protect my business?
+                    </summary>
+                    <div class="faq-answer">
+                        Our escrow system guarantees that the customer has
+                        already paid before you start preparing the order. You
+                        never have to worry about unpaid fulfillments, fake
+                        transfers, or out-of-pocket losses.
+                    </div>
+                </details>
+                <details>
+                    <summary>Who owns and operates Cubrin?</summary>
+                    <div class="faq-answer">
+                        Cubrin is engineered and fully owned by
+                        AREMU-INTERNATIONAL LIMITED (RC: 8939169), a fully
+                        capitalized and officially incorporated entity backed by
+                        the broader infrastructure of the Aremu Group.
+                    </div>
+                </details>
+            </div>
+
+            <!-- APP DOWNLOAD & QR -->
+            <div class="download-section">
+                <h2
+                    style="
+                        font-family: var(--font-head);
+                        font-weight: 800;
+                        font-size: 2rem;
+                        margin-bottom: 0;
+                    "
+                >
+                    Take the city with you.
+                </h2>
+                <div class="app-buttons">
+                    <a href="#" class="store-btn">
+                        <!-- Apple SVG Placeholder -->
+                        <svg
+                            viewBox="0 0 384 512"
+                            width="24"
+                            height="24"
+                            fill="white"
+                        >
+                            <path
+                                d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+                            />
+                        </svg>
+                        <div>
+                            <span>Download on the</span>
+                            <span>App Store</span>
+                        </div>
+                    </a>
+                    <a href="#" class="store-btn">
+                        <!-- Play Store SVG Placeholder -->
+                        <svg
+                            viewBox="0 0 512 512"
+                            width="24"
+                            height="24"
+                            fill="white"
+                        >
+                            <path
+                                d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"
+                            />
+                        </svg>
+                        <div>
+                            <span>GET IT ON</span>
+                            <span>Google Play</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CONTACT / SUPPORT -->
+            <div class="contact-box">
+                <p>
+                    If you have any questions not answered here, or if you want
+                    to discuss a strategic partnership, reach out to our team
+                    directly.
+                </p>
+                <a href="mailto:contact@cubrin.com" class="contact-email"
+                    >contact@cubrin.com</a
+                >
+            </div>
+        </main>
+
+        <script>
+            function openTab(tabId) {
+                // Remove active classes
+                const tabBtns = document.querySelectorAll(".tab-btn");
+                tabBtns.forEach((btn) => btn.classList.remove("active"));
+
+                const tabContents = document.querySelectorAll(".tab-content");
+                tabContents.forEach((content) =>
+                    content.classList.remove("active"),
+                );
+
+                // Add active classes to selected
+                document
+                    .querySelector(`button[onclick="openTab('${tabId}')"]`)
+                    .classList.add("active");
+                document.getElementById(tabId).classList.add("active");
+            }
+        </script>
+    </body>
+</html>
