@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cubrin - Coming Soon</title>
+
+        <!-- Importing MuseoModerno Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                /* Cubrin Brand Colors */
+                --bg-cream: #fdfcf7;
+                --text-dark: #1b1e25;
+                --text-gray: #4b5563;
+                --btn-dark-green: #0a4f1a;
+                --gradient-start: #31ed5d;
+                --gradient-end: #d8ff14;
+                --input-bg: #ffffff;
+
+                --font-main: "MuseoModerno", sans-serif;
+            }
+
+            body {
+                background-color: var(--bg-cream);
+                color: var(--text-dark);
+                font-family: var(--font-main);
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                overflow-x: hidden;
+            }
+
+            /* --- NAVIGATION --- */
+            .navbar {
+                padding: 30px 5%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+
+            .logo {
+                height: 40px;
+                width: auto;
+            }
+
+            /* --- MAIN LAYOUT --- */
+            .container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 1200px;
+                margin: auto;
+                padding: 0 5%;
+                flex-grow: 1;
+                gap: 50px;
+            }
+
+            /* --- LEFT SIDE: TEXT & FORM --- */
+            .content-left {
+                flex: 1;
+                max-width: 600px;
+            }
+
+            .tagline {
+                display: inline-block;
+                background-color: rgba(49, 237, 93, 0.1);
+                color: var(--btn-dark-green);
+                padding: 8px 16px;
+                border-radius: 50px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                letter-spacing: 0.5px;
+                margin-bottom: 20px;
+                border: 1px solid rgba(49, 237, 93, 0.3);
+            }
+
+            h1 {
+                font-size: 4.5rem;
+                font-weight: 900;
+                line-height: 1.1;
+                margin: 0 0 20px 0;
+                letter-spacing: -0.03em;
+            }
+
+            .text-gradient {
+                background: linear-gradient(
+                    90deg,
+                    var(--gradient-start),
+                    var(--gradient-end)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+
+            p.description {
+                font-size: 1.25rem;
+                color: var(--text-gray);
+                font-weight: 500;
+                line-height: 1.6;
+                margin-bottom: 40px;
+                max-width: 500px;
+            }
+
+            /* --- WAITLIST FORM --- */
+            .waitlist-form {
+                display: flex;
+                gap: 15px;
+                max-width: 500px;
+                position: relative;
+            }
+
+            .waitlist-form input {
+                flex: 1;
+                padding: 18px 25px;
+                font-family: var(--font-main);
+                font-size: 1rem;
+                font-weight: 500;
+                border: 2px solid #e5e7eb;
+                border-radius: 50px;
+                background-color: var(--input-bg);
+                color: var(--text-dark);
+                outline: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            }
+
+            .waitlist-form input::placeholder {
+                color: #9ca3af;
+            }
+
+            .waitlist-form input:focus {
+                border-color: var(--gradient-start);
+                box-shadow: 0 4px 20px rgba(49, 237, 93, 0.15);
+            }
+
+            .waitlist-form button {
+                padding: 0 35px;
+                font-family: var(--font-main);
+                font-size: 1rem;
+                font-weight: 700;
+                background-color: var(--btn-dark-green);
+                color: #ffffff;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+            }
+
+            .join-btn {
+                display: inline-block;
+                padding: 18px 45px;
+                font-family: var(--font-main);
+                font-size: 1.1rem;
+                font-weight: 700;
+                background-color: var(--btn-dark-green);
+                color: #ffffff;
+                text-decoration: none;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                margin-top: 10px;
+            }
+
+            .join-btn:hover {
+                background-color: #073b12;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(10, 79, 26, 0.2);
+            }
+
+            /* Update mobile responsiveness for the new button */
+            @media (max-width: 768px) {
+                .join-btn {
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+            }
+
+            /* --- RIGHT SIDE: IMAGE --- */
+            .content-right {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+
+            /* Decorative Blob behind the bike */
+            .blob {
+                position: absolute;
+                width: 450px;
+                height: 450px;
+                background: linear-gradient(
+                    135deg,
+                    var(--gradient-start),
+                    var(--gradient-end)
+                );
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+                opacity: 0.15;
+                z-index: 0;
+                animation: blobMorph 8s ease-in-out infinite alternate;
+            }
+
+            .hero-img {
+                width: 100%;
+                max-width: 500px;
+                z-index: 1;
+                /* Floating animation to make the bike feel like it's moving */
+                animation: float 4s ease-in-out infinite;
+            }
+
+            /* --- ANIMATIONS --- */
+            @keyframes float {
+                0% {
+                    transform: translateY(0px) rotate(0deg);
+                }
+                50% {
+                    transform: translateY(-15px) rotate(1deg);
+                }
+                100% {
+                    transform: translateY(0px) rotate(0deg);
+                }
+            }
+
+            @keyframes blobMorph {
+                0% {
+                    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+                }
+                100% {
+                    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                }
+            }
+
+            /* --- RESPONSIVE DESIGN --- */
+            @media (max-width: 992px) {
+                h1 {
+                    font-size: 3.5rem;
+                }
+                .container {
+                    gap: 30px;
+                }
+                .blob {
+                    width: 350px;
+                    height: 350px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                    text-align: center;
+                    padding-top: 20px;
+                    padding-bottom: 50px;
+                }
+                .content-left {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                h1 {
+                    font-size: 3rem;
+                }
+                p.description {
+                    margin-bottom: 30px;
+                }
+
+                .waitlist-form {
+                    flex-direction: column;
+                    width: 100%;
+                }
+
+                .waitlist-form button {
+                    padding: 18px 35px;
+                }
+
+                .content-right {
+                    margin-top: 40px;
+                }
+
+                .blob {
+                    width: 300px;
+                    height: 300px;
+                }
+                .hero-img {
+                    max-width: 350px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Logo Navigation -->
+        <nav class="navbar">
+            <a href="index.html">
+                <img src="cubrinlogo.svg" alt="Cubrin Logo" class="logo" />
+            </a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="container">
+            <!-- Text & Form Section -->
+            <div class="content-left">
+                <h1>
+                    Your favorite spots are
+                    <span class="text-gradient">loading...</span>
+                </h1>
+                <p class="description">
+                    We are building the ultimate social commerce ecosystem. Find
+                    local food, split bills with friends, and get it delivered
+                    instantly.
+                </p>
+                <a href="https://refer.cubrin.com" class="join-btn"
+                    >Join Waitlist</a
+                >
+            </div>
+
+            <!-- Image Section -->
+            <div class="content-right">
+                <div class="blob"></div>
+
+                <img
+                    src="bikeman.svg"
+                    alt="Delivery man on bike"
+                    class="hero-img"
+                />
+            </div>
+        </main>
+    </body>
+</html>
