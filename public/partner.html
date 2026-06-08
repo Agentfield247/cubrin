@@ -1,0 +1,1254 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth" style="scroll-behavior: smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Partner with Cubrin — Scale With Your City</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=MuseoModerno:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Tailwind Custom Configuration -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            cream: "#FFFDF7",
+                            "dark-green": "#143D01",
+                            "dark-green-alt": "#0a4f1a",
+                            "neon-green": "#16FF67",
+                            "neon-yellow": "#EBFC04",
+                        },
+                        fontFamily: {
+                            heading: [
+                                "MuseoModerno",
+                                "system-ui",
+                                "sans-serif",
+                            ],
+                            body: ["Inter", "system-ui", "sans-serif"],
+                        },
+                        borderRadius: {
+                            "2xl": "1rem",
+                            "3xl": "1.5rem",
+                            "4xl": "2rem",
+                        },
+                        boxShadow: {
+                            "glow-neon":
+                                "0 0 40px rgba(22, 255, 103, 0.18), 0 0 80px rgba(22, 255, 103, 0.06)",
+                            "glow-neon-sm":
+                                "0 0 20px rgba(22, 255, 103, 0.12), 0 0 40px rgba(22, 255, 103, 0.04)",
+                            "card-soft":
+                                "0 4px 24px rgba(20, 61, 1, 0.06), 0 1px 4px rgba(20, 61, 1, 0.04)",
+                            "card-hover":
+                                "0 16px 48px rgba(20, 61, 1, 0.10), 0 4px 12px rgba(20, 61, 1, 0.06)",
+                            "button-glow":
+                                "0 4px 20px rgba(22, 255, 103, 0.25)",
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <!-- Custom Styles -->
+        <style>
+            .text-gradient-neon {
+                background: linear-gradient(135deg, #16ff67 0%, #ebfc04 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+            }
+
+            .text-gradient-neon-soft {
+                background: linear-gradient(135deg, #16ff67 20%, #d4f805 80%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .border-gradient-neon {
+                border-image: linear-gradient(135deg, #16ff67, #ebfc04) 1;
+            }
+
+            .glow-border-card {
+                position: relative;
+                background: #fffdf7;
+                border-radius: 1.25rem;
+            }
+            .glow-border-card::before {
+                content: "";
+                position: absolute;
+                inset: -2px;
+                border-radius: 1.35rem;
+                background: linear-gradient(135deg, #16ff67, #ebfc04, #16ff67);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+            .glow-border-card:hover::before {
+                opacity: 1;
+            }
+
+            .bg-dot-pattern {
+                background-image: radial-gradient(
+                    circle,
+                    rgba(20, 61, 1, 0.04) 1px,
+                    transparent 1px
+                );
+                background-size: 20px 20px;
+            }
+
+            .bg-dot-pattern-light {
+                background-image: radial-gradient(
+                    circle,
+                    rgba(255, 253, 247, 0.08) 1px,
+                    transparent 1px
+                );
+                background-size: 20px 20px;
+            }
+
+            @keyframes subtle-pulse {
+                0%,
+                100% {
+                    box-shadow:
+                        0 0 30px rgba(22, 255, 103, 0.12),
+                        0 0 60px rgba(22, 255, 103, 0.04);
+                }
+                50% {
+                    box-shadow:
+                        0 0 45px rgba(22, 255, 103, 0.22),
+                        0 0 80px rgba(22, 255, 103, 0.08);
+                }
+            }
+            .animate-glow-pulse {
+                animation: subtle-pulse 3s ease-in-out infinite;
+            }
+
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus {
+                -webkit-box-shadow: 0 0 0 30px #fffdf7 inset !important;
+                box-shadow: 0 0 0 30px #fffdf7 inset !important;
+            }
+
+            @media (max-width: 640px) {
+                .hero-headline {
+                    font-size: clamp(2rem, 8vw, 3.2rem);
+                }
+            }
+        </style>
+    </head>
+    <body class="font-body bg-cream text-dark-green antialiased min-h-screen">
+        <!-- ==================== NAVIGATION ==================== -->
+        <nav
+            class="sticky top-0 z-50 bg-cream/80 backdrop-blur-lg border-b border-dark-green/5 shadow-sm"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16 md:h-20">
+                    <!-- Logo -->
+                    <a href="#" class="flex items-center">
+                        <img
+                            src="cubrinlogo.svg"
+                            alt="Cubrin Logo"
+                            class="h-9 md:h-11 w-auto"
+                        />
+                    </a>
+
+                    <!-- Nav Links (Desktop) -->
+                    <div class="hidden md:flex items-center gap-8">
+                        <a
+                            href="#partnership-tracks"
+                            class="text-sm font-medium text-dark-green/70 hover:text-dark-green transition-colors duration-200"
+                            >Partnerships</a
+                        >
+                        <a
+                            href="#enpl-spotlight"
+                            class="text-sm font-medium text-dark-green/70 hover:text-dark-green transition-colors duration-200"
+                            >ENPL</a
+                        >
+                        <a
+                            href="#institutional"
+                            class="text-sm font-medium text-dark-green/70 hover:text-dark-green transition-colors duration-200"
+                            >Backing</a
+                        >
+                        <a
+                            href="#investor-form"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-dark-green text-dark-green font-semibold text-sm transition-all duration-300 hover:bg-dark-green hover:text-cream hover:-translate-y-0.5 hover:shadow-lg"
+                        >
+                            Request Deck
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Mobile CTA -->
+                    <a
+                        href="#investor-form"
+                        class="md:hidden inline-flex items-center px-4 py-2 rounded-full bg-dark-green text-cream font-semibold text-xs transition-all duration-300 hover:shadow-button-glow hover:-translate-y-0.5"
+                    >
+                        Get Deck
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section
+            class="relative min-h-[90vh] flex items-center bg-dot-pattern overflow-hidden"
+        >
+            <!-- Subtle decorative blobs -->
+            <div
+                class="absolute top-[-15%] right-[-10%] w-[500px] h-[500px] rounded-full bg-neon-green/4 blur-3xl pointer-events-none"
+            ></div>
+            <div
+                class="absolute bottom-[-10%] left-[-8%] w-[400px] h-[400px] rounded-full bg-neon-yellow/5 blur-3xl pointer-events-none"
+            ></div>
+
+            <div
+                class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 w-full"
+            >
+                <div class="max-w-4xl mx-auto text-center">
+                    <!-- Headline -->
+                    <h1
+                        class="hero-headline font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6 md:mb-8 text-dark-green"
+                    >
+                        <span class="text-gradient-neon"
+                            >Scale With Your City.</span
+                        ><br />
+                        Partner With Cubrin.
+                    </h1>
+
+                    <!-- Subheadline -->
+                    <p
+                        class="text-base sm:text-lg md:text-xl text-dark-green/65 max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed font-medium"
+                    >
+                        Join Nigeria's fastest-growing hyperlocal social
+                        commerce and delivery ecosystem. We provide the digital
+                        infrastructure; you capture the community.
+                    </p>
+
+                    <!-- CTA Button (only investor deck now) -->
+                    <div class="flex justify-center">
+                        <a
+                            href="#investor-form"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-dark-green text-dark-green font-bold text-base md:text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-dark-green-alt hover:text-dark-green-alt bg-transparent"
+                        >
+                            Request Investor Deck
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Trust micro-indicators -->
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-6 md:gap-8 mt-12 md:mt-14 text-xs md:text-sm text-dark-green/40 font-medium"
+                    >
+                        <span class="flex items-center gap-2">
+                            <svg
+                                class="w-4 h-4 text-neon-green"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Escrow-Backed Ledger
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <svg
+                                class="w-4 h-4 text-neon-green"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            High-Density Routing
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <svg
+                                class="w-4 h-4 text-neon-green"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Closed-Loop Security
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom fade -->
+            <div
+                class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-cream to-transparent pointer-events-none"
+            ></div>
+        </section>
+
+        <!-- ==================== PARTNERSHIP TRACKS ==================== -->
+        <section
+            id="partnership-tracks"
+            class="relative py-20 md:py-28 lg:py-32 bg-cream"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-14 md:mb-20">
+                    <span
+                        class="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-neon-green bg-neon-green/10 px-4 py-1.5 rounded-full mb-4"
+                        >Partnership Tracks</span
+                    >
+                    <h2
+                        class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-dark-green mb-4 leading-tight"
+                    >
+                        Built for
+                        <span class="text-gradient-neon-soft"
+                            >Every Player</span
+                        >
+                        in the Ecosystem
+                    </h2>
+                    <p
+                        class="text-dark-green/60 text-base md:text-lg max-w-xl mx-auto"
+                    >
+                        Two distinct tracks designed to unlock value across
+                        logistics and embedded finance.
+                    </p>
+                </div>
+
+                <!-- 2-Column Grid (removed merchant card) -->
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-4xl mx-auto"
+                >
+                    <!-- Card: Logistics Providers -->
+                    <div
+                        class="group relative bg-white rounded-3xl p-6 md:p-8 shadow-card-soft transition-all duration-400 hover:-translate-y-2 hover:shadow-card-hover border border-dark-green/4"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-neon-yellow/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-neon-yellow/20 group-hover:shadow-glow-neon-sm"
+                        >
+                            <svg
+                                class="w-7 h-7 text-dark-green"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-xl md:text-2xl text-dark-green mb-3"
+                        >
+                            For Logistics Providers
+                        </h3>
+                        <p
+                            class="text-sm text-dark-green/55 mb-4 leading-relaxed"
+                        >
+                            Tap into dense delivery corridors with guaranteed
+                            order volume and optimized routing.
+                        </p>
+                        <ul class="space-y-3 text-sm text-dark-green/70">
+                            <li class="flex items-start gap-3">
+                                <svg
+                                    class="w-5 h-5 text-neon-yellow mt-0.5 flex-shrink-0"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                <span
+                                    ><strong
+                                        class="font-semibold text-dark-green"
+                                        >High-density, high-frequency
+                                        routing</strong
+                                    >
+                                    across student campuses</span
+                                >
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg
+                                    class="w-5 h-5 text-neon-yellow mt-0.5 flex-shrink-0"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                <span
+                                    >Concentrated urban hub coverage for maximum
+                                    efficiency</span
+                                >
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg
+                                    class="w-5 h-5 text-neon-yellow mt-0.5 flex-shrink-0"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                <span
+                                    >Predictable batch deliveries with
+                                    escrow-guaranteed payouts</span
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Card: Digital Lenders / ENPL -->
+                    <div
+                        class="group relative bg-white rounded-3xl p-6 md:p-8 shadow-card-soft transition-all duration-400 hover:-translate-y-2 hover:shadow-card-hover border border-dark-green/4"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-green/15 to-neon-yellow/15 flex items-center justify-center mb-5 transition-all duration-300 group-hover:shadow-glow-neon-sm"
+                        >
+                            <svg
+                                class="w-7 h-7 text-dark-green"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.8"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-xl md:text-2xl text-dark-green mb-3"
+                        >
+                            For Digital Lenders & Micro-Credit
+                        </h3>
+                        <p
+                            class="text-sm text-dark-green/55 mb-4 leading-relaxed"
+                        >
+                            Power the
+                            <strong class="text-dark-green font-semibold"
+                                >"Eat Now, Pay Later"</strong
+                            >
+                            revolution with zero-CAC borrower acquisition.
+                        </p>
+                        <ul class="space-y-3 text-sm text-dark-green/70">
+                            <li class="flex items-start gap-3">
+                                <svg
+                                    class="w-5 h-5 text-neon-green mt-0.5 flex-shrink-0"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                <span
+                                    >Access to a
+                                    <strong
+                                        class="font-semibold text-dark-green"
+                                        >verified youth demographic</strong
+                                    ></span
+                                >
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg
+                                    class="w-5 h-5 text-neon-green mt-0.5 flex-shrink-0"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                <span
+                                    ><strong
+                                        class="font-semibold text-dark-green"
+                                        >Closed-loop escrow</strong
+                                    >
+                                    eliminates fund diversion fraud
+                                    entirely</span
+                                >
+                            </li>
+                        </ul>
+                        <a
+                            href="#enpl-spotlight"
+                            class="inline-flex items-center gap-1 mt-5 text-sm font-semibold text-neon-green hover:text-dark-green transition-colors duration-200"
+                        >
+                            Learn more about ENPL
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ENPL SPOTLIGHT ==================== -->
+        <section
+            id="enpl-spotlight"
+            class="relative py-20 md:py-28 lg:py-32 bg-dark-green overflow-hidden"
+        >
+            <!-- Background pattern -->
+            <div
+                class="absolute inset-0 bg-dot-pattern-light opacity-30 pointer-events-none"
+            ></div>
+            <div
+                class="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-neon-green/3 blur-3xl pointer-events-none"
+            ></div>
+            <div
+                class="absolute bottom-[-15%] right-[-8%] w-[500px] h-[500px] rounded-full bg-neon-yellow/4 blur-3xl pointer-events-none"
+            ></div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-5xl mx-auto">
+                    <!-- Spotlight Badge -->
+                    <div class="flex justify-center mb-6">
+                        <span
+                            class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-neon-green/15 border border-neon-green/30 text-neon-green font-bold text-xs md:text-sm uppercase tracking-widest"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.653a3 3 0 002.48-2.966V9.5a1 1 0 00-1-1h-4a1 1 0 00-1 1v.881a3 3 0 002.48 2.966c.27.007.462.313.477.653H12z"
+                                />
+                            </svg>
+                            ENPL Spotlight
+                        </span>
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="text-center mb-12">
+                        <h2
+                            class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-cream mb-6 leading-tight"
+                        >
+                            <span class="text-gradient-neon">Eat Now,</span
+                            ><br class="sm:hidden" />
+                            <span class="text-gradient-neon">Pay Later</span>
+                        </h2>
+                        <p
+                            class="text-cream/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+                        >
+                            Our flagship micro-credit integration lets loan
+                            partners access a
+                            <strong class="text-cream font-semibold"
+                                >verified youth demographic at zero customer
+                                acquisition cost</strong
+                            >. Every naira flows through our closed-loop escrow
+                            system — fund diversion fraud is mathematically
+                            impossible.
+                        </p>
+                    </div>
+
+                    <!-- Feature Highlights Grid -->
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-12"
+                    >
+                        <div
+                            class="bg-cream/5 backdrop-blur-sm border border-cream/10 rounded-2xl p-6 text-center transition-all duration-300 hover:bg-cream/8 hover:-translate-y-1"
+                        >
+                            <div
+                                class="w-12 h-12 rounded-xl bg-neon-green/20 flex items-center justify-center mx-auto mb-4"
+                            >
+                                <svg
+                                    class="w-6 h-6 text-neon-green"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                            </div>
+                            <h4
+                                class="font-heading font-bold text-lg text-cream mb-2"
+                            >
+                                Zero-CAC Access
+                            </h4>
+                            <p class="text-cream/55 text-sm leading-relaxed">
+                                Acquire pre-verified borrowers organically
+                                through our platform with no marketing spend.
+                            </p>
+                        </div>
+                        <div
+                            class="bg-cream/5 backdrop-blur-sm border border-cream/10 rounded-2xl p-6 text-center transition-all duration-300 hover:bg-cream/8 hover:-translate-y-1"
+                        >
+                            <div
+                                class="w-12 h-12 rounded-xl bg-neon-yellow/20 flex items-center justify-center mx-auto mb-4"
+                            >
+                                <svg
+                                    class="w-6 h-6 text-neon-yellow"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                    />
+                                </svg>
+                            </div>
+                            <h4
+                                class="font-heading font-bold text-lg text-cream mb-2"
+                            >
+                                Closed-Loop Escrow
+                            </h4>
+                            <p class="text-cream/55 text-sm leading-relaxed">
+                                Funds never leave our system until settlement
+                                conditions are met. Diversion is structurally
+                                impossible.
+                            </p>
+                        </div>
+                        <div
+                            class="bg-cream/5 backdrop-blur-sm border border-cream/10 rounded-2xl p-6 text-center transition-all duration-300 hover:bg-cream/8 hover:-translate-y-1"
+                        >
+                            <div
+                                class="w-12 h-12 rounded-xl bg-neon-green/20 flex items-center justify-center mx-auto mb-4"
+                            >
+                                <svg
+                                    class="w-6 h-6 text-neon-green"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                                    />
+                                </svg>
+                            </div>
+                            <h4
+                                class="font-heading font-bold text-lg text-cream mb-2"
+                            >
+                                Verified Youth Demo
+                            </h4>
+                            <p class="text-cream/55 text-sm leading-relaxed">
+                                Tap into a high-intent, digitally native
+                                demographic with transparent repayment data.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom CTA -->
+                    <div class="text-center">
+                        <a
+                            href="#investor-form"
+                            class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-neon-green text-dark-green font-bold text-base transition-all duration-300 hover:-translate-y-1 hover:shadow-button-glow hover:bg-neon-yellow"
+                        >
+                            Explore ENPL Partnership
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2.5"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== INSTITUTIONAL BACKING ==================== -->
+        <section
+            id="institutional"
+            class="relative py-16 md:py-20 bg-[#0a0f08] overflow-hidden"
+        >
+            <div
+                class="absolute inset-0 bg-dot-pattern-light opacity-20 pointer-events-none"
+            ></div>
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-neon-green/40 via-transparent to-neon-yellow/30 pointer-events-none"
+            ></div>
+
+            <div
+                class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+            >
+                <!-- Lock icon -->
+                <div
+                    class="w-16 h-16 rounded-2xl bg-neon-green/10 flex items-center justify-center mx-auto mb-6 border border-neon-green/20"
+                >
+                    <svg
+                        class="w-8 h-8 text-neon-green"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.8"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
+                    </svg>
+                </div>
+
+                <h2
+                    class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-cream mb-4"
+                >
+                    Institutional Backing
+                </h2>
+                <p
+                    class="text-cream/55 text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed"
+                >
+                    Cubrin is engineered and powered by
+                </p>
+
+                <!-- Company Logo Block - INVERTED TO WHITE -->
+                <div
+                    class="bg-cream/5 border border-cream/10 rounded-3xl p-6 md:p-10 max-w-lg mx-auto mb-8"
+                >
+                    <img
+                        src="aillogo.svg"
+                        alt="AREMU-INTERNATIONAL LIMITED"
+                        class="h-14 md:h-20 w-auto mx-auto mb-4"
+                        style="filter: brightness(0) invert(1)"
+                    />
+                    <p
+                        class="font-body text-cream/80 text-sm md:text-base font-medium"
+                    >
+                        AREMU-INTERNATIONAL LIMITED
+                    </p>
+                    <div
+                        class="inline-block px-4 py-2 rounded-full bg-neon-green/10 border border-neon-green/25 mt-3"
+                    >
+                        <span
+                            class="text-neon-green font-mono font-semibold text-sm tracking-wider"
+                            >RC: 8939169</span
+                        >
+                    </div>
+                </div>
+
+                <!-- Trust pillars -->
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto"
+                >
+                    <div
+                        class="flex items-center gap-3 justify-center text-cream/70 text-sm"
+                    >
+                        <svg
+                            class="w-5 h-5 text-neon-green flex-shrink-0"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                        <span>Fully Incorporated</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-3 justify-center text-cream/70 text-sm"
+                    >
+                        <svg
+                            class="w-5 h-5 text-neon-green flex-shrink-0"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                        <span>Capital Security for Escrow</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-3 justify-center text-cream/70 text-sm"
+                    >
+                        <svg
+                            class="w-5 h-5 text-neon-green flex-shrink-0"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                        <span>Strict Corporate Governance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== INVESTOR RELATIONS / PITCH DECK ==================== -->
+        <section
+            id="investor-form"
+            class="relative py-20 md:py-28 lg:py-32 bg-cream bg-dot-pattern"
+        >
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center mb-12 md:mb-16">
+                    <span
+                        class="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-dark-green/50 bg-dark-green/5 px-4 py-1.5 rounded-full mb-4"
+                        >Investor Relations</span
+                    >
+                    <h2
+                        class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-dark-green mb-4 leading-tight"
+                    >
+                        Access the
+                        <span class="text-gradient-neon-soft">Data Room</span>
+                    </h2>
+                    <p
+                        class="text-dark-green/60 text-base md:text-lg max-w-lg mx-auto"
+                    >
+                        Access our financial projections, scale horizon, and
+                        market strategy data room. Submit your details below for
+                        verified access.
+                    </p>
+                </div>
+
+                <!-- Form Card -->
+                <div
+                    class="bg-white rounded-3xl shadow-card-soft border border-dark-green/4 p-6 sm:p-8 md:p-10 lg:p-12 relative overflow-hidden"
+                >
+                    <!-- Subtle top accent line -->
+                    <div
+                        class="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-neon-green/60 to-transparent"
+                    ></div>
+
+                    <!-- Secure badge -->
+                    <div
+                        class="flex items-center gap-2 text-xs text-dark-green/40 font-medium mb-8 pb-6 border-b border-dark-green/5"
+                    >
+                        <svg
+                            class="w-4 h-4 text-neon-green"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                        <span
+                            >All submissions are encrypted and sent to
+                            <strong class="text-dark-green"
+                                >partnership@cubrin.com</strong
+                            ></span
+                        >
+                    </div>
+
+                    <!-- Form (no merchant options) -->
+                    <form
+                        id="pitch-deck-form"
+                        class="space-y-6"
+                        action="mailto:partnership@cubrin.com"
+                        method="post"
+                        enctype="text/plain"
+                    >
+                        <!-- Interest Type (only investor & logistics) -->
+                        <div>
+                            <label
+                                class="block text-sm font-semibold text-dark-green/70 mb-2"
+                                >I am interested in:</label
+                            >
+                            <div class="flex flex-wrap gap-3">
+                                <label
+                                    class="flex items-center gap-2 px-4 py-2.5 rounded-full border border-dark-green/15 cursor-pointer transition-all duration-200 hover:border-neon-green/50 has-[:checked]:bg-neon-green/10 has-[:checked]:border-neon-green has-[:checked]:text-dark-green text-sm font-medium text-dark-green/60"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="interest_type"
+                                        value="investor"
+                                        checked
+                                        class="sr-only"
+                                    />
+                                    <svg
+                                        class="w-4 h-4"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                    Investor Relations
+                                </label>
+                                <label
+                                    class="flex items-center gap-2 px-4 py-2.5 rounded-full border border-dark-green/15 cursor-pointer transition-all duration-200 hover:border-neon-green/50 has-[:checked]:bg-neon-green/10 has-[:checked]:border-neon-green has-[:checked]:text-dark-green text-sm font-medium text-dark-green/60"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="interest_type"
+                                        value="logistics"
+                                        class="sr-only"
+                                    />
+                                    <svg
+                                        class="w-4 h-4"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                                        />
+                                    </svg>
+                                    Logistics Partnership
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Full Name -->
+                        <div>
+                            <label
+                                for="full-name"
+                                class="block text-sm font-semibold text-dark-green/70 mb-2"
+                                >Full Name
+                                <span class="text-red-400">*</span></label
+                            >
+                            <input
+                                type="text"
+                                id="full-name"
+                                name="full_name"
+                                required
+                                class="w-full px-5 py-3.5 rounded-2xl border border-dark-green/12 bg-cream/50 text-dark-green placeholder:text-dark-green/30 focus:outline-none focus:border-neon-green focus:ring-2 focus:ring-neon-green/20 transition-all duration-200 text-base"
+                                placeholder="Your full name"
+                            />
+                        </div>
+
+                        <!-- Corporate Email -->
+                        <div>
+                            <label
+                                for="corporate-email"
+                                class="block text-sm font-semibold text-dark-green/70 mb-2"
+                                >Corporate Email
+                                <span class="text-red-400">*</span></label
+                            >
+                            <input
+                                type="email"
+                                id="corporate-email"
+                                name="corporate_email"
+                                required
+                                class="w-full px-5 py-3.5 rounded-2xl border border-dark-green/12 bg-cream/50 text-dark-green placeholder:text-dark-green/30 focus:outline-none focus:border-neon-green focus:ring-2 focus:ring-neon-green/20 transition-all duration-200 text-base"
+                                placeholder="you@organization.com"
+                            />
+                        </div>
+
+                        <!-- Organization / Fund -->
+                        <div>
+                            <label
+                                for="organization"
+                                class="block text-sm font-semibold text-dark-green/70 mb-2"
+                                >Organization / Fund
+                                <span class="text-red-400">*</span></label
+                            >
+                            <input
+                                type="text"
+                                id="organization"
+                                name="organization"
+                                required
+                                class="w-full px-5 py-3.5 rounded-2xl border border-dark-green/12 bg-cream/50 text-dark-green placeholder:text-dark-green/30 focus:outline-none focus:border-neon-green focus:ring-2 focus:ring-neon-green/20 transition-all duration-200 text-base"
+                                placeholder="Name of your organization or fund"
+                            />
+                        </div>
+
+                        <!-- Submit -->
+                        <button
+                            type="submit"
+                            class="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-dark-green text-cream font-bold text-base md:text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-dark-green/20 hover:bg-dark-green-alt group mt-4"
+                        >
+                            Request Pitch Deck
+                            <svg
+                                class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2.5"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                />
+                            </svg>
+                        </button>
+
+                        <!-- Success Message (hidden by default) -->
+                        <div id="form-success" class="hidden text-center py-6">
+                            <div
+                                class="w-16 h-16 rounded-full bg-neon-green/15 flex items-center justify-center mx-auto mb-4"
+                            >
+                                <svg
+                                    class="w-8 h-8 text-neon-green"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"
+                                    />
+                                </svg>
+                            </div>
+                            <h4
+                                class="font-heading font-bold text-xl text-dark-green mb-2"
+                            >
+                                Request Submitted
+                            </h4>
+                            <p class="text-dark-green/60 text-sm">
+                                Thank you. Our team will respond within 48 hours
+                                from
+                                <strong>partnership@cubrin.com</strong> with
+                                access details.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FOOTER ==================== -->
+        <footer class="bg-dark-green py-10 md:py-12 border-t border-cream/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-between gap-6"
+                >
+                    <!-- Logo -->
+                    <a href="#" class="flex items-center">
+                        <img
+                            src="cubrinlogo.svg"
+                            alt="Cubrin Logo"
+                            class="h-8 w-auto"
+                        />
+                    </a>
+
+                    <!-- Links -->
+                    <div
+                        class="flex flex-wrap items-center gap-6 text-sm text-cream/50"
+                    >
+                        <a
+                            href="#partnership-tracks"
+                            class="hover:text-neon-green transition-colors duration-200"
+                            >Partnerships</a
+                        >
+                        <a
+                            href="#enpl-spotlight"
+                            class="hover:text-neon-green transition-colors duration-200"
+                            >ENPL</a
+                        >
+                        <a
+                            href="#institutional"
+                            class="hover:text-neon-green transition-colors duration-200"
+                            >Corporate</a
+                        >
+                        <a
+                            href="#investor-form"
+                            class="hover:text-neon-green transition-colors duration-200"
+                            >Investor Relations</a
+                        >
+                    </div>
+
+                    <!-- Copyright -->
+                    <p class="text-xs text-cream/30">
+                        &copy;
+                        <span id="current-year"></span> AREMU-INTERNATIONAL
+                        LIMITED (RC: 8939169). All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ==================== SCRIPTS ==================== -->
+        <script>
+            // Set current year in footer
+            document.getElementById("current-year").textContent =
+                new Date().getFullYear();
+
+            // Handle form submission
+            const form = document.getElementById("pitch-deck-form");
+            const formFields = form.querySelectorAll(
+                'input:not([type="radio"])',
+            );
+            const radioGroup = form.querySelectorAll('input[type="radio"]');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const successMsg = document.getElementById("form-success");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // Basic validation
+                const fullName = document
+                    .getElementById("full-name")
+                    .value.trim();
+                const email = document
+                    .getElementById("corporate-email")
+                    .value.trim();
+                const org = document
+                    .getElementById("organization")
+                    .value.trim();
+
+                if (!fullName || !email || !org) {
+                    [
+                        document.getElementById("full-name"),
+                        document.getElementById("corporate-email"),
+                        document.getElementById("organization"),
+                    ].forEach((field) => {
+                        if (!field.value.trim()) {
+                            field.style.borderColor = "#ef4444";
+                            field.style.boxShadow =
+                                "0 0 0 2px rgba(239,68,68,0.15)";
+                            setTimeout(() => {
+                                field.style.borderColor = "";
+                                field.style.boxShadow = "";
+                            }, 2000);
+                        }
+                    });
+                    return;
+                }
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    const emailField =
+                        document.getElementById("corporate-email");
+                    emailField.style.borderColor = "#ef4444";
+                    emailField.style.boxShadow =
+                        "0 0 0 2px rgba(239,68,68,0.15)";
+                    setTimeout(() => {
+                        emailField.style.borderColor = "";
+                        emailField.style.boxShadow = "";
+                    }, 2000);
+                    return;
+                }
+
+                // Simulate submission to partnership@cubrin.com
+                submitBtn.disabled = true;
+                submitBtn.innerHTML =
+                    '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Submitting to partnership@cubrin.com...';
+
+                setTimeout(() => {
+                    form.querySelectorAll("div:not(#form-success)").forEach(
+                        (el) => (el.style.display = "none"),
+                    );
+                    submitBtn.style.display = "none";
+                    successMsg.classList.remove("hidden");
+                    successMsg.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                    });
+                }, 1500);
+            });
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    const targetId = this.getAttribute("href");
+                    if (targetId === "#") return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const navHeight = 70;
+                        const targetPosition =
+                            target.getBoundingClientRect().top +
+                            window.pageYOffset -
+                            navHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: "smooth",
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

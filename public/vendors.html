@@ -1,0 +1,1361 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth" style="scroll-behavior: smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Sell on Cubrin — Turn Your Local Spot Into a Digital Powerhouse
+        </title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=MuseoModerno:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Tailwind Custom Configuration -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            cream: "#FFFDF7",
+                            "dark-green": "#143D01",
+                            "dark-green-alt": "#0a4f1a",
+                            "neon-green": "#16FF67",
+                            "neon-yellow": "#EBFC04",
+                        },
+                        fontFamily: {
+                            heading: [
+                                "MuseoModerno",
+                                "system-ui",
+                                "sans-serif",
+                            ],
+                            body: ["Inter", "system-ui", "sans-serif"],
+                        },
+                        borderRadius: {
+                            "2xl": "1rem",
+                            "3xl": "1.5rem",
+                            "4xl": "2rem",
+                        },
+                        boxShadow: {
+                            "glow-neon":
+                                "0 0 40px rgba(22, 255, 103, 0.20), 0 0 80px rgba(22, 255, 103, 0.08)",
+                            "glow-neon-sm":
+                                "0 0 20px rgba(22, 255, 103, 0.14), 0 0 40px rgba(22, 255, 103, 0.05)",
+                            "card-soft":
+                                "0 4px 24px rgba(20, 61, 1, 0.07), 0 1px 4px rgba(20, 61, 1, 0.05)",
+                            "card-hover":
+                                "0 20px 48px rgba(20, 61, 1, 0.12), 0 6px 16px rgba(20, 61, 1, 0.08)",
+                            "button-glow":
+                                "0 6px 28px rgba(22, 255, 103, 0.30)",
+                            "form-card":
+                                "0 8px 40px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15)",
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <!-- Custom Styles -->
+        <style>
+            .text-gradient-neon {
+                background: linear-gradient(135deg, #16ff67 0%, #ebfc04 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+            }
+
+            .text-gradient-neon-soft {
+                background: linear-gradient(135deg, #16ff67 20%, #d4f805 80%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .bg-dot-pattern {
+                background-image: radial-gradient(
+                    circle,
+                    rgba(20, 61, 1, 0.04) 1px,
+                    transparent 1px
+                );
+                background-size: 20px 20px;
+            }
+
+            .bg-dot-pattern-light {
+                background-image: radial-gradient(
+                    circle,
+                    rgba(255, 253, 247, 0.06) 1px,
+                    transparent 1px
+                );
+                background-size: 20px 20px;
+            }
+
+            @keyframes subtle-pulse {
+                0%,
+                100% {
+                    box-shadow:
+                        0 0 30px rgba(22, 255, 103, 0.12),
+                        0 0 60px rgba(22, 255, 103, 0.04);
+                }
+                50% {
+                    box-shadow:
+                        0 0 45px rgba(22, 255, 103, 0.22),
+                        0 0 80px rgba(22, 255, 103, 0.08);
+                }
+            }
+            .animate-glow-pulse {
+                animation: subtle-pulse 3s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-8px);
+                }
+            }
+            .animate-float {
+                animation: float 4s ease-in-out infinite;
+            }
+
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus,
+            textarea:-webkit-autofill,
+            textarea:-webkit-autofill:hover,
+            textarea:-webkit-autofill:focus,
+            select:-webkit-autofill,
+            select:-webkit-autofill:hover,
+            select:-webkit-autofill:focus {
+                -webkit-box-shadow: 0 0 0 30px #fffdf7 inset !important;
+                box-shadow: 0 0 0 30px #fffdf7 inset !important;
+            }
+
+            @media (max-width: 640px) {
+                .hero-headline {
+                    font-size: clamp(2rem, 7.5vw, 3rem);
+                }
+            }
+
+            .premium-input {
+                background: #f9fafb;
+                border: 1px solid #f3f4f6;
+                color: #111827;
+                transition: all 0.2s;
+            }
+            .premium-input:focus {
+                background: #ffffff;
+                border-color: #143d01;
+                outline: none;
+                box-shadow: 0 0 0 4px rgba(22, 255, 103, 0.15);
+            }
+        </style>
+    </head>
+    <body class="font-body bg-cream text-dark-green antialiased min-h-screen">
+        <!-- ==================== NAVIGATION ==================== -->
+        <nav
+            class="sticky top-0 z-50 bg-cream/85 backdrop-blur-lg border-b border-dark-green/5 shadow-sm"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-14 md:h-18">
+                    <a
+                        href="https://cubrin.com"
+                        class="flex items-center gap-2 group"
+                    >
+                        <img
+                            src="cubrinlogo.svg"
+                            alt="Cubrin Logo"
+                            class="h-8 md:h-10 w-auto transition-all duration-300 group-hover:scale-105"
+                        />
+                    </a>
+                    <div class="hidden sm:flex items-center gap-6">
+                        <a
+                            href="#why-sell"
+                            class="text-sm font-medium text-dark-green/65 hover:text-dark-green transition-colors duration-200"
+                            >Why Sell</a
+                        >
+                        <a
+                            href="#how-it-works"
+                            class="text-sm font-medium text-dark-green/65 hover:text-dark-green transition-colors duration-200"
+                            >How It Works</a
+                        >
+                        <a
+                            href="#register-form"
+                            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-dark-green text-cream font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-button-glow hover:bg-dark-green-alt"
+                        >
+                            Claim Free Storefront
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2.5"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                    <a
+                        href="#register-form"
+                        class="sm:hidden inline-flex items-center px-3.5 py-2 rounded-full bg-dark-green text-cream font-semibold text-xs transition-all duration-300 hover:shadow-button-glow"
+                    >
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section
+            class="relative min-h-[85vh] sm:min-h-[90vh] flex items-center bg-dot-pattern overflow-hidden"
+        >
+            <div
+                class="absolute top-[-12%] right-[-8%] w-[450px] h-[450px] sm:w-[600px] sm:h-[600px] rounded-full bg-neon-green/3 blur-3xl pointer-events-none"
+            ></div>
+            <div
+                class="absolute bottom-[-8%] left-[-6%] w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] rounded-full bg-neon-yellow/4 blur-3xl pointer-events-none"
+            ></div>
+            <div
+                class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 lg:py-28 w-full"
+            >
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1
+                        class="hero-headline font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight mb-5 md:mb-7 text-dark-green"
+                    >
+                        Turn Your Local Spot<br class="sm:hidden" />
+                        Into a
+                        <span class="text-gradient-neon"
+                            >Digital Powerhouse</span
+                        >.
+                    </h1>
+                    <p
+                        class="text-sm sm:text-base md:text-lg text-dark-green/60 max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed font-medium"
+                    >
+                        Get your food in front of thousands of students daily.
+                        No expensive POS machines, zero hidden fees, and
+                        <strong class="text-dark-green font-semibold"
+                            >guaranteed payments before you even turn on the
+                            stove.</strong
+                        >
+                    </p>
+                    <div class="flex justify-center">
+                        <a
+                            href="#register-form"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 md:px-10 md:py-4.5 rounded-full bg-dark-green text-cream font-bold text-base md:text-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-dark-green/25 hover:bg-dark-green-alt group"
+                        >
+                            Claim Your Free Storefront
+                            <svg
+                                class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2.5"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 mt-10 md:mt-14 text-xs md:text-sm text-dark-green/35 font-medium"
+                    >
+                        <span class="flex items-center gap-1.5">
+                            <svg
+                                class="w-4 h-4 text-neon-green"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            No POS Hardware Needed
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg
+                                class="w-4 h-4 text-neon-green"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Escrow-Guaranteed Payments
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg
+                                class="w-4 h-4 text-neon-green"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Only 2% Flat Fee
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none"
+            ></div>
+        </section>
+
+        <!-- ==================== WHY SELL ON CUBRIN ==================== -->
+        <section
+            id="why-sell"
+            class="relative py-16 md:py-24 lg:py-28 bg-cream"
+        >
+            <!-- (same as before) -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                    <span
+                        class="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-neon-green bg-neon-green/8 px-4 py-1.5 rounded-full mb-4"
+                        >Why Sell on Cubrin?</span
+                    >
+                    <h2
+                        class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-dark-green mb-3 leading-tight"
+                    >
+                        Built for
+                        <span class="text-gradient-neon-soft">Vendors</span>
+                    </h2>
+                    <p
+                        class="text-dark-green/55 text-sm md:text-base max-w-lg mx-auto"
+                    >
+                        Everything you need to run a thriving digital restaurant
+                        without the stress.
+                    </p>
+                </div>
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-7"
+                >
+                    <!-- Card 1: Zero Fake Transfers -->
+                    <div
+                        class="group relative bg-white rounded-3xl p-5 md:p-6 shadow-card-soft transition-all duration-400 hover:-translate-y-2 hover:shadow-card-hover border border-dark-green/3 flex flex-col"
+                    >
+                        <div
+                            class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-neon-green/8 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-neon-green/18 group-hover:shadow-glow-neon-sm flex-shrink-0"
+                        >
+                            <svg
+                                class="w-6 h-6 md:w-7 md:h-7 text-dark-green"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.6"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-lg md:text-xl text-dark-green mb-2 flex-shrink-0"
+                        >
+                            Zero Fake Transfers
+                            <span class="text-neon-green">(Escrow-Backed)</span>
+                        </h3>
+                        <p
+                            class="text-xs md:text-sm text-dark-green/55 leading-relaxed flex-grow"
+                        >
+                            Never worry about unpaid orders again. Our Escrow
+                            ledger locks the customer's funds before the order
+                            is sent to you.
+                            <strong class="text-dark-green font-semibold"
+                                >If you cook it, you get paid.</strong
+                            >
+                        </p>
+                        <div
+                            class="mt-4 pt-3 border-t border-dark-green/4 flex-shrink-0"
+                        >
+                            <span
+                                class="inline-flex items-center gap-1 text-xs font-semibold text-neon-green"
+                            >
+                                <svg
+                                    class="w-3.5 h-3.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                100% Payment Security
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Card 2: Group Orders -->
+                    <div
+                        class="group relative bg-white rounded-3xl p-5 md:p-6 shadow-card-soft transition-all duration-400 hover:-translate-y-2 hover:shadow-card-hover border border-dark-green/3 flex flex-col"
+                    >
+                        <div
+                            class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-neon-yellow/8 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-neon-yellow/18 group-hover:shadow-glow-neon-sm flex-shrink-0"
+                        >
+                            <svg
+                                class="w-6 h-6 md:w-7 md:h-7 text-dark-green"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.6"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-lg md:text-xl text-dark-green mb-2 flex-shrink-0"
+                        >
+                            Group Orders = Bigger Sales
+                        </h3>
+                        <p
+                            class="text-xs md:text-sm text-dark-green/55 leading-relaxed flex-grow"
+                        >
+                            Students love our
+                            <strong class="text-dark-green font-semibold"
+                                >'Split Bill'</strong
+                            >
+                            feature. Instead of selling one plate, you get
+                            massive group orders routed directly to your kitchen
+                            in one click.
+                        </p>
+                        <div
+                            class="mt-4 pt-3 border-t border-dark-green/4 flex-shrink-0"
+                        >
+                            <span
+                                class="inline-flex items-center gap-1 text-xs font-semibold text-neon-yellow"
+                            >
+                                <svg
+                                    class="w-3.5 h-3.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                Higher Average Order Value
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Card 3: No POS Hardware -->
+                    <div
+                        class="group relative bg-white rounded-3xl p-5 md:p-6 shadow-card-soft transition-all duration-400 hover:-translate-y-2 hover:shadow-card-hover border border-dark-green/3 flex flex-col"
+                    >
+                        <div
+                            class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-neon-green/8 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-neon-green/18 group-hover:shadow-glow-neon-sm flex-shrink-0"
+                        >
+                            <svg
+                                class="w-6 h-6 md:w-7 md:h-7 text-dark-green"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.6"
+                                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-lg md:text-xl text-dark-green mb-2 flex-shrink-0"
+                        >
+                            No POS Hardware Needed
+                        </h3>
+                        <p
+                            class="text-xs md:text-sm text-dark-green/55 leading-relaxed flex-grow"
+                        >
+                            Run your entire digital restaurant from your
+                            smartphone. We provide a
+                            <strong class="text-dark-green font-semibold"
+                                >dynamic virtual NUBAN</strong
+                            >
+                            for instant, stress-free settlements.
+                        </p>
+                        <div
+                            class="mt-4 pt-3 border-t border-dark-green/4 flex-shrink-0"
+                        >
+                            <span
+                                class="inline-flex items-center gap-1 text-xs font-semibold text-neon-green"
+                            >
+                                <svg
+                                    class="w-3.5 h-3.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                Smartphone-Only Setup
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Card 4: Transparent Fees -->
+                    <div
+                        class="group relative bg-white rounded-3xl p-5 md:p-6 shadow-card-soft transition-all duration-400 hover:-translate-y-2 hover:shadow-card-hover border border-dark-green/3 flex flex-col"
+                    >
+                        <div
+                            class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-neon-yellow/8 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-neon-yellow/18 group-hover:shadow-glow-neon-sm flex-shrink-0"
+                        >
+                            <svg
+                                class="w-6 h-6 md:w-7 md:h-7 text-dark-green"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.6"
+                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-lg md:text-xl text-dark-green mb-2 flex-shrink-0"
+                        >
+                            100% Transparent Fees
+                        </h3>
+                        <p
+                            class="text-xs md:text-sm text-dark-green/55 leading-relaxed flex-grow"
+                        >
+                            No monthly subscriptions or hidden charges. Just a
+                            <strong class="text-dark-green font-semibold"
+                                >flat, tiny 2% transaction fee</strong
+                            >
+                            applied only when you make a sale. What hits your
+                            account is yours.
+                        </p>
+                        <div
+                            class="mt-4 pt-3 border-t border-dark-green/4 flex-shrink-0"
+                        >
+                            <span
+                                class="inline-flex items-center gap-1 text-xs font-semibold text-neon-yellow"
+                            >
+                                <svg
+                                    class="w-3.5 h-3.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                No Monthly Subscriptions
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== HOW IT WORKS ==================== -->
+        <section
+            id="how-it-works"
+            class="relative py-16 md:py-24 lg:py-28 bg-dark-green overflow-hidden"
+        >
+            <div
+                class="absolute inset-0 bg-dot-pattern-light opacity-25 pointer-events-none"
+            ></div>
+            <div
+                class="absolute top-[-15%] left-[-8%] w-[500px] h-[500px] rounded-full bg-neon-green/2 blur-3xl pointer-events-none"
+            ></div>
+            <div
+                class="absolute bottom-[-12%] right-[-6%] w-[400px] h-[400px] rounded-full bg-neon-yellow/3 blur-3xl pointer-events-none"
+            ></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                    <span
+                        class="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-neon-green bg-neon-green/12 px-4 py-1.5 rounded-full mb-4"
+                        >How It Works</span
+                    >
+                    <h2
+                        class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-cream mb-3 leading-tight"
+                    >
+                        From Sign-Up to
+                        <span class="text-gradient-neon">Getting Paid</span> in
+                        3 Simple Steps
+                    </h2>
+                    <p
+                        class="text-cream/55 text-sm md:text-base max-w-lg mx-auto"
+                    >
+                        No paperwork marathons. No technical headaches. Just
+                        three steps to start earning.
+                    </p>
+                </div>
+                <!-- Added 'relative' wrapper so the absolute desktop connector lines up perfectly behind the grid -->
+                <div class="relative max-w-5xl mx-auto">
+                    <!-- Desktop Horizontal Step Connector Line (Kept absolute so it doesn't break the grid flow) -->
+                    <div
+                        class="step-connector hidden md:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-neon-green/20 via-neon-yellow/20 to-neon-green/20 z-0"
+                    ></div>
+
+                    <!-- The 3-Step Grid System -->
+                    <div
+                        class="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 lg:gap-8 z-10"
+                    >
+                        <!-- STEP 1 -->
+                        <div class="text-center group">
+                            <div
+                                class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-neon-green/20 to-neon-yellow/20 border-2 border-neon-green/40 flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:shadow-glow-neon group-hover:scale-105"
+                            >
+                                <span
+                                    class="font-heading font-extrabold text-2xl md:text-3xl text-neon-green leading-none"
+                                    >1</span
+                                >
+                            </div>
+                            <h3
+                                class="font-heading font-bold text-lg md:text-xl text-cream mb-2"
+                            >
+                                Sign Up
+                            </h3>
+                            <p
+                                class="text-cream/55 text-sm leading-relaxed max-w-xs mx-auto"
+                            >
+                                Fill out our quick online form. It takes less
+                                than 1 minute — seriously.
+                            </p>
+                            <div
+                                class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-neon-green/80"
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                                <span>~1 minutes</span>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2 -->
+                        <div class="text-center group">
+                            <div
+                                class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-neon-yellow/20 to-neon-green/20 border-2 border-neon-yellow/40 flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:shadow-glow-neon group-hover:scale-105"
+                            >
+                                <span
+                                    class="font-heading font-extrabold text-2xl md:text-3xl text-neon-yellow leading-none"
+                                    >2</span
+                                >
+                            </div>
+                            <h3
+                                class="font-heading font-bold text-lg md:text-xl text-cream mb-2"
+                            >
+                                Get Verified
+                            </h3>
+                            <p
+                                class="text-cream/55 text-sm leading-relaxed max-w-xs mx-auto"
+                            >
+                                Check your mail,
+                                <strong class="text-cream font-semibold"
+                                    >Download the Vendor App</strong
+                                >, verify and activate your profile instantly.
+                            </p>
+                            <div
+                                class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-neon-yellow/80"
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                    />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                    />
+                                </svg>
+                                <span>We come to you</span>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3 -->
+                        <div class="text-center group">
+                            <div
+                                class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-neon-green/20 to-neon-green/25 border-2 border-neon-green/50 flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:shadow-glow-neon group-hover:scale-105 animate-glow-pulse"
+                            >
+                                <span
+                                    class="font-heading font-extrabold text-2xl md:text-3xl text-neon-green leading-none"
+                                    >3</span
+                                >
+                            </div>
+                            <h3
+                                class="font-heading font-bold text-lg md:text-xl text-cream mb-2"
+                            >
+                                Start Earning
+                            </h3>
+                            <p
+                                class="text-cream/55 text-sm leading-relaxed max-w-xs mx-auto"
+                            >
+                                Receive orders, prepare the food, hand it to the
+                                delivery agent, and
+                                <strong class="text-cream font-semibold"
+                                    >get paid automatically.</strong
+                                >
+                            </p>
+                            <div
+                                class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-neon-green/80"
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                <span>Auto-settlements</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12 md:mt-16">
+                    <a
+                        href="#register-form"
+                        class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-neon-green text-dark-green font-bold text-sm md:text-base transition-all duration-300 hover:-translate-y-1.5 hover:shadow-button-glow hover:bg-neon-yellow"
+                    >
+                        Ready to Start?
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2.5"
+                                d="M19 9l-7 7-7-7"
+                            />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="register-form"
+            class="relative py-16 md:py-24 lg:py-28 bg-dark-green overflow-hidden"
+        >
+            <div
+                class="absolute inset-0 bg-dot-pattern-light opacity-20 pointer-events-none"
+            ></div>
+            <div
+                class="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-neon-green/10 blur-3xl pointer-events-none"
+            ></div>
+            <div
+                class="absolute bottom-[-8%] left-[-5%] w-[350px] h-[350px] rounded-full bg-neon-yellow/10 blur-3xl pointer-events-none"
+            ></div>
+
+            <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10 md:mb-14">
+                    <span
+                        class="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-neon-green bg-neon-green/10 px-4 py-1.5 rounded-full mb-4 border border-neon-green/20"
+                    >
+                        Register Your Business
+                    </span>
+                    <h2
+                        class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-cream mb-4 leading-tight"
+                    >
+                        Onboard as a Merchant
+                    </h2>
+                    <p
+                        class="text-cream/70 text-sm md:text-base max-w-lg mx-auto"
+                    >
+                        Fill out the form below and our team will verify and
+                        activate your storefront within 24 hours.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white rounded-[2rem] shadow-2xl p-6 sm:p-10 md:p-12 relative overflow-hidden border border-gray-100"
+                >
+                    <div
+                        class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-neon-green via-neon-yellow to-neon-green"
+                    ></div>
+
+                    <div
+                        id="onboard-error"
+                        class="hidden mb-8 p-5 bg-red-50 border border-red-100 rounded-2xl text-red-600 text-sm font-medium flex items-center gap-3"
+                    >
+                        <svg
+                            class="w-5 h-5 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                        </svg>
+                        <span id="onboard-error-text"></span>
+                    </div>
+
+                    <div
+                        id="onboard-success"
+                        class="hidden mb-8 p-8 sm:p-10 bg-gradient-to-br from-[#143D01]/5 to-[#143D01]/10 border border-[#143D01]/10 rounded-[2rem] text-center"
+                    >
+                        <div
+                            class="w-20 h-20 bg-[#143D01] text-neon-yellow rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl"
+                        >
+                            <svg
+                                class="w-10 h-10"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2.5"
+                                    d="M5 13l4 4L19 7"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                            class="font-heading font-black text-[#143D01] text-2xl md:text-3xl mb-3"
+                        >
+                            Merchant Registered!
+                        </h3>
+                        <p
+                            class="text-[#143D01]/80 font-medium max-w-md mx-auto mb-8"
+                        >
+                            Your shop has been created and is pending admin
+                            approval. A welcome email with login credentials
+                            will be sent shortly.
+                        </p>
+                        <button
+                            type="button"
+                            onclick="resetOnboardForm()"
+                            class="px-8 py-3.5 bg-[#143D01] text-white text-sm md:text-base font-bold rounded-xl hover:bg-black transition-all shadow-lg inline-flex items-center gap-2"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                                />
+                            </svg>
+                            Register Another Shop
+                        </button>
+                    </div>
+
+                    <form id="onboard-form" onsubmit="handleOnboard(event)">
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12"
+                        >
+                            <div class="md:col-span-1">
+                                <div
+                                    class="flex items-center gap-3 mb-2 md:mb-4"
+                                >
+                                    <div
+                                        class="w-12 h-12 bg-gray-50 border border-gray-100 rounded-xl flex items-center justify-center shadow-sm"
+                                    >
+                                        <svg
+                                            class="w-6 h-6 text-dark-green"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-heading font-bold text-gray-900"
+                                    >
+                                        Business Details
+                                    </h3>
+                                </div>
+                                <p class="text-sm text-gray-500 pl-1">
+                                    What kind of food or items do you sell?
+                                </p>
+                            </div>
+
+                            <div class="md:col-span-2 space-y-6">
+                                <div>
+                                    <label
+                                        class="block text-sm font-bold text-gray-700 mb-2"
+                                        >Business Name
+                                        <span class="text-red-500"
+                                            >*</span
+                                        ></label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="ob-shop-name"
+                                        required
+                                        minlength="3"
+                                        maxlength="20"
+                                        class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 placeholder-gray-400"
+                                        placeholder="e.g., Iya Basira Food Canteen"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label
+                                        class="block text-sm font-bold text-gray-700 mb-2"
+                                        >Shop Category
+                                        <span class="text-red-500"
+                                            >*</span
+                                        ></label
+                                    >
+                                    <select
+                                        id="ob-category"
+                                        required
+                                        class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23143D01%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M7.247%2011.14%202.451%205.658C1.885%205.013%202.345%204%203.204%204h9.592a1%201%200%200%201%20.753%201.659l-4.796%205.48a1%201%200%200%201-1.506%200z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:14px] bg-[right_20px_center] bg-no-repeat cursor-pointer"
+                                    >
+                                        <option value="" disabled selected>
+                                            Select a category...
+                                        </option>
+                                        <option value="1">
+                                            Buka & Local Food
+                                        </option>
+                                        <option value="2">Grills & Suya</option>
+                                        <option value="3">
+                                            Provisions & Groceries
+                                        </option>
+                                        <option value="4">
+                                            Snacks & Pastries
+                                        </option>
+                                        <option value="5">
+                                            Fast Food & Burgers
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label
+                                        class="block text-sm font-bold text-gray-700 mb-2"
+                                        >Shop Description</label
+                                    >
+                                    <textarea
+                                        id="ob-desc"
+                                        rows="3"
+                                        maxlength="2000"
+                                        class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 placeholder-gray-400 resize-none"
+                                        placeholder="Briefly describe what makes your food special..."
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-100 mb-12"></div>
+
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-10"
+                        >
+                            <div class="md:col-span-1">
+                                <div
+                                    class="flex items-center gap-3 mb-2 md:mb-4"
+                                >
+                                    <div
+                                        class="w-12 h-12 bg-gray-50 border border-gray-100 rounded-xl flex items-center justify-center shadow-sm"
+                                    >
+                                        <svg
+                                            class="w-6 h-6 text-dark-green"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-heading font-bold text-gray-900"
+                                    >
+                                        Owner Details
+                                    </h3>
+                                </div>
+                                <p class="text-sm text-gray-500 pl-1">
+                                    We need to know who manages the storefront.
+                                </p>
+                            </div>
+
+                            <div class="md:col-span-2 space-y-6">
+                                <div
+                                    class="grid grid-cols-1 sm:grid-cols-2 gap-6"
+                                >
+                                    <div>
+                                        <label
+                                            class="block text-sm font-bold text-gray-700 mb-2"
+                                            >Full Name
+                                            <span class="text-red-500"
+                                                >*</span
+                                            ></label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="ob-full-name"
+                                            required
+                                            class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 placeholder-gray-400"
+                                            placeholder="John Doe"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="block text-sm font-bold text-gray-700 mb-2"
+                                            >Email Address
+                                            <span class="text-red-500"
+                                                >*</span
+                                            ></label
+                                        >
+                                        <input
+                                            type="email"
+                                            id="ob-email"
+                                            required
+                                            class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 placeholder-gray-400"
+                                            placeholder="owner@shop.com"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label
+                                        class="block text-sm font-bold text-gray-700 mb-2"
+                                        >Phone Number
+                                        <span class="text-red-500"
+                                            >*</span
+                                        ></label
+                                    >
+                                    <div class="grid grid-cols-4 gap-3">
+                                        <div class="col-span-1">
+                                            <input
+                                                type="text"
+                                                id="ob-phone-code"
+                                                required
+                                                value="234"
+                                                class="w-full px-3 py-4 bg-gray-50 border border-gray-200 rounded-xl text-center focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 font-medium"
+                                                placeholder="234"
+                                            />
+                                        </div>
+                                        <div class="col-span-3">
+                                            <input
+                                                type="tel"
+                                                id="ob-phone-number"
+                                                required
+                                                class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 placeholder-gray-400"
+                                                placeholder="801 234 5678"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label
+                                        class="block text-sm font-bold text-gray-700 mb-2"
+                                        >WhatsApp Number
+                                        <span class="text-red-500"
+                                            >*</span
+                                        ></label
+                                    >
+                                    <div class="grid grid-cols-4 gap-3">
+                                        <div class="col-span-1">
+                                            <input
+                                                type="text"
+                                                id="ob-whatsapp-code"
+                                                required
+                                                value="234"
+                                                class="w-full px-3 py-4 bg-gray-50 border border-gray-200 rounded-xl text-center focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 font-medium"
+                                                placeholder="234"
+                                            />
+                                        </div>
+                                        <div class="col-span-3">
+                                            <input
+                                                type="tel"
+                                                id="ob-whatsapp-number"
+                                                required
+                                                class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 placeholder-gray-400"
+                                                placeholder="801 234 5678"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-12"
+                        >
+                            <div class="hidden md:block md:col-span-1"></div>
+                            <div class="md:col-span-2">
+                                <button
+                                    type="submit"
+                                    id="ob-btn"
+                                    class="w-full text-base md:text-lg py-4 md:py-5 rounded-2xl flex items-center justify-center gap-3 bg-dark-green text-cream font-bold hover:-translate-y-1 hover:shadow-2xl hover:shadow-dark-green/30 transition-all duration-300"
+                                >
+                                    Create Merchant Profile
+                                    <svg
+                                        class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2.5"
+                                            d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FOOTER ==================== -->
+        <footer class="bg-[#0a0f08] py-8 md:py-10 border-t border-cream/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-between gap-5"
+                >
+                    <a
+                        href="https://cubrin.com"
+                        class="flex items-center gap-2 group"
+                    >
+                        <img
+                            src="cubrinlogo.svg"
+                            alt="Cubrin Logo"
+                            class="h-8 md:h-10 w-auto transition-all duration-300 group-hover:scale-105"
+                        />
+                    </a>
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-5 text-xs text-cream/40"
+                    >
+                        <a
+                            href="#why-sell"
+                            class="hover:text-neon-green transition-colors duration-200"
+                            >Why Sell</a
+                        >
+                        <a
+                            href="#how-it-works"
+                            class="hover:text-neon-green transition-colors duration-200"
+                            >How It Works</a
+                        >
+                        <a
+                            href="#register-form"
+                            class="hover:text-neon-green transition-colors duration-200"
+                            >Register</a
+                        >
+                    </div>
+                    <p class="text-xs text-cream/25 text-center">
+                        &copy; <span id="current-year"></span> Cubrin. All
+                        rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ==================== SCRIPTS ==================== -->
+        <script>
+            // Set current year
+            document.getElementById("current-year").textContent =
+                new Date().getFullYear();
+
+            const API_URL = "https://api.cubrin.com/v1";
+
+            // Onboard form handler (same API as ambassador portal)
+            async function handleOnboard(e) {
+                e.preventDefault();
+                const btn = document.getElementById("ob-btn"),
+                    errDiv = document.getElementById("onboard-error"),
+                    errText = document.getElementById("onboard-error-text"),
+                    succDiv = document.getElementById("onboard-success"),
+                    form = document.getElementById("onboard-form");
+
+                // Get ambassador token from sessionStorage (must be logged in as ambassador)
+                const token = sessionStorage.getItem("ambassadorToken");
+                if (!token) {
+                    errText.textContent =
+                        "Authentication required. Please log in as an ambassador to onboard merchants.";
+                    errDiv.classList.remove("hidden");
+                    return;
+                }
+
+                btn.disabled = true;
+                btn.innerHTML =
+                    '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Processing...';
+                errDiv.classList.add("hidden");
+                succDiv.classList.add("hidden");
+
+                const payload = {
+                    access_token: token,
+                    shop_name: document
+                        .getElementById("ob-shop-name")
+                        .value.trim(),
+                    category_id: parseInt(
+                        document.getElementById("ob-category").value,
+                    ),
+                    email: document.getElementById("ob-email").value.trim(),
+                    full_name:
+                        document.getElementById("ob-full-name").value.trim() ||
+                        undefined,
+                    phone_code: document
+                        .getElementById("ob-phone-code")
+                        .value.trim(),
+                    phone_number: document
+                        .getElementById("ob-phone-number")
+                        .value.trim(),
+                    whatsapp_code: document
+                        .getElementById("ob-whatsapp-code")
+                        .value.trim(),
+                    whatsapp_number: document
+                        .getElementById("ob-whatsapp-number")
+                        .value.trim(),
+                    shop_description:
+                        document.getElementById("ob-desc").value.trim() ||
+                        undefined,
+                };
+
+                try {
+                    const res = await fetch(
+                        `${API_URL}/admins/ambassadors/merchants/onboard/index.php`,
+                        {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(payload),
+                        },
+                    );
+                    const data = await res.json();
+                    if (data.success) {
+                        form.classList.add("hidden");
+                        succDiv.classList.remove("hidden");
+                    } else {
+                        if (
+                            data.message &&
+                            data.message.toLowerCase().includes("session")
+                        ) {
+                            // token expired
+                            sessionStorage.clear();
+                            errText.textContent =
+                                "Session expired. Please log in again.";
+                        } else {
+                            throw new Error(
+                                data.message || "Registration failed",
+                            );
+                        }
+                        errDiv.classList.remove("hidden");
+                    }
+                } catch (error) {
+                    errText.textContent = error.message;
+                    errDiv.classList.remove("hidden");
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML =
+                        'Create Merchant Profile <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>';
+                }
+            }
+
+            function resetOnboardForm() {
+                document.getElementById("onboard-form").reset();
+                document
+                    .getElementById("onboard-form")
+                    .classList.remove("hidden");
+                document
+                    .getElementById("onboard-success")
+                    .classList.add("hidden");
+                document.getElementById("ob-phone-code").value = "234";
+                document.getElementById("ob-whatsapp-code").value = "234";
+            }
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    const targetId = this.getAttribute("href");
+                    if (targetId === "#") return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const navHeight = 60;
+                        const targetPosition =
+                            target.getBoundingClientRect().top +
+                            window.pageYOffset -
+                            navHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: "smooth",
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
