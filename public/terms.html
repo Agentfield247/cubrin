@@ -6,7 +6,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
-        <title>Cubrin - Legal & Policies</title>
+        <title>Cubrin - Complete Legal & Policies</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
@@ -25,7 +25,6 @@
             html {
                 scroll-behavior: smooth;
             }
-            /* Custom scrollbar for sidebar */
             .custom-scroll::-webkit-scrollbar {
                 width: 4px;
             }
@@ -37,103 +36,65 @@
                 background: #143d01;
                 border-radius: 10px;
             }
-            /* ---------- BOLDER LEGAL CONTENT ---------- */
             .legal-content h2 {
                 color: #143d01;
-                font-weight: 900;
-                font-size: 1.6rem;
+                font-weight: 800;
+                font-size: 1.5rem;
                 margin-top: 2.5rem;
                 margin-bottom: 1rem;
-                border-left: 5px solid #ebfc04;
+                border-left: 4px solid #ebfc04;
                 padding-left: 1rem;
-                letter-spacing: -0.01em;
-                line-height: 1.2;
             }
             .legal-content h3 {
                 color: #1f2937;
-                font-weight: 800;
+                font-weight: 700;
                 font-size: 1.25rem;
                 margin-top: 1.5rem;
                 margin-bottom: 0.75rem;
-                letter-spacing: -0.005em;
             }
             .legal-content p {
-                color: #374151;
-                line-height: 1.8;
+                color: #4b5563;
+                line-height: 1.75;
                 margin-bottom: 1rem;
-                font-size: 0.98rem;
-                font-weight: 500;
+                font-size: 0.95rem;
             }
             .legal-content ul,
             .legal-content ol {
                 list-style-type: disc;
                 padding-left: 1.5rem;
                 margin-bottom: 1.5rem;
-                color: #374151;
-                font-weight: 500;
+                color: #4b5563;
             }
             .legal-content li {
                 margin-bottom: 0.5rem;
-                font-size: 0.95rem;
             }
             .legal-content strong {
                 color: #111827;
-                font-weight: 700;
             }
             .warning-banner {
                 background: #fef9e6;
                 border-left: 4px solid #f59e0b;
             }
-            /* Sidebar active link style */
             .sidebar-link.active {
                 background-color: #143d01;
                 color: white !important;
                 border-radius: 12px;
                 padding-left: 0.75rem;
-                font-weight: 700;
+                font-weight: 600;
             }
             .sidebar-link {
                 transition: all 0.2s ease;
-                font-weight: 600;
-                font-size: 0.875rem;
             }
-            /* ---------- MOBILE DROPDOWN (NOT STICKY) ---------- */
-            .custom-mobile-nav {
-                position: relative;
-                z-index: 30;
-            }
-            .custom-nav-btn {
-                font-family: "Inter", system-ui, sans-serif;
-            }
-            .custom-nav-dropdown {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                max-height: 55vh;
-                overflow-y: auto;
-                position: absolute;
-                left: 0;
-                right: 0;
-            }
-            .custom-chevron {
-                transition: transform 0.3s ease;
-            }
-            .custom-chevron.rotate-180 {
-                transform: rotate(180deg);
-            }
-            /* Dropdown will appear above content with shadow */
-            .custom-nav-dropdown {
-                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-            }
-            @media (min-width: 1024px) {
-                .custom-mobile-nav {
-                    display: none;
-                }
+            .mobile-nav-select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23143D01'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 1rem center;
+                background-size: 1.25rem;
+                appearance: none;
             }
         </style>
     </head>
     <body class="bg-gray-50 min-h-screen flex flex-col font-sans">
-        <!-- Header with Back Button -->
         <header
             class="border-b border-gray-200 sticky top-0 bg-white z-50 shadow-sm"
         >
@@ -148,10 +109,9 @@
                             class="h-6 md:h-8 w-auto"
                         />
                     </a>
-                    <!-- Back Button to cubrin.com -->
                     <a
-                        href="index.html"
-                        class="hidden sm:flex items-center gap-1 text-sm font-semibold text-gray-600 hover:text-cubrin-green transition-colors bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1.5"
+                        href="https://cubrin.com"
+                        class="hidden sm:flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-cubrin-green transition-colors bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1.5"
                     >
                         <svg
                             class="w-4 h-4"
@@ -171,6 +131,11 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <a
+                        href="https://cubrin.com"
+                        class="sm:hidden text-cubrin-green font-bold text-sm underline"
+                        >Home</a
+                    >
+                    <a
                         href="comingsoon.html"
                         class="bg-[#143D01] text-white px-4 py-1.5 md:px-5 md:py-2 rounded-full font-bold hover:bg-[#1a4f02] transition-colors text-sm"
                         >Get the App</a
@@ -182,7 +147,7 @@
         <main
             class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10 flex flex-col lg:flex-row gap-8 items-start"
         >
-            <!-- Desktop Sidebar - Redesigned with custom scroll & active highlight -->
+            <!-- Desktop Sidebar - full document navigation -->
             <aside class="hidden lg:block w-80 shrink-0 sticky top-24">
                 <div
                     class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
@@ -198,134 +163,119 @@
                         class="p-4 max-h-[75vh] overflow-y-auto custom-scroll flex flex-col gap-1.5"
                     >
                         <a
+                            href="#about-cubrin"
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            >About Cubrin</a
+                        >
+                        <a
+                            href="#balance-disclaimer"
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            >Cubrin Balance Disclaimer</a
+                        >
+                        <a
+                            href="#escrow-holds-doc"
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            >Escrow and Transaction Holds</a
+                        >
+                        <a
+                            href="#platform-role-doc"
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            >Platform Role</a
+                        >
+                        <a
                             href="#terms-of-service"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
                             >Terms of Service</a
                         >
                         <a
-                            href="#eligibility-accounts"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition pl-6"
-                            >Eligibility & Accounts</a
-                        >
-                        <a
-                            href="#social-split"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition pl-6"
-                            >Social & Split Payments</a
-                        >
-                        <a
-                            href="#balance-payment"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition pl-6"
-                            >Cubrin Balance & Payments</a
-                        >
-                        <a
-                            href="#escrow-holds"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition pl-6"
-                            >Escrow & Transaction Holds</a
-                        >
-                        <a
-                            href="#vendor-responsibility"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition pl-6"
-                            >Vendors & Platform Role</a
-                        >
-                        <div class="h-px bg-gray-200 my-2"></div>
-                        <a
                             href="#privacy-policy"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
                             >Privacy Policy</a
                         >
                         <a
                             href="#payment-balance-policy"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
                             >Payment & Balance Policy</a
                         >
                         <a
-                            href="#refund-escrow-policy"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
-                            >Refund & Escrow Policy</a
-                        >
-                        <a
                             href="#vendor-terms"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
-                            >Vendor Terms (Summary)</a
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            >Vendor Terms</a
                         >
                         <a
                             href="#liability-matrix"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
-                            >Liability & Responsibility</a
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            >Liability & Responsibility Matrix</a
                         >
                         <a
                             href="#no-guarantee-quality"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
                             >No Guarantee of Vendor Quality</a
                         >
                         <a
                             href="#messaging-conduct"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
-                            >Messaging & Social Conduct</a
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            >Messaging & Social Conduct Policy</a
                         >
                         <a
                             href="#split-disputes"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
-                            >Split Bill & Peer Disputes</a
-                        >
-                        <div class="h-px bg-gray-200 my-2"></div>
-                        <a
-                            href="#cubrinpass-rewards"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
-                            >CubrinPass & Rewards</a
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            >Split Bill & Peer Payment Disputes</a
                         >
                         <a
-                            href="#arbitration-clause"
-                            class="sidebar-link block px-3 py-2 text-sm font-semibold text-gray-700 rounded-xl hover:bg-gray-100 transition"
-                            >Arbitration & Class Action Waiver</a
+                            href="#refund-escrow-policy"
+                            class="sidebar-link block px-3 py-2 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                            >Refund & Escrow Policy</a
                         >
                     </nav>
                 </div>
             </aside>
 
-            <!-- ========== MOBILE NAVIGATION DROPDOWN (NOT STICKY) ========== -->
-            <div class="custom-mobile-nav w-full mb-4 lg:hidden">
+            <!-- Mobile Navigation Dropdown -->
+            <div
+                class="lg:hidden w-full mb-4 sticky top-16 z-40 bg-white rounded-xl shadow border border-gray-200 p-2"
+            >
                 <label
-                    class="block text-xs font-bold text-gray-500 uppercase mb-1.5 px-1 tracking-wide"
+                    class="block text-xs font-bold text-gray-500 uppercase mb-1 px-1"
+                    >Jump to section</label
                 >
-                    Jump to section
-                </label>
-
-                <!-- Button (always visible, stays in flow) -->
-                <button
-                    id="mobileNavToggle"
-                    class="custom-nav-btn w-full flex items-center justify-between p-3.5 bg-white border-2 border-gray-200 rounded-xl shadow-sm text-left font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#143D01] focus:border-[#143D01] transition-all"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
+                <select
+                    id="mobileNavSelect"
+                    class="mobile-nav-select w-full p-3 border border-gray-300 rounded-xl bg-white text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-cubrin-green"
                 >
-                    <span id="mobileNavLabel">Terms of Service</span>
-                    <svg
-                        class="custom-chevron w-5 h-5 text-gray-500 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2.5"
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
-                </button>
-
-                <!-- Dropdown list (absolute, overlays content below) -->
-                <ul
-                    id="mobileNavDropdown"
-                    class="custom-nav-dropdown mt-1.5 bg-white rounded-xl border border-gray-100 overflow-hidden opacity-0 invisible -translate-y-2 transition-all duration-300 z-50"
-                    role="listbox"
-                    aria-labelledby="mobileNavToggle"
-                >
-                    <!-- Generated by JS -->
-                </ul>
+                    <option value="#about-cubrin">About Cubrin</option>
+                    <option value="#balance-disclaimer">
+                        Cubrin Balance Disclaimer
+                    </option>
+                    <option value="#escrow-holds-doc">
+                        Escrow and Transaction Holds
+                    </option>
+                    <option value="#platform-role-doc">Platform Role</option>
+                    <option value="#terms-of-service">Terms of Service</option>
+                    <option value="#privacy-policy">Privacy Policy</option>
+                    <option value="#payment-balance-policy">
+                        Payment & Balance Policy
+                    </option>
+                    <option value="#vendor-terms">Vendor Terms</option>
+                    <option value="#liability-matrix">
+                        Liability & Responsibility Matrix
+                    </option>
+                    <option value="#no-guarantee-quality">
+                        No Guarantee of Vendor Quality
+                    </option>
+                    <option value="#messaging-conduct">
+                        Messaging & Social Conduct Policy
+                    </option>
+                    <option value="#split-disputes">
+                        Split Bill & Peer Payment Disputes
+                    </option>
+                    <option value="#refund-escrow-policy">
+                        Refund & Escrow Policy
+                    </option>
+                </select>
             </div>
 
-            <!-- Main Content Area with all legal docs -->
+            <!-- Main Content: Full verbatim content from all documents -->
             <div
                 class="flex-1 bg-white rounded-3xl shadow-sm border border-gray-100 p-5 md:p-8 lg:p-10 legal-content"
             >
@@ -333,308 +283,182 @@
                     <h1
                         class="font-museo font-black text-3xl md:text-4xl text-gray-900 mb-3 tracking-tight"
                     >
-                        Legal & Policies
+                        Complete Legal & Policies
                     </h1>
                     <p
                         class="text-sm text-gray-500 font-bold tracking-widest uppercase"
                     >
-                        Last Updated: June 13, 2026 | Version 2.0
+                        Last Updated: June 14, 2026 | Official Documents
                     </p>
-                    <p class="text-sm text-gray-700 mt-2 font-medium">
-                        Cubrin is a technology platform connecting users with
-                        independent vendors. This hub integrates all official
-                        policies.
-                    </p>
-                </div>
-
-                <!-- 1. TERMS OF SERVICE -->
-                <h2 id="terms-of-service">Terms of Service</h2>
-                <p>
-                    <strong>Welcome to Cubrin.</strong> By creating an account,
-                    accessing, or using Cubrin (mobile app, websites, APIs,
-                    messaging, and balance features), you agree to be bound by
-                    these Terms. If you disagree, do not use the platform.
-                </p>
-
-                <h3 id="eligibility-accounts">Eligibility & User Accounts</h3>
-                <p>
-                    You must be legally capable of entering binding agreements.
-                    You represent that information provided is accurate, you
-                    will maintain account security, not impersonate others, and
-                    comply with all laws. Cubrin may suspend/restrict accounts
-                    for violations. Users may register via email/phone + OTP
-                    verification.
-                </p>
-                <p>
-                    <strong>Location Services:</strong> Cubrin uses device
-                    location to show nearby vendors, improve discovery, assist
-                    delivery coordination. You consent to location collection
-                    per Privacy Policy.
-                </p>
-
-                <h3 id="social-split">
-                    Social Features, Split Bills & Pay-for-Me
-                </h3>
-                <p>
-                    Cubrin enables friend connections, messaging, split bill
-                    requests, and "pay-for-me" requests. Messaging is
-                    <strong>permission-based and connection-restricted</strong>.
-                    Users are solely responsible for communications. Prohibited
-                    conduct includes harassment, fraud, impersonation.
-                </p>
-                <div
-                    class="warning-banner p-3 rounded-lg my-3 flex gap-2 items-start"
-                >
-                    <svg
-                        class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                        />
-                    </svg>
-                    <p class="text-sm m-0 font-medium">
-                        <strong>Split Bill Warning:</strong> Cubrin does not
-                        mediate disputes between users. You are solely
-                        responsible for repayment agreements.
+                    <p class="text-sm text-gray-600 mt-2">
+                        This page contains the full, unedited text of all Cubrin
+                        legal policies. In case of conflict, the specific policy
+                        documents below take precedence over any summaries.
                     </p>
                 </div>
+
+                <!-- ==================== ABOUT CUBRIN ==================== -->
+                <h2 id="about-cubrin">About Cubrin</h2>
+                <h3>1. Overview</h3>
                 <p>
-                    <strong>Orders & Transactions:</strong> When you place an
-                    order, payment authorization is processed, amounts may be
-                    temporarily held (escrow). Vendors are independent and
-                    solely responsible for fulfillment, quality, and pricing.
+                    Cubrin is a technology platform that connects users with
+                    nearby independent vendors such as food vendors,
+                    restaurants, grills, snack providers, and other local
+                    merchants.
+                </p>
+                <p>
+                    Through the Cubrin mobile application, users can discover
+                    nearby places, place orders, coordinate payments, and
+                    interact with vendors and friends in a structured,
+                    commerce-focused environment.
+                </p>
+                <p>
+                    Cubrin's primary purpose is to make local commerce more
+                    accessible, organized, and convenient.
                 </p>
 
-                <h3 id="balance-payment">Cubrin Balance & Platform Payments</h3>
+                <h3>2. What Cubrin Does</h3>
                 <p>
-                    The Cubrin Balance is a
-                    <strong>limited-purpose transactional balance</strong> used
-                    exclusively for commerce within Cubrin. It is
-                    <strong
-                        >not a bank account, savings product, or deposit
-                        account</strong
-                    >. No interest is earned. Cubrin may place holds, reverse
-                    transactions, or suspend balances for fraud prevention.
+                    Cubrin provides a digital marketplace and infrastructure
+                    that enables:
+                </p>
+                <ul>
+                    <li>discovery of nearby vendors based on user location,</li>
+                    <li>browsing of vendor menus and items,</li>
+                    <li>placing and tracking orders,</li>
+                    <li>
+                        in-app payments using a closed-loop platform balance,
+                    </li>
+                    <li>split payments and shared bill coordination,</li>
+                    <li>"pay-for-me" and peer-assisted payment requests,</li>
+                    <li>vendor communication related to orders,</li>
+                    <li>reviews and feedback on vendors and services.</li>
+                </ul>
+                <p>
+                    Cubrin acts as a facilitator between users and independent
+                    vendors.
                 </p>
 
-                <h3 id="escrow-holds">Escrow & Transaction Holds</h3>
+                <h3>3. What Cubrin Is Not</h3>
+                <p>To avoid misunderstanding, Cubrin is not:</p>
+                <ul>
+                    <li>a bank or financial institution,</li>
+                    <li>a money transfer service,</li>
+                    <li>a credit or lending provider,</li>
+                    <li>a food production or delivery company,</li>
+                    <li>or a direct seller of goods or services.</li>
+                </ul>
                 <p>
-                    To support secure marketplace transactions, Cubrin may
-                    temporarily hold transaction amounts pending order
-                    confirmation, dispute resolution, or fraud review. These
-                    holds do NOT constitute custodial banking or investment
-                    services.
+                    Cubrin does not own or operate the vendors listed on the
+                    platform and does not control their pricing, inventory, or
+                    fulfillment operations.
                 </p>
 
-                <h3 id="vendor-responsibility">
-                    Platform Role & Vendor Independence
-                </h3>
+                <h3>4. Independent Vendors</h3>
+                <p>
+                    All vendors on Cubrin operate as independent businesses.
+                    They are solely responsible for:
+                </p>
+                <ul>
+                    <li>product quality and availability,</li>
+                    <li>pricing accuracy,</li>
+                    <li>order fulfillment,</li>
+                    <li>business operations,</li>
+                    <li>
+                        and compliance with applicable laws and regulations.
+                    </li>
+                </ul>
+                <p>
+                    Cubrin provides the tools for vendors to connect with
+                    customers but does not control their day-to-day operations.
+                </p>
+
+                <h3>5. Payments and Platform Balance</h3>
+                <p>
+                    Cubrin may provide users with a limited-purpose platform
+                    balance used exclusively for transactions within the Cubrin
+                    ecosystem. This balance is used only for:
+                </p>
+                <ul>
+                    <li>purchasing goods and services within Cubrin,</li>
+                    <li>completing split payments,</li>
+                    <li>and facilitating platform transactions.</li>
+                </ul>
+                <p>
+                    It is not a bank account, is not interest-bearing, and
+                    cannot be used outside the Cubrin platform. Payments are
+                    processed using third-party payment providers, and Cubrin
+                    does not directly operate as a financial institution.
+                </p>
+
+                <h3>6. Communication and Social Features</h3>
+                <p>
+                    Cubrin includes structured communication tools that allow
+                    users to interact in relation to:
+                </p>
+                <ul>
+                    <li>orders,</li>
+                    <li>payments,</li>
+                    <li>shared bills,</li>
+                    <li>and approved connections between users.</li>
+                </ul>
+                <p>
+                    Messaging is permission-based and not an open public chat
+                    system.
+                </p>
+
+                <h3>7. User Experience</h3>
+                <p>Users can:</p>
+                <ul>
+                    <li>discover nearby vendors,</li>
+                    <li>place and track orders,</li>
+                    <li>interact with friends for shared payments,</li>
+                    <li>submit reviews and feedback,</li>
+                    <li>and manage their platform activity and balance.</li>
+                </ul>
+                <p>
+                    All actions within Cubrin are designed to support local
+                    commerce interactions.
+                </p>
+
+                <h3>8. Platform Role</h3>
                 <p>
                     Cubrin is a neutral technology platform that facilitates
-                    connections between users and independent vendors. Cubrin
-                    does NOT own or operate any vendor businesses, does NOT
-                    control pricing/inventory, does NOT act as a delivery
-                    service provider. All vendors operate as independent
-                    businesses.
+                    connections and transactions between users and independent
+                    vendors. Cubrin does not:
                 </p>
+                <ul>
+                    <li>guarantee vendor performance,</li>
+                    <li>control vendor pricing or inventory,</li>
+                    <li>
+                        or assume responsibility for goods or services provided
+                        by vendors.
+                    </li>
+                </ul>
+
+                <h3>9. Relationship to Other Policies</h3>
+                <p>
+                    This document provides a general overview of Cubrin.
+                    Detailed rules governing usage, payments, privacy, vendor
+                    responsibilities, disputes, and refunds are outlined in the
+                    respective legal policies available on the platform. In case
+                    of conflict, the specific policy documents shall take
+                    precedence over this overview.
+                </p>
+
+                <h3>10. Updates</h3>
+                <p>
+                    Cubrin may update this document from time to time to reflect
+                    product, legal, or operational changes. Continued use of the
+                    platform indicates acceptance of updates.
+                </p>
+
+                <!-- ==================== CUBRIN BALANCE DISCLAIMER ==================== -->
                 <div
-                    class="warning-banner p-3 rounded-lg my-3 flex gap-2 items-start"
-                >
-                    <svg
-                        class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                        />
-                    </svg>
-                    <p class="text-sm m-0 font-medium">
-                        <strong>Limitation of Liability:</strong> Cubrin is not
-                        liable for vendor performance, food quality, delivery
-                        delays, or third-party failures. Maximum liability
-                        limited to transaction amount.
-                    </p>
-                </div>
-
-                <!-- 2. PRIVACY POLICY -->
-                <h2 id="privacy-policy">Privacy Policy</h2>
-                <p>
-                    <strong>Information we collect:</strong> Account info,
-                    precise location (foreground/background), usage data,
-                    messages, payment transaction data (no full card details
-                    stored). For vendors: KYC documents, bank details.
-                </p>
-                <p>
-                    <strong>Local Device Storage:</strong> Cubrin stores
-                    authentication tokens and cached data locally for
-                    performance. You may clear via app settings.
-                </p>
-                <p>
-                    <strong>Data Sharing:</strong> We share order-related data
-                    with vendors, payment processors, delivery partners, and
-                    legal authorities if required. We do not sell personal data.
-                </p>
-
-                <!-- 3. PAYMENT & BALANCE POLICY -->
-                <h2 id="payment-balance-policy">Payment & Balance Policy</h2>
-                <p>
-                    The Cubrin Balance is closed-loop, non-transferable, not
-                    redeemable as cash. Refunds may be issued to balance or
-                    original payment method. Chargeback abuse may lead to
-                    account restrictions.
-                </p>
-
-                <!-- 4. REFUND & ESCROW POLICY -->
-                <h2 id="refund-escrow-policy">Refund & Escrow Policy</h2>
-                <p>
-                    <strong>Refund eligibility:</strong> Failed orders,
-                    cancellations before preparation, incorrect orders,
-                    duplicate transactions.
-                    <strong>Non-refundable:</strong> Completed orders or change
-                    of mind after preparation starts. Escrow funds released only
-                    upon order completion or valid resolution.
-                </p>
-
-                <!-- 5. VENDOR TERMS -->
-                <h2 id="vendor-terms">Vendor Terms (Summary)</h2>
-                <p>
-                    Vendors must complete KYC/verification, comply with laws,
-                    and are solely responsible for pricing, availability,
-                    quality, and fulfillment. Cubrin may suspend vendors for
-                    violations.
-                </p>
-
-                <!-- 6. LIABILITY MATRIX -->
-                <h2 id="liability-matrix">Liability & Responsibility Matrix</h2>
-                <p>
-                    Cubrin is not liable for vendor goods, user disputes, or
-                    third-party processor failures. No partnership or agency
-                    with vendors. Maximum liability limited as per Terms.
-                </p>
-                <div
-                    class="bg-cubrin-green/5 p-4 rounded-xl my-4 border border-cubrin-green/20"
-                >
-                    <p class="text-sm font-bold text-cubrin-green">
-                        Platform Independence Clause: Nothing creates a
-                        partnership, joint venture, or agency between Cubrin and
-                        any vendor or user.
-                    </p>
-                </div>
-
-                <!-- 7. NO GUARANTEE OF VENDOR QUALITY with custom warning -->
-                <h2 id="no-guarantee-quality">
-                    No Guarantee of Vendor Quality
-                </h2>
-                <div
-                    class="warning-banner p-4 rounded-lg my-3 flex gap-3 items-start"
+                    class="warning-banner p-4 rounded-lg my-6 flex gap-3 items-start"
                 >
                     <svg
                         class="w-6 h-6 text-amber-600 shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                    </svg>
-                    <div>
-                        <p class="font-bold m-0">
-                            Cubrin does NOT guarantee food quality, hygiene,
-                            accuracy, or vendor performance.
-                        </p>
-                        <p class="text-sm m-0 mt-1 font-medium">
-                            All complaints regarding product quality must be
-                            directed to the independent vendor.
-                        </p>
-                    </div>
-                </div>
-                <p>
-                    Vendor listings are provided directly by vendors and may
-                    change without notice. Cubrin is not liable for any loss
-                    arising from vendor goods.
-                </p>
-
-                <!-- 8. MESSAGING & SOCIAL CONDUCT -->
-                <h2 id="messaging-conduct">
-                    Messaging & Social Conduct Policy
-                </h2>
-                <p>
-                    Structured, permission-based messaging only. No open public
-                    chat. Connection requests require verification. Message
-                    history persists after connection removal for operational
-                    purposes. Harassment or fraud leads to suspension.
-                </p>
-
-                <!-- 9. SPLIT BILL DISPUTES -->
-                <h2 id="split-disputes">
-                    Split Bill & Peer Payment Disputes Policy
-                </h2>
-                <div
-                    class="warning-banner p-3 rounded-lg my-3 flex gap-2 items-start"
-                >
-                    <svg
-                        class="w-5 h-5 text-amber-600 shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"
-                        />
-                    </svg>
-                    <p class="text-sm m-0 font-medium">
-                        <strong>Cubrin is not a debt collector.</strong>
-                        Interpersonal payment disputes are solely between users.
-                        Cubrin provides no guarantee of repayment.
-                    </p>
-                </div>
-                <p>
-                    Split payments are user-initiated. Once executed, Cubrin
-                    does not intervene. Fraudulent split activity may result in
-                    account suspension.
-                </p>
-
-                <!-- 10. Legacy clauses -->
-                <h2 id="cubrinpass-rewards">
-                    CubrinPass & Rewards Program (Legacy)
-                </h2>
-                <p>
-                    Any rewards, points, or subscription benefits hold zero cash
-                    value. Cubrin may modify or terminate rewards at any time
-                    without liability.
-                </p>
-                <p>
-                    <strong>Squad Carts:</strong> Host is ultimately responsible
-                    for full payment if other members fail to pay. Cubrin may
-                    charge host's payment method for shortfalls.
-                </p>
-
-                <h2 id="arbitration-clause">
-                    Dispute Resolution & Arbitration (Binding)
-                </h2>
-                <div
-                    class="warning-banner p-4 rounded-lg my-4 flex gap-3 items-start bg-red-50 border-l-4 border-red-500"
-                >
-                    <svg
-                        class="w-6 h-6 text-red-600 shrink-0"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -648,50 +472,1284 @@
                     </svg>
                     <div>
                         <p class="font-bold">
-                            Binding Arbitration & Class Action Waiver
-                        </p>
-                        <p class="text-sm font-medium">
-                            Any dispute shall be resolved by binding arbitration
-                            in Lagos, Nigeria under LCA rules. You waive right
-                            to a jury trial and class action.
+                            Important: Cubrin Balance Disclaimer
                         </p>
                     </div>
                 </div>
+                <h2 id="balance-disclaimer">Cubrin Balance Disclaimer</h2>
                 <p>
-                    By using Cubrin, you agree to individual arbitration and
-                    waive participation in class actions.
+                    The Cubrin Balance is a limited-purpose transactional
+                    feature designed solely to facilitate purchases, refunds,
+                    split payments, and other commerce-related activities within
+                    the Cubrin platform.
+                </p>
+                <p>
+                    The Cubrin Balance is not a bank account, deposit account,
+                    savings product, investment product, or digital wallet
+                    offered as a standalone financial service.
+                </p>
+                <p>
+                    Cubrin does not provide banking or financial advisory
+                    services. All payment processing and payment authorization
+                    services are facilitated through licensed third-party
+                    payment providers.
+                </p>
+                <p>
+                    Funds added to a Cubrin Balance may only be used for
+                    transactions within the Cubrin platform and may not be
+                    treated as personal deposits or stored monetary assets
+                    outside the intended use of the platform.
+                </p>
+                <p>
+                    Cubrin reserves the right to place holds, reverse
+                    transactions, issue refunds, restrict access, or suspend
+                    balances where necessary for fraud prevention, dispute
+                    resolution, compliance, operational integrity, or platform
+                    security.
                 </p>
 
-                <!-- Supplementary -->
-                <h2>Additional Disclosures</h2>
+                <!-- ==================== ESCROW AND TRANSACTION HOLDS ==================== -->
+                <h2 id="escrow-holds-doc">Escrow and Transaction Holds</h2>
                 <p>
-                    <strong>What Cubrin is NOT:</strong> Cubrin is not a bank,
-                    financial institution, money transfer service, lender, food
-                    producer, or delivery company. All payment services provided
-                    by licensed third-party processors.
+                    To support secure marketplace transactions, Cubrin may
+                    temporarily hold transaction amounts pending vendor
+                    confirmation, order completion, dispute resolution, refund
+                    processing, or fraud review.
                 </p>
                 <p>
-                    <strong>KYC & Verification:</strong> Vendors must complete
-                    identity/business verification. Cubrin may suspend
-                    non-compliant vendors.
+                    Such temporary holds are intended solely to facilitate
+                    commerce transactions between users and vendors on the
+                    platform and do not constitute custodial banking or
+                    investment services.
                 </p>
                 <p>
-                    <strong>User Content:</strong> By submitting reviews, you
-                    grant Cubrin a license to display and moderate content.
-                    False or defamatory content is prohibited.
+                    Users acknowledge and agree that transaction settlement
+                    timelines may vary depending on payment provider processing,
+                    vendor confirmation, dispute investigations, or operational
+                    reviews.
                 </p>
 
+                <!-- ==================== PLATFORM ROLE ==================== -->
+                <h2 id="platform-role-doc">Platform Role</h2>
+                <p>
+                    Cubrin operates as a technology and marketplace platform
+                    that connects users with nearby vendors, food businesses,
+                    and commerce providers.
+                </p>
+                <p>
+                    Cubrin is not a restaurant operator, delivery carrier, bank,
+                    financial institution, money transmission business, or
+                    licensed escrow institution unless otherwise expressly
+                    stated.
+                </p>
+                <p>
+                    Payment services available through the platform are provided
+                    in collaboration with licensed third-party payment
+                    processors and infrastructure providers.
+                </p>
+
+                <!-- ==================== TERMS OF SERVICE (full) ==================== -->
+                <h2 id="terms-of-service">Cubrin Terms of Service</h2>
+                <h3>1. Introduction</h3>
+                <p>
+                    Welcome to Cubrin. Cubrin is a technology platform that
+                    connects users with nearby food vendors, local businesses,
+                    and commerce providers through discovery, ordering, social
+                    interaction, and transaction facilitation features. By
+                    creating an account, accessing, or using Cubrin, you agree
+                    to comply with and be bound by these Terms of Service. If
+                    you do not agree to these Terms, you may not use the
+                    platform. These Terms apply to: Cubrin consumer
+                    applications, Cubrin Vendors, websites, APIs, messaging
+                    systems, wallet and balance features, and related services
+                    operated by Cubrin.
+                </p>
+
+                <h3>2. Eligibility</h3>
+                <p>
+                    You must be legally capable of entering binding agreements
+                    under applicable laws to use Cubrin. By using Cubrin, you
+                    represent that: the information you provide is accurate, you
+                    will maintain the security of your account, you will not
+                    impersonate another person or business, and you will comply
+                    with all applicable laws and regulations. Cubrin reserves
+                    the right to suspend, restrict, or terminate accounts that
+                    violate these Terms.
+                </p>
+
+                <h3>3. User Accounts</h3>
+                <p>
+                    Users may create accounts using: email address, password,
+                    and optional referral information. Users may be required to
+                    verify their identity through one-time passwords (OTP) sent
+                    to their registered email address during registration,
+                    login, security updates, or account recovery. Users are
+                    responsible for: maintaining the confidentiality of login
+                    credentials, all activities occurring under their account,
+                    ensuring contact details remain accurate and up to date.
+                    Users may: edit profile information, manage addresses,
+                    manage passwords, manage linked contact details, add or
+                    remove friends, submit reviews, track orders, manage
+                    balances, and use social commerce features available on the
+                    platform. Cubrin may suspend or restrict access where
+                    suspicious activity, fraud, abuse, or policy violations are
+                    detected.
+                </p>
+
+                <h3>4. Location Services</h3>
+                <p>
+                    Cubrin uses device location services, including latitude and
+                    longitude data, to: show nearby vendors and shops, improve
+                    discovery accuracy, assist with delivery coordination,
+                    support address management, and improve platform
+                    functionality. By using Cubrin, users consent to the
+                    collection and processing of location-related information in
+                    accordance with the Privacy Policy. Users may disable
+                    location permissions through device settings; however,
+                    certain features may become unavailable or less accurate.
+                </p>
+
+                <h3>5. Social Features</h3>
+                <p>
+                    Cubrin may provide social interaction features including:
+                    friend connections, messaging systems, split bill requests,
+                    pay-for-me requests, review interactions, and engagement
+                    systems. Users are solely responsible for communications and
+                    interactions conducted through the platform. Prohibited
+                    conduct includes: harassment, impersonation, fraud, spam,
+                    abusive behavior, illegal transactions, or misuse of social
+                    features. Cubrin reserves the right to monitor, review,
+                    remove, restrict, or investigate activity where necessary
+                    for safety, compliance, fraud prevention, operational
+                    integrity, or legal obligations. Removing a friend
+                    connection does not automatically delete historical chats or
+                    transaction records.
+                </p>
+
+                <h3>6. Orders and Transactions</h3>
+                <p>
+                    Cubrin facilitates transactions between users and vendors.
+                    When an order is placed: payment authorization is processed,
+                    transaction amounts may be temporarily held, vendors may
+                    confirm or decline order availability, users may track order
+                    progress through the platform. Vendors are responsible for:
+                    item availability, pricing accuracy, preparation quality,
+                    order fulfillment, and operational readiness. Cubrin does
+                    not guarantee: uninterrupted service, vendor availability,
+                    delivery timing, item quality, or vendor performance. Users
+                    may cancel orders subject to applicable cancellation
+                    conditions and operational status.
+                </p>
+
+                <h3>7. Split Bills and Pay-for-Me Features</h3>
+                <p>
+                    Cubrin may allow users to: split transaction costs, request
+                    payment contributions, or send pay-for-me requests to other
+                    users. Users acknowledge that: participation in shared
+                    payment activity is voluntary, payment disputes between
+                    users remain the responsibility of the participating users,
+                    Cubrin is not responsible for interpersonal financial
+                    disagreements, and Cubrin does not guarantee payment
+                    completion by other users. Cubrin reserves the right to
+                    investigate misuse or fraudulent activity involving shared
+                    payment systems.
+                </p>
+
+                <h3>8. Cubrin Balance</h3>
+                <p>
+                    Cubrin may provide users with a limited-purpose
+                    transactional balance used solely for commerce-related
+                    activity within the platform. The Cubrin Balance: is not a
+                    bank account, is not a savings product, is not an investment
+                    product, and is not intended for general money transfer
+                    services outside the Cubrin ecosystem. Balances may be used
+                    for: payments, refunds, split bill transactions,
+                    escrow-supported transactions, and authorized marketplace
+                    activity. Cubrin may: place temporary holds, reverse
+                    transactions, issue refunds, restrict access, or suspend
+                    balances where necessary for fraud prevention, disputes,
+                    operational reviews, or legal compliance. Payment processing
+                    services may be provided through licensed third-party
+                    payment infrastructure providers.
+                </p>
+
+                <h3>9. Escrow and Transaction Holds</h3>
+                <p>
+                    To support secure marketplace activity, Cubrin may
+                    temporarily hold transaction amounts pending: order
+                    confirmation, dispute investigations, refund processing,
+                    fraud reviews, or operational verification. Transaction
+                    holds do not constitute custodial banking or investment
+                    services. Funds associated with completed orders may be
+                    released to vendors upon successful order confirmation
+                    through Cubrin systems.
+                </p>
+
+                <h3>10. Reviews and User Content</h3>
+                <p>
+                    Users may submit: reviews, ratings, comments, messages, and
+                    other platform content. By submitting content, users grant
+                    Cubrin a non-exclusive license to: display, reproduce,
+                    moderate, and distribute such content within the platform.
+                    Users may not submit: false information, defamatory
+                    material, illegal content, abusive content, misleading
+                    reviews, or spam. Cubrin reserves the right to remove or
+                    moderate content at its sole discretion.
+                </p>
+
+                <h3>11. Vendor Accounts</h3>
+                <p>
+                    Vendor accounts are subject to onboarding, verification,
+                    operational review, and ongoing compliance requirements.
+                    Vendors may be required to provide: identity verification
+                    documents, business information, banking information,
+                    operational details, and additional compliance
+                    documentation. Cubrin reserves the right to: approve or
+                    reject vendors, suspend vendor visibility, review categories
+                    and items, moderate listings, or restrict vendor
+                    functionality. Verification status does not constitute
+                    endorsement, certification, or guarantee by Cubrin.
+                </p>
+
+                <h3>12. KYC and Verification</h3>
+                <p>
+                    Cubrin may require vendors to complete identity and business
+                    verification processes, including: government-issued
+                    identity verification, business registration verification,
+                    banking verification, and operational review procedures.
+                    Cubrin reserves the right to: request additional
+                    documentation, reject incomplete submissions, suspend
+                    accounts pending verification, or remove vendors from the
+                    platform.
+                </p>
+
+                <h3>13. Settlements and Vendor Payouts</h3>
+                <p>
+                    Vendors may request settlement of eligible balances to
+                    linked bank accounts. Settlement requests may be subject to:
+                    operational review, fraud monitoring, transaction
+                    verification, payment provider processing timelines, or
+                    compliance checks. Cubrin may delay, reverse, or restrict
+                    settlements where suspicious activity or disputes are
+                    identified.
+                </p>
+
+                <h3>14. Platform Availability</h3>
+                <p>
+                    Cubrin does not guarantee uninterrupted access to the
+                    platform. Services may be temporarily unavailable due to:
+                    maintenance, outages, third-party failures, operational
+                    updates, security incidents, or technical limitations.
+                    Cubrin reserves the right to modify, suspend, or discontinue
+                    features at any time.
+                </p>
+
+                <h3>15. Prohibited Activities</h3>
+                <p>
+                    Users and vendors may not: engage in fraud, manipulate
+                    transactions, abuse refund systems, impersonate others,
+                    misuse payment systems, violate intellectual property
+                    rights, upload harmful software, or engage in unlawful
+                    conduct. Cubrin may investigate violations and cooperate
+                    with law enforcement where required.
+                </p>
+
+                <h3>16. Limitation of Liability</h3>
+                <p>
+                    Cubrin provides services on an "as is" and "as available"
+                    basis. To the maximum extent permitted by law, Cubrin shall
+                    not be liable for: indirect damages, lost profits, vendor
+                    misconduct, transaction disputes, delivery delays,
+                    user-generated content, or service interruptions. Cubrin's
+                    total liability relating to a transaction shall not exceed
+                    the amount directly associated with the disputed transaction
+                    unless otherwise required by applicable law.
+                </p>
+
+                <h3>17. Account Suspension and Termination</h3>
+                <p>
+                    Cubrin may suspend, restrict, or terminate accounts where:
+                    policy violations occur, fraud is suspected, operational
+                    risks arise, legal obligations require action, or platform
+                    abuse is identified. Users may discontinue use of the
+                    platform at any time. Certain transaction records, chats, or
+                    compliance records may be retained where necessary for
+                    legal, security, operational, or regulatory purposes.
+                </p>
+
+                <h3>18. Changes to These Terms</h3>
+                <p>
+                    Cubrin may update these Terms periodically. Continued use of
+                    the platform after updates constitutes acceptance of the
+                    revised Terms. Users are encouraged to review the Terms
+                    regularly.
+                </p>
+
+                <h3>19. Contact Information</h3>
+                <p>
+                    Questions regarding these Terms may be directed to Cubrin
+                    support through official communication channels provided
+                    within the platform.
+                </p>
+
+                <!-- ==================== PRIVACY POLICY (full) ==================== -->
+                <h2 id="privacy-policy">Cubrin Privacy Policy</h2>
+                <h3>1. Introduction</h3>
+                <p>
+                    Cubrin respects your privacy and is committed to protecting
+                    your personal data. This Privacy Policy explains how we
+                    collect, use, store, and protect your information when you
+                    use the Cubrin platform, including the Cubrin consumer app
+                    and Cubrin Vendors app. By using Cubrin, you agree to the
+                    collection and use of information in accordance with this
+                    Privacy Policy.
+                </p>
+
+                <h3>2. Information We Collect</h3>
+                <p>
+                    <strong>2.1 Account Information:</strong> Email address,
+                    Password (securely encrypted), Profile name, Contact
+                    information (including WhatsApp number and calling line
+                    where provided), Referral information (optional).
+                </p>
+                <p>
+                    <strong>2.2 Location Information:</strong> We collect
+                    location data (latitude and longitude) to show nearby
+                    vendors and shops, improve search relevance, support
+                    delivery and order coordination, enhance platform
+                    experience. Location data may be collected when the app is
+                    in use and, where permitted by your device settings, in the
+                    background.
+                </p>
+                <p>
+                    <strong>2.3 Usage and Activity Data:</strong> We collect
+                    information about how you interact with Cubrin, including:
+                    searches and viewed shops, orders placed and order history,
+                    interactions with vendors, reviews and ratings, split bill
+                    and payment requests, pay-for-me requests, navigation
+                    behavior within the app.
+                </p>
+                <p>
+                    <strong>2.4 Messages and Communications:</strong> Cubrin
+                    provides an in-app messaging system that allows users to
+                    communicate with friends and vendors. We store: chat
+                    messages, message metadata (timestamps, participants),
+                    delivery status (sent, delivered, read where applicable).
+                </p>
+                <p>
+                    <strong>2.5 Payment and Transaction Data:</strong> We
+                    collect information related to: top-ups to Cubrin Balance,
+                    order payments, refunds, platform fees, escrow holds,
+                    transaction history. Payment processing is handled by
+                    licensed third-party payment providers. Cubrin does not
+                    directly store full payment card details.
+                </p>
+                <p>
+                    <strong>2.6 Vendor Information:</strong> For vendors, we
+                    collect: business name and profile details, identity
+                    verification documents, KYC information, bank account
+                    details for settlements, shop listings, categories, and item
+                    data.
+                </p>
+
+                <h3>3. Local Device Storage (On-Device Data)</h3>
+                <p>
+                    To improve performance and user experience, Cubrin stores
+                    certain data locally on your device using secure storage
+                    mechanisms such as SharedPreferences or equivalent local
+                    storage systems. This may include: authentication access
+                    tokens, session identifiers, cached user profile
+                    information, cached chat messages for faster loading, app
+                    settings and preferences, temporary identifiers used to
+                    recognize your device and session. This data remains stored
+                    on your device and is used to: keep you logged in, improve
+                    app speed and responsiveness, enable offline or low-latency
+                    access to recent activity, reduce repeated network requests.
+                    You may clear local data by logging out or clearing app
+                    storage via your device settings.
+                </p>
+
+                <h3>4. How We Use Your Information</h3>
+                <p>
+                    We use collected data to: operate and improve the Cubrin
+                    platform, match users with nearby vendors, process orders
+                    and payments, enable social features (friends, chat, split
+                    bills), provide customer support, detect fraud and prevent
+                    abuse, comply with legal obligations, analyze platform usage
+                    and performance.
+                </p>
+
+                <h3>5. Data Sharing</h3>
+                <p>
+                    We may share information with: vendors (only necessary
+                    order-related data), payment processors, delivery or
+                    logistics partners (if applicable), analytics providers,
+                    legal authorities where required by law. We do not sell
+                    personal data.
+                </p>
+
+                <h3>6. Data Retention</h3>
+                <p>
+                    We retain data only as long as necessary to: provide
+                    services, comply with legal obligations, resolve disputes,
+                    enforce agreements, prevent fraud or abuse. Chat history,
+                    transaction records, and account data may be retained even
+                    after account deletion where required for legal or
+                    operational reasons.
+                </p>
+
+                <h3>7. Security</h3>
+                <p>
+                    We implement reasonable technical and organizational
+                    measures to protect your data, including: encryption of
+                    sensitive data, secure authentication systems, access
+                    control mechanisms, secure payment processing through
+                    third-party providers. However, no system is 100% secure,
+                    and we cannot guarantee absolute security.
+                </p>
+
+                <h3>8. Location Data</h3>
+                <p>
+                    You may control location permissions through your device
+                    settings. Disabling location may limit certain features of
+                    the platform.
+                </p>
+
+                <h3>9. User Rights</h3>
+                <p>
+                    Depending on your jurisdiction, you may have rights to:
+                    access your data, request correction, request deletion,
+                    restrict processing, withdraw consent where applicable.
+                </p>
+
+                <h3>10. Changes to This Policy</h3>
+                <p>
+                    We may update this Privacy Policy periodically. Continued
+                    use of Cubrin after updates constitutes acceptance of the
+                    revised policy.
+                </p>
+
+                <h3>11. Contact</h3>
+                <p>
+                    If you have questions about this Privacy Policy, you may
+                    contact Cubrin support through the app.
+                </p>
+
+                <!-- ==================== PAYMENT & BALANCE POLICY ==================== -->
+                <h2 id="payment-balance-policy">
+                    Cubrin Payment & Balance Policy
+                </h2>
+                <h3>1. Overview</h3>
+                <p>
+                    This Payment & Balance Policy explains how payments, the
+                    Cubrin Balance, refunds, escrow, and transaction processing
+                    operate within the Cubrin platform. Cubrin is a technology
+                    platform that facilitates transactions between users and
+                    vendors. Cubrin does not operate as a bank, money service
+                    business, or financial institution. The Cubrin Balance is a
+                    closed-loop, limited-purpose balance used only for
+                    transactions within the Cubrin ecosystem.
+                </p>
+
+                <h3>2. Cubrin Balance</h3>
+                <p>
+                    The Cubrin Balance is a platform-based transactional balance
+                    that allows users to pay for goods and services within
+                    Cubrin. Important clarifications: Cubrin Balance is not a
+                    bank account. Cubrin Balance is not a deposit account.
+                    Cubrin Balance is not a savings or investment product.
+                    Cubrin does not provide financial or banking services. Funds
+                    in the Cubrin Balance: may only be used for purchases,
+                    orders, and platform transactions within Cubrin, cannot be
+                    transferred outside the Cubrin platform, are not redeemable
+                    as cash, and are not intended for general money
+                    transmission.
+                </p>
+
+                <h3>3. Funding the Balance</h3>
+                <p>
+                    Users may add funds to their Cubrin Balance using supported
+                    third-party payment providers. All payment processing is
+                    handled by licensed third-party payment processors. Cubrin
+                    does not directly process or store full card or banking
+                    credentials.
+                </p>
+
+                <h3>4. Payment Processing</h3>
+                <p>
+                    When a user makes a payment: the required amount is deducted
+                    from the Cubrin Balance or authorized payment method, funds
+                    may be temporarily held in escrow pending order
+                    confirmation, and transactions are recorded in the user's
+                    activity history.
+                </p>
+
+                <h3>5. Escrow and Transaction Holds</h3>
+                <p>
+                    Cubrin may temporarily hold transaction funds to ensure safe
+                    marketplace operations. Funds may be held: until an order is
+                    confirmed, until goods or services are delivered, during
+                    dispute resolution, or during fraud and compliance reviews.
+                    Escrow holds are strictly for facilitating marketplace
+                    transactions and do not represent banking, custodial, or
+                    investment services.
+                </p>
+
+                <h3>6. Refunds</h3>
+                <p>
+                    Refunds may be issued under circumstances such as: order
+                    cancellation, vendor inability to fulfill an order, failed
+                    or incomplete transactions, or platform-initiated
+                    adjustments. Refunds may be credited back to: Cubrin
+                    Balance, or the original payment method, depending on
+                    processing conditions and third-party provider rules.
+                </p>
+
+                <h3>7. Failed Payments</h3>
+                <p>
+                    If a payment fails: the transaction will not be completed,
+                    no order will be confirmed, and any temporary authorization
+                    will be reversed where applicable.
+                </p>
+
+                <h3>8. Chargebacks and Reversals</h3>
+                <p>
+                    In cases of chargebacks initiated through external payment
+                    providers: Cubrin may temporarily freeze the associated
+                    account or balance, reverse transactions where necessary,
+                    and investigate the activity for fraud or misuse. Users
+                    agree that chargeback abuse may result in account
+                    restrictions or suspension.
+                </p>
+
+                <h3>9. Vendor Settlements</h3>
+                <p>
+                    Vendor earnings accumulated within Cubrin are tracked in a
+                    separate internal ledger. Vendors may request settlement
+                    payouts to their linked bank accounts, subject to:
+                    verification checks, fraud and compliance review, and
+                    processing timelines of third-party providers. Cubrin
+                    reserves the right to delay or withhold settlements where
+                    necessary for risk management or dispute resolution.
+                </p>
+
+                <h3>10. Platform Role Disclaimer</h3>
+                <p>
+                    Cubrin operates solely as a technology and marketplace
+                    platform that connects users and vendors. Cubrin does not:
+                    operate as a bank, provide money transfer services, offer
+                    stored value accounts, provide lending or credit services,
+                    or act as a financial intermediary beyond facilitating
+                    platform transactions.
+                </p>
+
+                <h3>11. Changes to This Policy</h3>
+                <p>
+                    Cubrin may update this Policy at any time. Continued use of
+                    the platform constitutes acceptance of any updates.
+                </p>
+
+                <h3>12. Contact</h3>
+                <p>
+                    For questions regarding payments or balances, users may
+                    contact Cubrin support through official in-app channels.
+                </p>
+
+                <!-- ==================== VENDOR TERMS ==================== -->
+                <h2 id="vendor-terms">Cubrin Vendor Terms</h2>
+                <h3>1. Introduction</h3>
+                <p>
+                    These Vendor Terms govern the relationship between Cubrin
+                    and all vendors using the Cubrin Vendors platform. By
+                    registering as a vendor, you agree to comply with these
+                    Terms, Cubrin's policies, and all applicable local laws and
+                    regulations. Cubrin provides a technology platform that
+                    enables vendors to list products, receive orders, manage
+                    inventory, and process transactions from customers. Cubrin
+                    does not act as a restaurant, retailer, or direct seller of
+                    goods.
+                </p>
+
+                <h3>2. Vendor Eligibility</h3>
+                <p>
+                    To operate on Cubrin, vendors must: provide accurate
+                    business and identity information, complete required
+                    verification processes (including KYC where applicable),
+                    maintain valid contact and banking details, comply with
+                    Cubrin's onboarding and compliance requirements. Cubrin
+                    reserves the right to approve, reject, or remove any vendor
+                    at its discretion.
+                </p>
+
+                <h3>3. Vendor Responsibilities</h3>
+                <p>
+                    Vendors are solely responsible for: the accuracy of all
+                    product listings, pricing correctness, product availability,
+                    preparation and fulfillment of orders, compliance with
+                    hygiene, safety, and legal standards, timely response to
+                    orders and customer requests. Vendors must ensure that all
+                    information displayed on their shop profile remains accurate
+                    and up to date.
+                </p>
+
+                <h3>4. Order Fulfillment</h3>
+                <p>
+                    Once an order is received, vendors must: confirm or reject
+                    the order within the required timeframe, prepare the order
+                    as described, mark the order status accurately within the
+                    system, ensure proper handover or delivery procedures are
+                    followed. Failure to consistently fulfill orders may result
+                    in reduced visibility, suspension, or removal from the
+                    platform.
+                </p>
+
+                <h3>5. Pricing and Accuracy</h3>
+                <p>
+                    Vendors agree that: all prices listed on Cubrin must be
+                    accurate and up to date, pricing discrepancies are the
+                    vendor's responsibility, Cubrin is not liable for incorrect
+                    pricing or listing errors, vendors may not intentionally
+                    mislead customers regarding pricing or product details.
+                    Cubrin reserves the right to adjust or remove listings that
+                    violate pricing integrity standards.
+                </p>
+
+                <h3>6. Prohibited Items and Listings</h3>
+                <p>
+                    Vendors may not list or sell items that are: illegal under
+                    applicable laws, unsafe or hazardous, misleading or
+                    fraudulent, restricted by Cubrin platform policies, or
+                    otherwise prohibited under regulatory requirements. Cubrin
+                    reserves the right to remove any item or category that
+                    violates platform standards or legal obligations.
+                </p>
+
+                <h3>7. Order Disputes and Adjustments</h3>
+                <p>
+                    In cases where items are unavailable or orders require
+                    modification: vendors may propose order adjustments,
+                    customers must approve or reject adjustments before
+                    fulfillment continues. Cubrin may intervene in disputes to
+                    ensure fair resolution and platform integrity. Repeated
+                    disputes or misuse of the system may result in vendor
+                    penalties or suspension.
+                </p>
+
+                <h3>8. Refunds and Cancellations</h3>
+                <p>
+                    Vendors may be responsible for refunds where: they are
+                    unable to fulfill an order, incorrect items are provided, or
+                    platform policies require reversal. Cubrin may process
+                    refunds directly where necessary and deduct corresponding
+                    amounts from vendor balances or settlements.
+                </p>
+
+                <h3>9. Compliance with Laws</h3>
+                <p>
+                    Vendors must comply with all applicable: food safety
+                    regulations, business registration requirements, tax
+                    obligations, health and safety laws, and other regulatory
+                    requirements in their jurisdiction. Vendors are solely
+                    responsible for ensuring lawful operation of their business.
+                </p>
+
+                <h3>10. Verification (KYC and Approval)</h3>
+                <p>
+                    All vendors must complete Cubrin's verification process
+                    before being fully activated on the platform. This may
+                    include: identity verification, business registration (where
+                    applicable), banking verification, shop profile validation,
+                    and additional compliance checks. Cubrin reserves the right
+                    to: approve or reject vendors, request additional
+                    documentation, suspend listings pending verification, or
+                    permanently remove vendors failing compliance requirements.
+                </p>
+
+                <h3>11. Shop Content and Listings</h3>
+                <p>
+                    Vendors are responsible for: creating accurate shop
+                    categories, submitting valid product information, ensuring
+                    images and descriptions reflect real offerings, maintaining
+                    updated availability and operational hours. All listings may
+                    be subject to Cubrin review before being made publicly
+                    visible.
+                </p>
+
+                <h3>12. Payments and Settlements</h3>
+                <p>
+                    Vendor earnings are recorded in a Cubrin internal ledger.
+                    Settlements may be subject to: verification checks, fraud
+                    prevention reviews, order confirmation status, and
+                    third-party payment processing timelines. Cubrin reserves
+                    the right to delay or withhold settlements in cases of:
+                    suspected fraud, disputes, chargebacks, or policy
+                    violations.
+                </p>
+
+                <h3>13. Platform Role Disclaimer</h3>
+                <p>
+                    Cubrin is a technology platform that facilitates connections
+                    between vendors and customers. Cubrin does not: operate as a
+                    food service provider, guarantee product quality or
+                    availability, act as a delivery company, or assume
+                    responsibility for vendor operations.
+                </p>
+
+                <h3>14. Suspension and Termination</h3>
+                <p>
+                    Cubrin may suspend or terminate vendor accounts if: terms
+                    are violated, fraud or abuse is suspected, repeated order
+                    failures occur, or regulatory compliance is not maintained.
+                    Vendors may appeal suspension through Cubrin's support
+                    channels where applicable.
+                </p>
+
+                <h3>15. Changes to Terms</h3>
+                <p>
+                    Cubrin may update these Vendor Terms at any time. Continued
+                    use of the platform constitutes acceptance of any updates.
+                </p>
+
+                <!-- ==================== LIABILITY & RESPONSIBILITY MATRIX ==================== -->
+                <h2 id="liability-matrix">
+                    Cubrin Liability & Responsibility Matrix
+                </h2>
+                <h3>1. Purpose of This Document</h3>
+                <p>
+                    This document defines the allocation of responsibilities
+                    between Cubrin, users, vendors, and third-party service
+                    providers within the Cubrin platform. It is intended to
+                    clarify operational roles and limit liability exposure by
+                    establishing that Cubrin operates as a technology platform
+                    facilitating interactions between independent parties.
+                </p>
+
+                <h3>2. Platform Role (Cubrin)</h3>
+                <p>
+                    Cubrin operates as a technology platform that: connects
+                    users with independent vendors, enables discovery of nearby
+                    shops and products, facilitates ordering and communication,
+                    provides tools for payments, split bills, and order
+                    tracking, supports transaction processing through
+                    third-party providers. Cubrin does NOT: own or operate any
+                    vendor businesses, produce or sell food or goods, guarantee
+                    product quality or availability, control vendor pricing or
+                    inventory, act as a delivery service provider. Cubrin's role
+                    is limited to providing platform infrastructure and
+                    facilitating interactions between parties.
+                </p>
+
+                <h3>3. Vendor Responsibilities</h3>
+                <p>
+                    Vendors are fully responsible for: accuracy of all product
+                    listings and pricing, availability of items, preparation and
+                    fulfillment of orders, quality and safety of goods or
+                    services, compliance with applicable laws and regulations,
+                    timely handling of orders and customer requests, maintaining
+                    accurate business profiles and operational details. Vendors
+                    are independent entities and are solely responsible for
+                    their commercial activities on the platform.
+                </p>
+
+                <h3>4. User Responsibilities</h3>
+                <p>
+                    Users are responsible for: maintaining accurate account
+                    information, safeguarding login credentials, ensuring
+                    payment methods and balances are used appropriately,
+                    reviewing order details before confirmation, participating
+                    responsibly in split payments and pay-for-me requests,
+                    complying with platform rules and applicable laws. Users
+                    acknowledge that: participation in shared payments is
+                    voluntary, Cubrin does not guarantee payment completion by
+                    other users, disputes between users are their own
+                    responsibility.
+                </p>
+
+                <h3>5. Third-Party Service Providers</h3>
+                <p>
+                    Certain services within Cubrin are provided by third-party
+                    providers, including but not limited to payment processing
+                    and infrastructure services (e.g. Paystack, Nigerian
+                    financial technology company). These providers are
+                    responsible for: payment processing, transaction
+                    authorization, banking integrations, and related financial
+                    infrastructure services. Cubrin is not responsible for
+                    failures or delays caused by third-party service providers.
+                </p>
+
+                <h3>6. Payments and Escrow Responsibility</h3>
+                <p>
+                    Cubrin facilitates transactions between users and vendors
+                    and may temporarily hold funds in escrow to ensure secure
+                    order completion. Responsibilities are allocated as follows:
+                    Users are responsible for initiating payments for valid
+                    orders. Vendors are responsible for fulfilling confirmed
+                    orders. Third-party providers are responsible for processing
+                    payments. Cubrin is responsible for coordinating the
+                    transaction flow within the platform. Escrow mechanisms are
+                    used strictly to support marketplace transactions and do not
+                    represent banking or custodial services.
+                </p>
+
+                <h3>7. Order Fulfillment Responsibility</h3>
+                <p>
+                    Order fulfillment is solely the responsibility of vendors.
+                    Cubrin does not: prepare orders, guarantee delivery
+                    timelines, control inventory, or ensure product quality.
+                    Users must resolve product or service issues directly with
+                    vendors, although Cubrin may assist in dispute mediation
+                    where appropriate.
+                </p>
+
+                <h3>8. Disputes and Liability Allocation</h3>
+                <p>
+                    Cubrin may assist in resolving disputes between users and
+                    vendors but does not guarantee outcomes. Cubrin is not
+                    liable for: vendor non-performance, user misuse of the
+                    platform, inaccurate listings provided by vendors, failed or
+                    delayed transactions caused by third parties, disputes
+                    between users regarding shared payments.
+                </p>
+
+                <h3>9. Limitation of Liability</h3>
+                <p>
+                    To the maximum extent permitted by law: Cubrin shall not be
+                    liable for any indirect, incidental, special, or
+                    consequential damages arising from: use of the platform,
+                    transactions between users and vendors, vendor performance
+                    or non-performance, payment delays or processing errors, or
+                    third-party service failures. Cubrin's liability, if any,
+                    shall be limited to the amount associated with the specific
+                    transaction giving rise to the claim.
+                </p>
+
+                <h3>10. Platform Independence Clause</h3>
+                <p>
+                    Cubrin is a neutral technology platform that facilitates
+                    connections between independent users and vendors. Nothing
+                    in this document creates: a partnership, joint venture,
+                    employment relationship, or agency relationship between
+                    Cubrin and any vendor or user. All vendors operate as
+                    independent businesses.
+                </p>
+
+                <h3>11. Changes to This Document</h3>
+                <p>
+                    Cubrin may update this document at any time. Continued use
+                    of the platform constitutes acceptance of any changes.
+                </p>
+
+                <h3>12. Contact</h3>
+                <p>
+                    For questions regarding responsibilities or liability
+                    allocation, users may contact Cubrin support through
+                    official in-app channels.
+                </p>
+
+                <!-- ==================== NO GUARANTEE OF VENDOR QUALITY ==================== -->
+                <div
+                    class="warning-banner p-4 rounded-lg my-6 flex gap-3 items-start"
+                >
+                    <svg
+                        class="w-6 h-6 text-amber-600 shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                        />
+                    </svg>
+                    <div>
+                        <p class="font-bold">
+                            Important: No Guarantee of Vendor Quality
+                        </p>
+                    </div>
+                </div>
+                <h2 id="no-guarantee-quality">
+                    No Guarantee of Vendor Quality Policy
+                </h2>
+                <h3>1. Purpose</h3>
+                <p>
+                    This Policy explains the limitations of Cubrin's
+                    responsibility regarding vendor-provided goods, services,
+                    and listings on the platform. Cubrin acts solely as a
+                    technology platform that connects users with independent
+                    vendors and does not control or guarantee vendor
+                    performance.
+                </p>
+
+                <h3>2. Vendor Independence</h3>
+                <p>
+                    All vendors listed on Cubrin are independent third-party
+                    businesses. Cubrin does not: own or operate vendor
+                    businesses, control vendor pricing or inventory, supervise
+                    food preparation or service delivery, or guarantee vendor
+                    operational standards. Vendors are solely responsible for
+                    their listings, products, and services.
+                </p>
+
+                <h3>3. No Guarantee of Quality</h3>
+                <p>
+                    Cubrin does not guarantee, warrant, or make any
+                    representation regarding: food or product quality, taste,
+                    freshness, or hygiene standards, accuracy of product
+                    descriptions or images, availability of listed items, or
+                    consistency of vendor offerings. Users acknowledge that
+                    vendor offerings may vary over time and may not always match
+                    expectations or prior experiences.
+                </p>
+
+                <h3>4. Availability and Listing Accuracy</h3>
+                <p>
+                    Vendor listings on Cubrin are provided directly by vendors
+                    and may change without notice. Cubrin does not guarantee
+                    that: items listed are always available, prices remain
+                    constant, menu items or products remain unchanged, or vendor
+                    operating hours are accurate at all times. Users are
+                    encouraged to verify details directly through the platform
+                    before placing orders.
+                </p>
+
+                <h3>5. Delivery and Fulfillment</h3>
+                <p>
+                    Cubrin does not guarantee: delivery times, order preparation
+                    time, courier performance (where applicable), or fulfillment
+                    speed. Delivery and order completion are the responsibility
+                    of the vendor or any third-party logistics provider involved
+                    in the transaction.
+                </p>
+
+                <h3>6. User Acknowledgment</h3>
+                <p>
+                    By using Cubrin, users acknowledge and agree that: they are
+                    engaging directly with independent vendors, Cubrin is not
+                    responsible for vendor performance, and any dissatisfaction
+                    with goods or services must be addressed primarily with the
+                    vendor. Cubrin may assist in dispute resolution but does not
+                    guarantee outcomes or vendor compliance beyond platform
+                    policies.
+                </p>
+
+                <h3>7. Limitation of Responsibility</h3>
+                <p>
+                    To the maximum extent permitted by law, Cubrin shall not be
+                    held liable for any loss, damage, or dissatisfaction arising
+                    from: vendor goods or services, inaccurate listings, delayed
+                    or failed deliveries, hygiene or quality issues, or vendor
+                    misconduct.
+                </p>
+
+                <h3>8. Changes to This Policy</h3>
+                <p>
+                    Cubrin may update this Policy at any time. Continued use of
+                    the platform constitutes acceptance of any updated terms.
+                </p>
+
+                <!-- ==================== MESSAGING & SOCIAL CONDUCT POLICY ==================== -->
+                <h2 id="messaging-conduct">
+                    Messaging & Social Conduct Policy
+                </h2>
+                <h3>1. Purpose</h3>
+                <p>
+                    Cubrin provides a structured messaging system designed to
+                    support platform-related interactions such as: split bill
+                    coordination, pay-for-me requests, order communication,
+                    friend-based interactions related to transactions and
+                    platform activity. Messaging within Cubrin is not a
+                    general-purpose social networking or public chat service.
+                </p>
+
+                <h3>2. Limited Messaging System</h3>
+                <p>
+                    Cubrin does not provide unrestricted public messaging.
+                    Messaging is: permission-based, connection-restricted, and
+                    functionally tied to platform interactions. Users cannot
+                    freely browse or message other users on the platform without
+                    an approved connection.
+                </p>
+
+                <h3>3. Connection-Based Communication</h3>
+                <p>
+                    To establish communication between users: a connection
+                    request must be initiated using verified contact information
+                    (such as a linked phone number or calling line), the
+                    receiving user must explicitly accept or decline the
+                    request. Users have full control over: accepting connection
+                    requests, declining connection requests, and removing
+                    existing connections. When a connection is removed, both
+                    users lose active friend status and must re-initiate a
+                    request to reconnect.
+                </p>
+
+                <h3>4. Messaging Scope</h3>
+                <p>
+                    Messaging is strictly limited to: platform-related
+                    communication, transaction coordination, order-related
+                    updates, and approved social interactions within Cubrin.
+                    Cubrin does not support unrestricted free-form public
+                    messaging, group chat systems, or open social feeds.
+                </p>
+
+                <h3>5. Message Persistence</h3>
+                <p>
+                    Cubrin does not delete message history when users remove a
+                    connection. Message history is retained for operational,
+                    support, and transaction record purposes. If users reconnect
+                    in the future, previous message history may be restored and
+                    become visible again.
+                </p>
+
+                <h3>6. Prohibited Use of Messaging</h3>
+                <p>
+                    Users may not use the messaging system to: engage in fraud
+                    or scams, send unsolicited spam or promotional content,
+                    impersonate other users or vendors, coordinate illegal
+                    activity, harass, threaten, or abuse others, or bypass
+                    platform transaction rules.
+                </p>
+
+                <h3>7. Platform Rights</h3>
+                <p>
+                    Cubrin reserves the right to: restrict messaging access,
+                    investigate reported conversations, suspend accounts for
+                    abuse, remove or limit functionality where necessary for
+                    safety or compliance, and cooperate with law enforcement
+                    where legally required.
+                </p>
+
+                <h3>8. Design Principle</h3>
+                <p>
+                    Cubrin's messaging system is designed as a structured
+                    interaction tool, not an open social chat platform. All
+                    communication is intended to support: commerce activities,
+                    user coordination, and platform-enabled transactions.
+                </p>
+
+                <!-- ==================== SPLIT BILL & PEER PAYMENT DISPUTES POLICY ==================== -->
+                <h2 id="split-disputes">
+                    Split Bill & Peer Payment Disputes Policy
+                </h2>
+                <h3>1. Purpose</h3>
+                <p>
+                    This Policy governs the use of Cubrin's split bill,
+                    pay-for-me, and shared payment features. These features are
+                    designed to allow users to coordinate and share payments for
+                    orders within the Cubrin platform. Cubrin provides the
+                    technical infrastructure to facilitate shared payments but
+                    does not mediate or guarantee personal financial agreements
+                    between users.
+                </p>
+
+                <h3>2. Nature of Split Payments</h3>
+                <p>
+                    Split bill and shared payment features are user-initiated
+                    and user-controlled arrangements. Users acknowledge that:
+                    participation in any split payment is voluntary, users
+                    independently agree on how costs are divided, Cubrin only
+                    provides the mechanism to execute agreed payment splits,
+                    Cubrin does not enforce or guarantee repayment between
+                    users.
+                </p>
+
+                <h3>3. User Responsibility</h3>
+                <p>
+                    Users are solely responsible for: selecting participants for
+                    split payments, confirming the correct individuals are
+                    included, agreeing on payment percentages or amounts, and
+                    ensuring mutual understanding before initiating
+                    transactions. Cubrin does not validate or verify personal
+                    agreements between users beyond system execution of payment
+                    instructions.
+                </p>
+
+                <h3>4. Payment Execution</h3>
+                <p>
+                    Once a split payment is confirmed: Cubrin executes the
+                    payment based on user-defined instructions (equal split or
+                    percentage-based split), transactions are processed through
+                    the Cubrin Balance or approved payment methods, and order
+                    fulfillment proceeds based on successful payment completion.
+                    Cubrin does not intervene in or alter agreed split
+                    structures after confirmation.
+                </p>
+
+                <h3>5. Disputes Between Users</h3>
+                <p>
+                    Cubrin is not responsible for disputes arising between users
+                    regarding: failure of one party to reimburse another,
+                    disagreements over split percentages, misunderstandings
+                    regarding payment obligations, or personal arrangements made
+                    outside the platform. Such disputes are strictly between the
+                    users involved. Cubrin may provide limited support
+                    assistance but does not guarantee resolution outcomes.
+                </p>
+
+                <h3>6. Pay-for-Me Requests</h3>
+                <p>
+                    Pay-for-me requests are voluntary and must be explicitly
+                    accepted by the receiving user before any payment is
+                    processed. Cubrin does not: compel users to pay on behalf of
+                    others, guarantee repayment of such payments, or mediate
+                    private financial expectations between users.
+                </p>
+
+                <h3>7. Fraud and Misuse</h3>
+                <p>
+                    Cubrin reserves the right to investigate and take action
+                    against: fraudulent split bill activity, impersonation or
+                    manipulation of payment requests, abuse of pay-for-me
+                    functionality, or coordinated attempts to exploit platform
+                    payment systems. Actions may include: account suspension,
+                    transaction reversal where applicable, or restriction of
+                    feature access.
+                </p>
+
+                <h3>8. Platform Role Disclaimer</h3>
+                <p>
+                    Cubrin provides a technical payment coordination tool only.
+                    Cubrin does not act as: a debt collector, a guarantor of
+                    user payments, or an intermediary enforcing personal
+                    financial agreements. All interpersonal financial
+                    arrangements remain the sole responsibility of users.
+                </p>
+
+                <h3>9. Changes to This Policy</h3>
+                <p>
+                    Cubrin may update this Policy at any time. Continued use of
+                    split bill features constitutes acceptance of any updated
+                    terms.
+                </p>
+
+                <!-- ==================== REFUND & ESCROW POLICY ==================== -->
+                <h2 id="refund-escrow-policy">Refund & Escrow Policy</h2>
+                <h3>1. Purpose</h3>
+                <p>
+                    This Policy explains the conditions under which refunds are
+                    issued, how escrow is handled, and how transaction reversals
+                    may occur on the Cubrin platform. Cubrin facilitates
+                    transactions between users and independent vendors and uses
+                    escrow mechanisms to support secure order fulfillment.
+                </p>
+
+                <h3>2. Escrow Mechanism</h3>
+                <p>
+                    Cubrin may temporarily hold funds in escrow when a user
+                    places an order. Escrow funds are held to: ensure order
+                    confirmation, support successful fulfillment by vendors,
+                    protect against failed or disputed transactions, and enable
+                    platform integrity. Funds are released from escrow only
+                    when: an order is confirmed as completed, or a valid
+                    resolution is reached in case of dispute. Escrow does not
+                    represent banking, savings, or custodial services.
+                </p>
+
+                <h3>3. Refund Eligibility</h3>
+                <p>
+                    <strong>3.1 Failed Orders:</strong> If a vendor fails to
+                    fulfill an order due to unavailability or operational
+                    issues.<br />
+                    <strong>3.2 Order Cancellation:</strong> If an order is
+                    cancelled within the allowed cancellation window before
+                    preparation or fulfillment begins.<br />
+                    <strong>3.3 Incorrect or Incomplete Orders:</strong> If the
+                    delivered item significantly differs from the order placed
+                    or is incomplete.<br />
+                    <strong>3.4 Duplicate Transactions:</strong> If a user is
+                    charged multiple times for the same order due to technical
+                    or processing errors.<br />
+                    <strong>3.5 Platform or System Errors:</strong> If a
+                    transaction fails or is incorrectly processed due to a
+                    system malfunction.
+                </p>
+
+                <h3>4. Non-Refundable Situations</h3>
+                <p>
+                    Refunds may not be issued in cases where: the order has been
+                    successfully completed and confirmed, the user changes their
+                    mind after vendor preparation has begun, incorrect
+                    user-provided information leads to failed delivery, or
+                    disputes arise outside of platform-controlled processes.
+                    Cubrin may evaluate such cases at its discretion.
+                </p>
+
+                <h3>5. Cancellation Policy</h3>
+                <p>
+                    Users may cancel orders within a limited timeframe before
+                    the vendor confirms or begins preparation. Once an order is
+                    confirmed or preparation has started: cancellation may no
+                    longer be possible, or may be subject to partial refund at
+                    Cubrin's discretion. Vendors may also cancel orders due to
+                    inability to fulfill, in which case refunds will be
+                    processed where applicable.
+                </p>
+
+                <h3>6. Delayed or Unfulfilled Orders</h3>
+                <p>
+                    If a vendor fails to confirm or fulfill an order within the
+                    expected timeframe: the order may be automatically flagged
+                    as delayed, Cubrin may intervene or cancel the order, and
+                    eligible refunds may be issued.
+                </p>
+
+                <h3>7. Duplicate or Erroneous Transactions</h3>
+                <p>
+                    If duplicate payments occur due to technical errors: Cubrin
+                    will investigate the transaction logs, and issue refunds or
+                    reversals where confirmed. Users are advised to report such
+                    issues through official support channels.
+                </p>
+
+                <h3>8. Suspicious or Fraudulent Activity</h3>
+                <p>
+                    Cubrin reserves the right to: pause or reverse transactions
+                    suspected to be fraudulent, temporarily hold funds during
+                    investigation, restrict account access where abuse is
+                    detected, and cooperate with third-party payment providers
+                    and law enforcement where required.
+                </p>
+
+                <h3>9. Refund Method</h3>
+                <p>
+                    Where approved, refunds may be issued as: Cubrin Balance
+                    credits, or reversal to the original payment method via
+                    third-party processors. Refund processing times may vary
+                    depending on payment provider timelines.
+                </p>
+
+                <h3>10. Platform Role Disclaimer</h3>
+                <p>
+                    Cubrin acts solely as a technology platform facilitating
+                    transactions between users and vendors. Cubrin does not
+                    guarantee vendor performance and is not responsible for
+                    goods or services provided by vendors beyond
+                    platform-defined refund conditions.
+                </p>
+
+                <h3>11. Policy Updates</h3>
+                <p>
+                    Cubrin may update this Policy at any time. Continued use of
+                    the platform constitutes acceptance of any changes.
+                </p>
+
+                <!-- Footer contact -->
                 <hr class="my-10 border-gray-200" />
                 <div class="mt-6 p-5 bg-gray-50 rounded-2xl text-center">
-                    <p class="text-sm font-bold text-gray-900">Questions?</p>
+                    <p class="text-sm font-bold text-gray-900">
+                        Questions about any policy?
+                    </p>
                     <a
                         href="mailto:legal@cubrin.com"
                         class="text-cubrin-green font-bold hover:underline"
                         >legal@cubrin.com</a
                     >
                     <p class="text-xs text-gray-400 mt-3">
-                        In case of conflict, specific policy documents prevail
-                        over this summary.
+                        These are the complete, unmodified legal documents. In
+                        case of conflict, these documents take precedence over
+                        any summaries.
                     </p>
                 </div>
             </div>
@@ -718,238 +1776,43 @@
             </div>
         </footer>
 
+        <!-- Scrollspy + mobile dropdown -->
         <script>
-            (function () {
-                // ================== DATA & REFERENCES ==================
-                const navData = [
-                    { label: "Terms of Service", hash: "#terms-of-service" },
-                    {
-                        label: "→ Eligibility & Accounts",
-                        hash: "#eligibility-accounts",
-                    },
-                    {
-                        label: "→ Social & Split Payments",
-                        hash: "#social-split",
-                    },
-                    {
-                        label: "→ Cubrin Balance & Payments",
-                        hash: "#balance-payment",
-                    },
-                    {
-                        label: "→ Escrow & Transaction Holds",
-                        hash: "#escrow-holds",
-                    },
-                    {
-                        label: "→ Vendors & Platform Role",
-                        hash: "#vendor-responsibility",
-                    },
-                    { label: "Privacy Policy", hash: "#privacy-policy" },
-                    {
-                        label: "Payment & Balance Policy",
-                        hash: "#payment-balance-policy",
-                    },
-                    {
-                        label: "Refund & Escrow Policy",
-                        hash: "#refund-escrow-policy",
-                    },
-                    { label: "Vendor Terms", hash: "#vendor-terms" },
-                    {
-                        label: "Liability & Responsibility",
-                        hash: "#liability-matrix",
-                    },
-                    {
-                        label: "No Guarantee of Vendor Quality",
-                        hash: "#no-guarantee-quality",
-                    },
-                    {
-                        label: "Messaging & Social Conduct",
-                        hash: "#messaging-conduct",
-                    },
-                    {
-                        label: "Split Bill & Peer Disputes",
-                        hash: "#split-disputes",
-                    },
-                    {
-                        label: "CubrinPass & Rewards",
-                        hash: "#cubrinpass-rewards",
-                    },
-                    {
-                        label: "Arbitration & Class Action Waiver",
-                        hash: "#arbitration-clause",
-                    },
-                ];
-
-                const sidebarLinks = document.querySelectorAll(".sidebar-link");
-                const toggleBtn = document.getElementById("mobileNavToggle");
-                const dropdown = document.getElementById("mobileNavDropdown");
-                const labelSpan = document.getElementById("mobileNavLabel");
-                const chevron = toggleBtn?.querySelector(".custom-chevron");
-
-                // ================== MOBILE DROPDOWN BUILDER ==================
-                function buildMobileDropdown() {
-                    if (!dropdown) return;
-                    dropdown.innerHTML = "";
-                    navData.forEach((item) => {
-                        const li = document.createElement("li");
-                        li.setAttribute("role", "option");
-                        const a = document.createElement("a");
-                        a.href = item.hash;
-                        a.textContent = item.label;
-                        a.className =
-                            "block px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-green-50 hover:text-gray-900 transition-colors border-b border-gray-50 last:border-b-0";
-                        const currentHash =
-                            window.location.hash || "#terms-of-service";
-                        if (item.hash === currentHash) {
-                            a.classList.add(
-                                "bg-green-50",
-                                "text-[#0a4f1a]",
-                                "border-l-4",
-                                "border-[#31ed5d]",
-                            );
-                            if (labelSpan) labelSpan.textContent = item.label;
-                        }
-                        a.addEventListener("click", (e) => {
-                            e.preventDefault();
-                            if (labelSpan) labelSpan.textContent = item.label;
-                            closeDropdown();
-                            const target = document.querySelector(item.hash);
-                            if (target) {
-                                target.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "start",
-                                });
-                                history.pushState(null, null, item.hash);
-                            } else {
-                                window.location.hash = item.hash;
-                            }
-                            updateMobileActive(item.hash);
-                        });
-                        li.appendChild(a);
-                        dropdown.appendChild(li);
-                    });
-                }
-
-                function updateMobileActive(hash) {
-                    if (!dropdown) return;
-                    const links = dropdown.querySelectorAll("a");
-                    links.forEach((link) => {
-                        link.classList.remove(
-                            "bg-green-50",
-                            "text-[#0a4f1a]",
-                            "border-l-4",
-                            "border-[#31ed5d]",
-                        );
-                        if (link.getAttribute("href") === hash) {
-                            link.classList.add(
-                                "bg-green-50",
-                                "text-[#0a4f1a]",
-                                "border-l-4",
-                                "border-[#31ed5d]",
-                            );
-                        }
-                    });
-                    const dataItem = navData.find((item) => item.hash === hash);
-                    if (dataItem && labelSpan) {
-                        labelSpan.textContent = dataItem.label;
-                    }
-                }
-
-                function openDropdown() {
-                    if (!dropdown || !chevron) return;
-                    dropdown.classList.remove(
-                        "opacity-0",
-                        "invisible",
-                        "-translate-y-2",
-                    );
-                    dropdown.classList.add(
-                        "opacity-100",
-                        "visible",
-                        "translate-y-0",
-                    );
-                    chevron.classList.add("rotate-180");
-                    toggleBtn?.setAttribute("aria-expanded", "true");
-                }
-
-                function closeDropdown() {
-                    if (!dropdown || !chevron) return;
-                    dropdown.classList.add(
-                        "opacity-0",
-                        "invisible",
-                        "-translate-y-2",
-                    );
-                    dropdown.classList.remove(
-                        "opacity-100",
-                        "visible",
-                        "translate-y-0",
-                    );
-                    chevron.classList.remove("rotate-180");
-                    toggleBtn?.setAttribute("aria-expanded", "false");
-                }
-
-                if (toggleBtn) {
-                    toggleBtn.addEventListener("click", (e) => {
-                        e.stopPropagation();
-                        if (
-                            toggleBtn.getAttribute("aria-expanded") === "true"
-                        ) {
-                            closeDropdown();
-                        } else {
-                            openDropdown();
-                        }
-                    });
-                }
-
-                document.addEventListener("click", (event) => {
-                    const container =
-                        document.querySelector(".custom-mobile-nav");
-                    if (container && !container.contains(event.target)) {
-                        closeDropdown();
+            const sections = document.querySelectorAll("h2[id], h3[id]");
+            const navLinks = document.querySelectorAll(".sidebar-link");
+            function updateActiveLink() {
+                let current = "";
+                const scrollPos = window.scrollY + 120;
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                        current = section.getAttribute("id");
                     }
                 });
-
-                document.addEventListener("keydown", (e) => {
-                    if (e.key === "Escape") closeDropdown();
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    const href = link.getAttribute("href").substring(1);
+                    if (href === current) link.classList.add("active");
                 });
-
-                // ================== SCROLLSPY ==================
-                const sections = document.querySelectorAll("h2[id], h3[id]");
-                function updateActiveLink() {
-                    let current = "";
-                    const scrollPos = window.scrollY + 140;
-
-                    sections.forEach((section) => {
-                        const sectionTop = section.offsetTop;
-                        const sectionBottom = sectionTop + section.offsetHeight;
-                        if (
-                            scrollPos >= sectionTop &&
-                            scrollPos < sectionBottom
-                        ) {
-                            current = section.getAttribute("id");
-                        }
-                    });
-
-                    if (sidebarLinks.length) {
-                        sidebarLinks.forEach((link) => {
-                            link.classList.remove("active");
-                            const href = link.getAttribute("href").substring(1);
-                            if (href === current) {
-                                link.classList.add("active");
-                            }
-                        });
+            }
+            window.addEventListener("scroll", updateActiveLink);
+            window.addEventListener("load", updateActiveLink);
+            const mobileSelect = document.getElementById("mobileNavSelect");
+            if (mobileSelect) {
+                mobileSelect.addEventListener("change", (e) => {
+                    const targetId = e.target.value;
+                    if (targetId) {
+                        document
+                            .querySelector(targetId)
+                            ?.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                            });
+                        setTimeout(() => (mobileSelect.value = ""), 500);
                     }
-
-                    if (current) {
-                        updateMobileActive("#" + current);
-                    }
-                }
-
-                window.addEventListener("scroll", updateActiveLink, {
-                    passive: true,
                 });
-                window.addEventListener("load", updateActiveLink);
-
-                buildMobileDropdown();
-            })();
+            }
         </script>
     </body>
 </html>
