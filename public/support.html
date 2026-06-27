@@ -3,378 +3,357 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Cubrin - Support & Contact</title>
-
-        <!-- Importing Fonts -->
+        <title>Cubrin — Support & Contact</title>
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;500;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=MuseoModerno:wght@400;500;600;700;800;900&display=swap"
             rel="stylesheet"
         />
-
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Tailwind Custom Configuration -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            cream: "#FFFDF7",
+                            "dark-green": "#143D01",
+                            "dark-green-alt": "#0a4f1a",
+                            "neon-green": "#16FF67",
+                            "neon-yellow": "#EBFC04",
+                            "cubrin-green": "#16FF67",
+                        },
+                        fontFamily: {
+                            heading: [
+                                "MuseoModerno",
+                                "system-ui",
+                                "sans-serif",
+                            ],
+                            body: ["Inter", "system-ui", "sans-serif"],
+                        },
+                        borderRadius: {
+                            "2xl": "1rem",
+                            "3xl": "1.5rem",
+                            "4xl": "2rem",
+                        },
+                    },
+                },
+            };
+        </script>
         <style>
-            :root {
-                /* Cubrin Brand Colors */
-                --bg-cream: #fdfcf7;
-                --text-dark: #1b1e25;
-                --text-gray: #4b5563;
-                --nav-gray: #374151;
-                --btn-dark-green: #0a4f1a;
-                --gradient-start: #31ed5d;
-                --gradient-end: #d8ff14;
-                --card-bg: #ffffff;
-
-                --font-head: "MuseoModerno", sans-serif;
-                --font-body: "Inter", sans-serif;
-            }
-
-            body {
-                background-color: var(--bg-cream);
-                color: var(--text-dark);
-                font-family: var(--font-body);
-                margin: 0;
-                padding: 0;
-                line-height: 1.6;
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-            }
-
-            /* --- NAVIGATION --- */
-            .navbar {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 24px 5%;
-                max-width: 1400px;
-                margin: 0 auto;
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            .logo {
-                height: 45px;
-                width: auto;
-            }
-
-            .nav-links {
-                display: flex;
-                gap: 35px;
-                align-items: center;
-            }
-
-            .nav-links a {
-                text-decoration: none;
-                color: var(--nav-gray);
-                font-weight: 600;
-                font-size: 0.95rem;
-                transition: color 0.2s;
-            }
-
-            .nav-links a:hover {
-                color: var(--btn-dark-green);
-            }
-
-            .btn-primary {
-                background-color: var(--btn-dark-green);
-                color: #ffffff;
-                text-decoration: none;
-                padding: 12px 28px;
-                border-radius: 50px;
-                font-weight: 600;
-                font-size: 0.95rem;
-                transition:
-                    transform 0.2s,
-                    background-color 0.2s;
-                border: none;
-                cursor: pointer;
-            }
-
-            .btn-primary:hover {
-                background-color: #073b12;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(10, 79, 26, 0.2);
-            }
-
-            /* --- SUPPORT SECTION --- */
-            .support-container {
-                max-width: 1200px;
-                margin: 40px auto 80px;
-                padding: 0 5%;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 60px;
-                align-items: center;
-            }
-
-            /* Left Side: Text content */
-            .support-text h1 {
-                font-family: var(--font-head);
-                font-size: 4rem;
-                font-weight: 900;
-                line-height: 1.1;
-                margin: 0 0 20px 0;
-                letter-spacing: -0.03em;
-            }
-
-            .text-gradient {
-                background: linear-gradient(
-                    90deg,
-                    var(--gradient-start),
-                    var(--gradient-end)
-                );
+            .text-gradient-neon {
+                background: linear-gradient(135deg, #16ff67 0%, #ebfc04 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-                color: transparent;
-            }
-
-            .support-text p {
-                font-size: 1.15rem;
-                color: var(--text-gray);
-                margin-bottom: 40px;
-                max-width: 450px;
-            }
-
-            .contact-info-block {
-                margin-top: 30px;
-            }
-
-            .contact-method {
-                display: flex;
-                align-items: center;
-                gap: 15px;
-                margin-bottom: 20px;
-            }
-
-            .contact-icon {
-                width: 45px;
-                height: 45px;
-                background: rgba(49, 237, 93, 0.1);
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: var(--btn-dark-green);
-                font-size: 1.2rem;
-            }
-
-            .contact-details h4 {
-                margin: 0;
-                font-family: var(--font-head);
-                font-size: 1.1rem;
-                color: var(--text-dark);
-            }
-
-            .contact-details a,
-            .contact-details span {
-                color: var(--text-gray);
-                text-decoration: none;
-                font-size: 0.95rem;
-            }
-
-            /* Right Side: Form */
-            .support-form-card {
-                background: var(--card-bg);
-                padding: 40px;
-                border-radius: 24px;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-                border: 1px solid #f3f4f6;
-            }
-
-            .form-group {
-                margin-bottom: 20px;
-            }
-
-            .form-group label {
-                display: block;
-                font-weight: 600;
-                font-size: 0.9rem;
-                margin-bottom: 8px;
-                color: var(--text-dark);
-            }
-
-            .optional-tag {
-                color: #9ca3af;
-                font-weight: 400;
-                font-size: 0.8rem;
-                margin-left: 5px;
-            }
-
-            .form-control {
-                width: 100%;
-                padding: 15px 20px;
-                border: 2px solid #e5e7eb;
-                border-radius: 12px;
-                font-family: var(--font-body);
-                font-size: 1rem;
-                color: var(--text-dark);
-                background-color: #fafafa;
-                transition: all 0.3s ease;
-                box-sizing: border-box;
-            }
-
-            .form-control:focus {
-                outline: none;
-                border-color: var(--gradient-start);
-                background-color: #ffffff;
-                box-shadow: 0 0 0 4px rgba(49, 237, 93, 0.1);
-            }
-
-            textarea.form-control {
-                resize: vertical;
-                min-height: 120px;
-            }
-
-            .submit-btn {
-                width: 100%;
-                background-color: var(--btn-dark-green);
-                color: #ffffff;
-                padding: 16px;
-                font-family: var(--font-head);
-                font-size: 1.15rem;
-                font-weight: 700;
-                border: none;
-                border-radius: 12px;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                margin-top: 10px;
-            }
-
-            .submit-btn:hover {
-                background-color: #073b12;
-                transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(10, 79, 26, 0.2);
-            }
-
-            /* --- RESPONSIVE --- */
-            @media (max-width: 992px) {
-                .support-container {
-                    grid-template-columns: 1fr;
-                    gap: 40px;
-                }
-                .support-text h1 {
-                    font-size: 3.5rem;
-                }
-                .nav-links {
-                    display: none; /* Hide on mobile for simplicity, or add a hamburger menu */
-                }
-            }
-
-            @media (max-width: 768px) {
-                .support-text h1 {
-                    font-size: 2.8rem;
-                }
-                .support-form-card {
-                    padding: 25px;
-                }
             }
         </style>
     </head>
-    <body>
-        <!-- NAVBAR -->
-        <nav class="navbar">
-            <a href="https://cubrin.com">
-                <img src="cubrinlogo.svg" alt="Cubrin Logo" class="logo" />
-            </a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="faqs.html">FAQs</a>
-                <a href="#">Ambassadors</a>
-                <a href="terms.html" style="color: var(--btn-dark-green)"
+    <body
+        class="font-body bg-cream text-dark-green antialiased min-h-screen flex flex-col"
+    >
+        <!-- Navigation -->
+        <nav
+            class="sticky top-0 z-50 bg-cream/85 backdrop-blur-lg border-b border-dark-green/5 shadow-sm"
+        >
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between"
+            >
+                <a href="https://cubrin.com" class="flex items-center">
+                    <img
+                        src="cubrinlogo.svg"
+                        alt="Cubrin Logo"
+                        class="h-9 md:h-11 w-auto"
+                    />
+                </a>
+                <div
+                    class="hidden md:flex items-center gap-8 text-sm font-semibold text-dark-green/70"
+                >
+                    <a
+                        href="index.html"
+                        class="hover:text-dark-green transition"
+                        >Home</a
+                    >
+                    <a href="faqs.html" class="hover:text-dark-green transition"
+                        >FAQs</a
+                    >
+                    <a href="#" class="hover:text-dark-green transition"
+                        >Ambassadors</a
+                    >
+                    <a
+                        href="terms.html"
+                        class="hover:text-dark-green transition"
+                        >Legals</a
+                    >
+                </div>
+                <a
+                    href="comingsoon.html"
+                    class="hidden md:inline-flex items-center px-6 py-2.5 rounded-full bg-dark-green text-cream text-sm font-bold hover:bg-dark-green-alt hover:shadow-lg transition-all duration-300"
+                >
+                    Download Now
+                </a>
+                <!-- Mobile menu toggle (simplified) -->
+                <button
+                    id="mobile-menu-btn"
+                    class="md:hidden text-dark-green p-2"
+                >
+                    <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"
+                        />
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu (hidden by default) -->
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3"
+            >
+                <a
+                    href="index.html"
+                    class="block text-sm font-semibold text-dark-green/70 hover:text-dark-green"
+                    >Home</a
+                >
+                <a
+                    href="faqs.html"
+                    class="block text-sm font-semibold text-dark-green/70 hover:text-dark-green"
+                    >FAQs</a
+                >
+                <a
+                    href="#"
+                    class="block text-sm font-semibold text-dark-green/70 hover:text-dark-green"
+                    >Ambassadors</a
+                >
+                <a
+                    href="terms.html"
+                    class="block text-sm font-semibold text-dark-green/70 hover:text-dark-green"
                     >Legals</a
                 >
+                <a
+                    href="comingsoon.html"
+                    class="inline-flex items-center px-6 py-2.5 rounded-full bg-dark-green text-cream text-sm font-bold hover:bg-dark-green-alt transition mt-2"
+                >
+                    Download Now
+                </a>
             </div>
-            <a href="comingsoon.html" class="btn-primary">Download Now</a>
         </nav>
 
-        <!-- MAIN SUPPORT SECTION -->
-        <main class="support-container">
-            <!-- Left Side: Header & Info -->
-            <div class="support-text">
-                <h1>We're here to <span class="text-gradient">help.</span></h1>
-                <p>
-                    Having trouble with an order? Want to partner with us? Drop
-                    us a message and our team will get back to you as soon as
-                    possible.
+        <!-- Main Support Section -->
+        <main
+            class="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 md:py-24"
+        >
+            <div class="max-w-3xl w-full mx-auto text-center">
+                <!-- Heading -->
+                <h1
+                    class="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl text-dark-green mb-6 leading-tight"
+                >
+                    We're here to <span class="text-gradient-neon">help.</span>
+                </h1>
+                <p
+                    class="text-dark-green/60 text-base md:text-lg max-w-xl mx-auto mb-12"
+                >
+                    Having trouble with an order? Want to partner with us? Reach
+                    out directly via email or WhatsApp – we're always online.
                 </p>
 
-                <div class="contact-info-block">
-                    <div class="contact-method">
-                        <div class="contact-icon">✉</div>
-                        <div class="contact-details">
-                            <h4>Email Us</h4>
-                            <a href="mailto:contact@cubrin.com"
-                                >contact@cubrin.com</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Side: Contact Form -->
-            <div class="support-form-card">
-                <!-- Action uses mailto to open user's default email client pre-filled, mapping directly to your official email -->
-                <form
-                    action="mailto:contact@cubrin.com"
-                    method="POST"
-                    enctype="text/plain"
+                <!-- Contact Cards: Email & WhatsApp -->
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg mx-auto mb-14"
                 >
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="Name"
-                            class="form-control"
-                            placeholder="Jane Doe"
-                            required
-                        />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="Phone Number"
-                            class="form-control"
-                            placeholder="+234 800 000 0000"
-                            required
-                        />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address"
-                            >Delivery Address
-                            <span class="optional-tag">(Optional)</span></label
+                    <!-- Email Card -->
+                    <a
+                        href="mailto:contact@cubrin.com"
+                        class="group flex flex-col items-center justify-center p-6 sm:p-8 bg-white rounded-3xl shadow-card-soft border border-dark-green/5 hover:-translate-y-1 hover:shadow-card-hover transition-all duration-300"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-neon-green/10 flex items-center justify-center mb-4 group-hover:bg-neon-green/20 transition-colors"
                         >
-                        <input
-                            type="text"
-                            id="address"
-                            name="Address"
-                            class="form-control"
-                            placeholder="123 Campus Road, Block A"
-                        />
-                    </div>
+                            <svg
+                                class="w-7 h-7 text-dark-green"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-lg text-dark-green mb-1"
+                        >
+                            Email Us
+                        </h3>
+                        <p
+                            class="text-sm text-dark-green/50 font-medium group-hover:text-dark-green transition-colors"
+                        >
+                            contact@cubrin.com
+                        </p>
+                    </a>
 
-                    <div class="form-group">
-                        <label for="message">How can we help?</label>
-                        <textarea
-                            id="message"
-                            name="Message"
-                            class="form-control"
-                            placeholder="Write your message here..."
-                            required
-                        ></textarea>
-                    </div>
+                    <!-- WhatsApp Card -->
+                    <a
+                        href="https://wa.me/2349018201890?text=Hi%20Cubrin%20Support"
+                        target="_blank"
+                        class="group flex flex-col items-center justify-center p-6 sm:p-8 bg-white rounded-3xl shadow-card-soft border border-dark-green/5 hover:-translate-y-1 hover:shadow-card-hover transition-all duration-300"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-neon-yellow/10 flex items-center justify-center mb-4 group-hover:bg-neon-yellow/20 transition-colors"
+                        >
+                            <svg
+                                class="w-7 h-7 text-dark-green"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                                />
+                            </svg>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-lg text-dark-green mb-1"
+                        >
+                            WhatsApp
+                        </h3>
+                        <p
+                            class="text-sm text-dark-green/50 font-medium group-hover:text-dark-green transition-colors"
+                        >
+                            Chat with us
+                        </p>
+                    </a>
+                </div>
 
-                    <button type="submit" class="submit-btn">
-                        Send Message
-                    </button>
-                </form>
+                <!-- Social Media Icons -->
+                <div class="flex justify-center items-center gap-6 mb-12">
+                    <a
+                        href="https://www.instagram.com/cubrin.app?igsh=MTNrdzJxbG1nMjcyNA%3D%3D&utm_source=qr"
+                        class="text-dark-green/60 hover:text-neon-green transition-colors transform hover:scale-110"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.youtube.com/@cubrinapp"
+                        class="text-dark-green/60 hover:text-neon-green transition-colors transform hover:scale-110"
+                    >
+                        <svg
+                            class="w-7 h-7"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.tiktok.com/@cubrin26"
+                        class="text-dark-green/60 hover:text-neon-green transition-colors transform hover:scale-110"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://x.com/cubrinapp?s=21"
+                        class="text-dark-green/60 hover:text-neon-green transition-colors transform hover:scale-110"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/share/1Eon6M7Zgf/?mibextid=wwXIfr"
+                        class="text-dark-green/60 hover:text-neon-green transition-colors transform hover:scale-110"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                            />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Additional message -->
+                <p class="text-xs text-dark-green/40 max-w-sm mx-auto">
+                    We typically respond within a few hours. For urgent matters,
+                    WhatsApp is fastest.
+                </p>
             </div>
         </main>
+
+        <!-- Footer -->
+        <footer class="bg-[#0a0f08] py-6 md:py-8 border-t border-cream/5">
+            <div
+                class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/40"
+            >
+                <p>
+                    &copy; <span id="current-year"></span> Cubrin. All rights
+                    reserved.
+                </p>
+                <div class="flex gap-4">
+                    <a
+                        href="terms.html"
+                        class="hover:text-neon-green transition"
+                        >Privacy Policy</a
+                    >
+                    <a
+                        href="terms.html"
+                        class="hover:text-neon-green transition"
+                        >Terms of Service</a
+                    >
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.getElementById("current-year").textContent =
+                new Date().getFullYear();
+            // Mobile menu toggle
+            document
+                .getElementById("mobile-menu-btn")
+                .addEventListener("click", function () {
+                    document
+                        .getElementById("mobile-menu")
+                        .classList.toggle("hidden");
+                });
+        </script>
     </body>
 </html>

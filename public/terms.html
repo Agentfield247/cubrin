@@ -25,6 +25,11 @@
             html {
                 scroll-behavior: smooth;
             }
+            /* Fix: offset for sticky header so section titles don't hide behind it */
+            .legal-content h2[id],
+            .legal-content h3[id] {
+                scroll-margin-top: 90px;
+            }
             .custom-scroll::-webkit-scrollbar {
                 width: 4px;
             }
@@ -132,7 +137,7 @@
                 <div class="flex items-center gap-3">
                     <a
                         href="https://cubrin.com"
-                        class="sm:hidden text-cubrin-green font-bold text-sm underline"
+                        class="sm:hidden text-cubrin-green font-bold text-sm"
                         >Home</a
                     >
                     <a
@@ -1803,12 +1808,13 @@
                 mobileSelect.addEventListener("change", (e) => {
                     const targetId = e.target.value;
                     if (targetId) {
-                        document
-                            .querySelector(targetId)
-                            ?.scrollIntoView({
+                        const targetEl = document.querySelector(targetId);
+                        if (targetEl) {
+                            targetEl.scrollIntoView({
                                 behavior: "smooth",
                                 block: "start",
                             });
+                        }
                         setTimeout(() => (mobileSelect.value = ""), 500);
                     }
                 });

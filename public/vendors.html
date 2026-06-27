@@ -331,7 +331,6 @@
             id="why-sell"
             class="relative py-16 md:py-24 lg:py-28 bg-cream"
         >
-            <!-- (same as before) -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
                     <span
@@ -622,18 +621,13 @@
                         three steps to start earning.
                     </p>
                 </div>
-                <!-- Added 'relative' wrapper so the absolute desktop connector lines up perfectly behind the grid -->
                 <div class="relative max-w-5xl mx-auto">
-                    <!-- Desktop Horizontal Step Connector Line (Kept absolute so it doesn't break the grid flow) -->
                     <div
                         class="step-connector hidden md:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-neon-green/20 via-neon-yellow/20 to-neon-green/20 z-0"
                     ></div>
-
-                    <!-- The 3-Step Grid System -->
                     <div
                         class="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 lg:gap-8 z-10"
                     >
-                        <!-- STEP 1 -->
                         <div class="text-center group">
                             <div
                                 class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-neon-green/20 to-neon-yellow/20 border-2 border-neon-green/40 flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:shadow-glow-neon group-hover:scale-105"
@@ -670,11 +664,9 @@
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                                     />
                                 </svg>
-                                <span>~1 minutes</span>
+                                <span>~1 minute</span>
                             </div>
                         </div>
-
-                        <!-- STEP 2 -->
                         <div class="text-center group">
                             <div
                                 class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-neon-yellow/20 to-neon-green/20 border-2 border-neon-yellow/40 flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:shadow-glow-neon group-hover:scale-105"
@@ -722,8 +714,6 @@
                                 <span>We come to you</span>
                             </div>
                         </div>
-
-                        <!-- STEP 3 -->
                         <div class="text-center group">
                             <div
                                 class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-neon-green/20 to-neon-green/25 border-2 border-neon-green/50 flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:shadow-glow-neon group-hover:scale-105 animate-glow-pulse"
@@ -790,6 +780,7 @@
             </div>
         </section>
 
+        <!-- ==================== REGISTRATION FORM (CORRECTED – NO AMBASSADOR LOGIN REQUIRED) ==================== -->
         <section
             id="register-form"
             class="relative py-16 md:py-24 lg:py-28 bg-dark-green overflow-hidden"
@@ -808,9 +799,8 @@
                 <div class="text-center mb-10 md:mb-14">
                     <span
                         class="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-neon-green bg-neon-green/10 px-4 py-1.5 rounded-full mb-4 border border-neon-green/20"
+                        >Register Your Business</span
                     >
-                        Register Your Business
-                    </span>
                     <h2
                         class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-cream mb-4 leading-tight"
                     >
@@ -907,6 +897,36 @@
                     </div>
 
                     <form id="onboard-form" onsubmit="handleOnboard(event)">
+                        <!-- Ambassador Referral Code (read from URL, automatically filled) -->
+                        <div
+                            class="mb-12 p-6 bg-gradient-to-r from-neon-green/5 to-neon-yellow/5 border border-neon-green/20 rounded-2xl"
+                        >
+                            <label
+                                class="block text-sm font-bold text-gray-700 mb-2"
+                                >Ambassador Referral Code
+                                <span class="text-red-500">*</span></label
+                            >
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <input
+                                    type="text"
+                                    id="ambassador-code"
+                                    required
+                                    class="flex-1 px-5 py-4 bg-white border border-gray-200 rounded-xl focus:border-neon-green focus:bg-white focus:ring-4 focus:ring-neon-green/10 transition-all outline-none text-gray-900 placeholder-gray-400 font-mono text-sm tracking-wider"
+                                    placeholder="e.g. AMB-7X9K2M"
+                                    pattern="AMB-[A-Z0-9]{6}"
+                                    title="Enter a valid ambassador code (e.g. AMB-7X9K2M)"
+                                />
+                                <span class="text-xs text-gray-500 self-center"
+                                    >From your Cubrin City Connector</span
+                                >
+                            </div>
+                            <p class="text-xs text-gray-400 mt-2">
+                                This code links your shop to the ambassador who
+                                invited you.
+                            </p>
+                        </div>
+
+                        <!-- Business Details -->
                         <div
                             class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12"
                         >
@@ -941,7 +961,6 @@
                                     What kind of food or items do you sell?
                                 </p>
                             </div>
-
                             <div class="md:col-span-2 space-y-6">
                                 <div>
                                     <label
@@ -961,7 +980,6 @@
                                         placeholder="e.g., Iya Basira Food Canteen"
                                     />
                                 </div>
-
                                 <div>
                                     <label
                                         class="block text-sm font-bold text-gray-700 mb-2"
@@ -993,7 +1011,6 @@
                                         </option>
                                     </select>
                                 </div>
-
                                 <div>
                                     <label
                                         class="block text-sm font-bold text-gray-700 mb-2"
@@ -1012,6 +1029,7 @@
 
                         <div class="border-t border-gray-100 mb-12"></div>
 
+                        <!-- Owner Details -->
                         <div
                             class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-10"
                         >
@@ -1046,7 +1064,6 @@
                                     We need to know who manages the storefront.
                                 </p>
                             </div>
-
                             <div class="md:col-span-2 space-y-6">
                                 <div
                                     class="grid grid-cols-1 sm:grid-cols-2 gap-6"
@@ -1231,8 +1248,23 @@
                 new Date().getFullYear();
 
             const API_URL = "https://api.cubrin.com/v1";
+            // Use the link-based merchant onboard endpoint (similar to customer link)
+            const MERCHANT_ONBOARD_LINK_API = `${API_URL}/admins/ambassadors/merchants/onboard/link/index.php`;
 
-            // Onboard form handler (same API as ambassador portal)
+            // Populate ambassador code from URL query parameter (e.g., ?code=AMB-3AD742)
+            (function () {
+                const params = new URLSearchParams(window.location.search);
+                const code = params.get("code");
+                if (code) {
+                    const codeInput =
+                        document.getElementById("ambassador-code");
+                    if (codeInput) {
+                        codeInput.value = code.trim();
+                    }
+                }
+            })();
+
+            // Onboard form handler – no ambassador login required
             async function handleOnboard(e) {
                 e.preventDefault();
                 const btn = document.getElementById("ob-btn"),
@@ -1241,11 +1273,12 @@
                     succDiv = document.getElementById("onboard-success"),
                     form = document.getElementById("onboard-form");
 
-                // Get ambassador token from sessionStorage (must be logged in as ambassador)
-                const token = sessionStorage.getItem("ambassadorToken");
-                if (!token) {
+                const ambassadorCode = document
+                    .getElementById("ambassador-code")
+                    .value.trim();
+                if (!ambassadorCode) {
                     errText.textContent =
-                        "Authentication required. Please log in as an ambassador to onboard merchants.";
+                        "Ambassador referral code is required.";
                     errDiv.classList.remove("hidden");
                     return;
                 }
@@ -1257,7 +1290,7 @@
                 succDiv.classList.add("hidden");
 
                 const payload = {
-                    access_token: token,
+                    ambassador_code: ambassadorCode,
                     shop_name: document
                         .getElementById("ob-shop-name")
                         .value.trim(),
@@ -1286,33 +1319,17 @@
                 };
 
                 try {
-                    const res = await fetch(
-                        `${API_URL}/admins/ambassadors/merchants/onboard/index.php`,
-                        {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(payload),
-                        },
-                    );
+                    const res = await fetch(MERCHANT_ONBOARD_LINK_API, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload),
+                    });
                     const data = await res.json();
                     if (data.success) {
                         form.classList.add("hidden");
                         succDiv.classList.remove("hidden");
                     } else {
-                        if (
-                            data.message &&
-                            data.message.toLowerCase().includes("session")
-                        ) {
-                            // token expired
-                            sessionStorage.clear();
-                            errText.textContent =
-                                "Session expired. Please log in again.";
-                        } else {
-                            throw new Error(
-                                data.message || "Registration failed",
-                            );
-                        }
-                        errDiv.classList.remove("hidden");
+                        throw new Error(data.message || "Registration failed");
                     }
                 } catch (error) {
                     errText.textContent = error.message;
@@ -1334,6 +1351,13 @@
                     .classList.add("hidden");
                 document.getElementById("ob-phone-code").value = "234";
                 document.getElementById("ob-whatsapp-code").value = "234";
+                // Re-populate ambassador code from URL if present
+                const params = new URLSearchParams(window.location.search);
+                const code = params.get("code");
+                if (code) {
+                    document.getElementById("ambassador-code").value =
+                        code.trim();
+                }
             }
 
             // Smooth scroll
