@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Deletion Guide | Cubrin</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+
+    <!-- Cubrin Brand Colors Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-green': '#143D01',
+                        'dark-green-alt': '#0d2901',
+                        cream: '#FDFBF7',
+                        cubrin: {
+                            yellow: '#EBFC04',
+                            green: '#143D01',
+                            cream: '#FDFBF7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth scroll & step numbering */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .step-card {
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -12px rgba(20, 61, 1, 0.15);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #143D01;
+            color: #FDFBF7;
+            font-weight: 700;
+            font-size: 1.125rem;
+            flex-shrink: 0;
+        }
+
+        .policy-card {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .policy-card:hover {
+            box-shadow: 0 20px 48px -12px rgba(20, 61, 1, 0.12);
+        }
+
+        /* Mobile menu animation */
+        #mobile-menu {
+            transition: max-height 0.3s ease, opacity 0.25s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        #mobile-menu.open {
+            max-height: 600px;
+            opacity: 1;
+        }
+
+        /* Image hover zoom effect */
+        .img-wrap {
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .img-wrap img {
+            transition: transform 0.5s ease;
+        }
+
+        .img-wrap:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Custom bullet styling */
+        .policy-list li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .policy-list li::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #143D01;
+            font-size: 0.75rem;
+            top: 0.4rem;
+        }
+    </style>
+</head>
+<body class="bg-cream text-dark-green min-h-screen font-sans selection:bg-cubrin-yellow selection:text-black antialiased">
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="sticky top-0 z-50 bg-cream/88 backdrop-blur-lg border-b border-dark-green/6 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <a href="https://cubrin.com" class="flex items-center">
+                <img src="cubrinlogo.svg" alt="Cubrin" class="h-9 md:h-11 w-auto" />
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-dark-green/70">
+                <a href="index.html" class="hover:text-dark-green transition">Home</a>
+                <a href="faqs.html" class="hover:text-dark-green transition">FAQs</a>
+                <a href="#" class="hover:text-dark-green transition">Ambassadors</a>
+                <a href="terms.html" class="hover:text-dark-green transition">Legals</a>
+            </div>
+
+            <a href="comingsoon.html" class="hidden md:inline-flex items-center px-6 py-2.5 rounded-full bg-dark-green text-cream text-sm font-bold hover:bg-dark-green-alt hover:shadow-lg transition-all duration-300">
+                Download Now
+            </a>
+
+            <!-- Mobile toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-dark-green p-2" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-100 px-4 py-0">
+            <div class="flex flex-col space-y-3 pt-4 pb-5">
+                <a href="index.html" class="text-sm font-semibold text-dark-green/70 hover:text-dark-green">Home</a>
+                <a href="faqs.html" class="text-sm font-semibold text-dark-green/70 hover:text-dark-green">FAQs</a>
+                <a href="#" class="text-sm font-semibold text-dark-green/70 hover:text-dark-green">Ambassadors</a>
+                <a href="terms.html" class="text-sm font-semibold text-dark-green/70 hover:text-dark-green">Legals</a>
+                <a href="comingsoon.html" class="inline-flex items-center px-6 py-2.5 rounded-full bg-dark-green text-cream text-sm font-bold hover:bg-dark-green-alt transition mt-2 self-start">
+                    Download Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 md:mt-12 pb-16">
+
+        <!-- Header -->
+        <header class="mb-14 md:mb-18 border-b border-dark-green/10 pb-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-3">Account Deletion Guide</h1>
+            <p class="text-lg text-dark-green/70 max-w-xl mx-auto leading-relaxed">
+                Follow the step-by-step visual guide below to delete your account directly from the Cubrin app.
+            </p>
+        </header>
+
+        <!-- ===== STEPS ===== -->
+        <section class="mb-20 space-y-14">
+
+            <!-- Step 1 -->
+            <div class="step-card bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-dark-green/6">
+                <div class="flex items-start gap-4">
+                    <span class="step-number">1</span>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold leading-tight">Click on Profile</h2>
+                    </div>
+                </div>
+                <div class="img-wrap mt-4 rounded-xl border border-gray-200">
+                    <img src="DEL1.jpeg" alt="Tap Profile" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-dark-green/6">
+                <div class="flex items-start gap-4">
+                    <span class="step-number">2</span>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold leading-tight">Click on Settings</h2>
+                    </div>
+                </div>
+                <div class="img-wrap mt-4 rounded-xl border border-gray-200">
+                    <img src="DEL2.jpeg" alt="Tap Settings" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-dark-green/6">
+                <div class="flex items-start gap-4">
+                    <span class="step-number">3</span>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold leading-tight">Scroll Down &amp; Tap <span class="bg-dark-green/10 px-2 py-0.5 rounded">Delete Account</span></h2>
+                    </div>
+                </div>
+                <div class="img-wrap mt-4 rounded-xl border border-gray-200">
+                    <img src="DEL3.jpeg" alt="Delete Account" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-dark-green/6">
+                <div class="flex items-start gap-4">
+                    <span class="step-number">4</span>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold leading-tight">Check the <span class="bg-dark-green/10 px-2 py-0.5 rounded">I Understand</span> Box</h2>
+                    </div>
+                </div>
+                <div class="img-wrap mt-4 rounded-xl border border-gray-200">
+                    <img src="DEL4.jpeg" alt="I Understand checkbox" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-dark-green/6">
+                <div class="flex items-start gap-4">
+                    <span class="step-number">5</span>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold leading-tight">Enter Your Password</h2>
+                    </div>
+                </div>
+                <div class="img-wrap mt-4 rounded-xl border border-gray-200">
+                    <img src="DEL5.jpeg" alt="Enter password" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="step-card bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-dark-green/6">
+                <div class="flex items-start gap-4">
+                    <span class="step-number">6</span>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold leading-tight">Tap <span class="bg-red-50 text-red-700 px-2 py-0.5 rounded">Delete My Account</span></h2>
+                    </div>
+                </div>
+                <div class="img-wrap mt-4 rounded-xl border border-gray-200">
+                    <img src="DEL6.jpeg" alt="Delete My Account" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="step-card bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-dark-green/6">
+                <div class="flex items-start gap-4">
+                    <span class="step-number">7</span>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold leading-tight">Confirmation Popup &mdash; 30-Day Recovery</h2>
+                        <p class="text-dark-green/60 text-sm mt-1">You'll see a popup confirming that your account can be recovered within 30 days.</p>
+                    </div>
+                </div>
+                <div class="img-wrap mt-4 rounded-xl border border-gray-200">
+                    <img src="DEL7.jpeg" alt="Confirmation popup" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="step-card bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-dark-green/6">
+                <div class="flex items-start gap-4">
+                    <span class="step-number">8</span>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold leading-tight">Check Your Email</h2>
+                        <p class="text-dark-green/60 text-sm mt-1">A confirmation email will be sent to your registered address.</p>
+                    </div>
+                </div>
+                <div class="img-wrap mt-4 rounded-xl border border-gray-200">
+                    <img src="DEL8.jpeg" alt="Confirmation email" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+            <!-- Step 9 -->
+            <div class="step-card bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-dark-green/6">
+                <div class="flex items-start gap-4">
+                    <span class="step-number">9</span>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold leading-tight">Deletion Confirmed</h2>
+                        <p class="text-dark-green/60 text-sm mt-1">Your account deletion request is now processed.</p>
+                    </div>
+                </div>
+                <div class="img-wrap mt-4 rounded-xl border border-gray-200">
+                    <img src="DEL9.jpeg" alt="Deletion confirmed" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ===== POLICIES ===== -->
+        <section class="border-t border-dark-green/10 pt-14 space-y-12">
+
+            <!-- Policy 1: Cubrin Account Deletion -->
+            <div class="policy-card bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-dark-green/6">
+                <h2 class="text-3xl font-bold mb-2">Cubrin Account Deletion Policy</h2>
+                <p class="mb-6 font-semibold text-dark-green/60">Effective Date: July 12, 2026</p>
+
+                <p class="mb-6 leading-relaxed">At Cubrin, we respect your privacy and provide every user with the ability to permanently delete their account and personal information.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">How to Delete Your Account</h3>
+                <p class="mb-4 leading-relaxed">To request the deletion of your Cubrin account:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>Log in to the Cubrin mobile app.</li>
+                    <li>Tap Profile from the bottom navigation bar.</li>
+                    <li>Tap the Settings icon located in the top-right corner.</li>
+                    <li>Scroll to the Account Actions section.</li>
+                    <li>Tap Delete Account.</li>
+                </ul>
+
+                <p class="mb-4 leading-relaxed">Before submitting your request, you must ensure that:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>You have no pending or unconfirmed orders.</li>
+                    <li>All existing orders have either been completed or cancelled.</li>
+                </ul>
+
+                <p class="mb-4 leading-relaxed">You will then be asked to:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>Confirm that you understand the consequences of deleting your account by checking the confirmation box.</li>
+                    <li>Enter your account password to verify your identity.</li>
+                    <li>Optionally provide a reason for deleting your account.</li>
+                </ul>
+                <p class="mb-6 leading-relaxed">After submitting your request, Cubrin will send a confirmation email to your registered email address.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">30-Day Recovery Period</h3>
+                <p class="mb-4 leading-relaxed">Once your deletion request has been confirmed, your account will enter a 30-day pending deletion period.</p>
+                <p class="mb-4 leading-relaxed">During this period:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>Your account will remain inactive.</li>
+                    <li>You may cancel the deletion request at any time by simply logging back into your account.</li>
+                    <li>All account information will remain available for restoration until the end of the 30-day period.</li>
+                </ul>
+                <p class="mb-6 leading-relaxed">If you do not reactivate your account within 30 days, your deletion request becomes permanent.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Data Deleted</h3>
+                <p class="mb-4 leading-relaxed">After the 30-day recovery period expires, Cubrin permanently deletes your personal information, including but not limited to:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>Full name</li>
+                    <li>Email address</li>
+                    <li>Phone number</li>
+                    <li>Delivery addresses</li>
+                    <li>Profile information</li>
+                    <li>Other personally identifiable account information</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Data Retained</h3>
+                <p class="mb-4 leading-relaxed">Certain records are retained after account deletion for legal, security, fraud prevention, financial reporting, and audit purposes. These include:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>Order history</li>
+                    <li>Transaction history</li>
+                    <li>Chat messages exchanged with other users (to preserve conversation history for remaining participants and maintain audit records)</li>
+                </ul>
+                <p class="mb-6 leading-relaxed">Retained records are securely stored and are not used to restore your deleted account.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Automatic Deletion Process</h3>
+                <p class="mb-4 leading-relaxed">Cubrin operates an automated background process that reviews pending deletion requests daily. Once the 30-day recovery period has expired, eligible accounts are permanently anonymized or deleted in accordance with this policy.</p>
+            </div>
+
+            <!-- Policy 2: Reactivation -->
+            <div class="policy-card bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-dark-green/6">
+                <h2 class="text-3xl font-bold mb-2">Cubrin Account Reactivation Policy</h2>
+                <p class="mb-6 font-semibold text-dark-green/60">Effective Date: July 12, 2026</p>
+
+                <p class="mb-4 leading-relaxed">Cubrin provides a 30-day account recovery period following an account deletion request. During this period, users may restore their account if they change their mind.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Reactivating Your Account</h3>
+                <p class="mb-4 leading-relaxed">If your account is within the 30-day recovery period, you can reactivate it by following these steps:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>Open the Cubrin or Cubrin Vendor app.</li>
+                    <li>Sign in using your registered email address and password.</li>
+                    <li>If your account is pending deletion, you will be shown a message informing you that your account is scheduled for permanent deletion and asking whether you would like to reactivate it.</li>
+                    <li>Select Reactivate Account to continue.</li>
+                    <li>Cubrin will send a One-Time Password (OTP) to your registered email address.</li>
+                    <li>Enter the OTP to verify your identity.</li>
+                </ul>
+
+                <p class="mb-4 leading-relaxed">Once the OTP has been successfully verified, your account will be fully restored, and the pending deletion request will be cancelled.</p>
+                <p class="mb-4 leading-relaxed">All of your account information, settings, balances (where applicable), and other account data will remain available exactly as they were before the deletion request, provided the reactivation occurs within the recovery period.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">After the Recovery Period</h3>
+                <p class="mb-4 leading-relaxed">The account recovery period lasts for 30 days from the date the deletion request is confirmed.</p>
+                <p class="mb-4 leading-relaxed">If no reactivation is completed within those 30 days:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>The account will be permanently deleted.</li>
+                    <li>Personal information will be permanently removed in accordance with the Cubrin Account Deletion Policy.</li>
+                    <li>The account can no longer be recovered or restored.</li>
+                    <li>Users wishing to use Cubrin again must create a new account.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Security Verification</h3>
+                <p class="mb-4 leading-relaxed">To protect user accounts, every reactivation request requires email verification using a One-Time Password (OTP). This verification helps ensure that only the legitimate account owner can restore a pending account.</p>
+            </div>
+
+            <!-- Policy 3: Vendor Account Deletion -->
+            <div class="policy-card bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-dark-green/6">
+                <h2 class="text-3xl font-bold mb-2">Cubrin Vendor Account Deletion Policy</h2>
+                <p class="mb-6 font-semibold text-dark-green/60">Effective Date: July 12, 2026</p>
+
+                <p class="mb-4 leading-relaxed">Vendor accounts require additional steps before deletion to ensure that customers, orders, and financial records are properly handled.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Requirements Before Deleting Your Vendor Account</h3>
+                <p class="mb-4 leading-relaxed">Before requesting account deletion, you must complete all of the following requirements:</p>
+
+                <p class="font-bold mt-6 mb-2">1. Archive All Products</p>
+                <p class="mb-4 leading-relaxed">All active products must be archived before deletion.</p>
+                <p class="mb-4 leading-relaxed">To archive products:</p>
+                <ul class="policy-list space-y-2 mb-4 ml-1 text-dark-green/80">
+                    <li>Open the Cubrin Vendor app.</li>
+                    <li>Go to the Home screen.</li>
+                    <li>Tap See All above the product categories.</li>
+                    <li>Open the Active products section.</li>
+                    <li>For each product, tap the Archive button located beneath the Edit icon.</li>
+                    <li>Repeat until no active products remain.</li>
+                </ul>
+                <p class="mb-6 leading-relaxed">Archived products are removed from public view and are no longer visible to customers.</p>
+
+                <p class="font-bold mt-6 mb-2">2. Complete or Cancel All Orders</p>
+                <p class="mb-6 leading-relaxed">All pending orders must be completed or cancelled before your account can be deleted.</p>
+
+                <p class="font-bold mt-6 mb-2">3. Request Settlement of Your Vendor Balance</p>
+                <p class="mb-6 leading-relaxed">If your vendor account has an available Cubrin Vendor Balance, you must submit a settlement request so that any eligible funds can be processed before account closure.</p>
+
+                <p class="font-bold mt-6 mb-2">4. Close Your Shop</p>
+                <p class="mb-6 leading-relaxed">Before requesting deletion, set your shop status to Closed so customers are informed that your business is no longer accepting orders.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">How to Delete Your Vendor Account</h3>
+                <p class="mb-4 leading-relaxed">Once all requirements have been completed:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>Log in to the Cubrin Vendor app.</li>
+                    <li>Tap Profile.</li>
+                    <li>Open Settings.</li>
+                    <li>Scroll to the Delete Account option.</li>
+                    <li>Confirm that you have completed all required steps by selecting the confirmation checkbox.</li>
+                    <li>Enter your account password to verify your identity.</li>
+                    <li>Optionally provide a reason for deleting your account.</li>
+                    <li>Tap Delete My Account.</li>
+                </ul>
+                <p class="mb-6 leading-relaxed">A confirmation email will be sent to your registered email address after your deletion request has been submitted.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">30-Day Recovery Period</h3>
+                <p class="mb-4 leading-relaxed">Vendor accounts follow the same 30-day recovery process as standard Cubrin accounts.</p>
+                <p class="mb-4 leading-relaxed">During this period, you may reactivate your account by signing in again. After the 30-day period expires, your personal account information is permanently deleted.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Data Deleted</h3>
+                <p class="mb-6 leading-relaxed">After the recovery period, Cubrin permanently deletes personal information associated with the vendor account, including contact information, account profile information, and other personally identifiable data.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Data Retained</h3>
+                <p class="mb-4 leading-relaxed">Cubrin retains certain business records where necessary for legal compliance, fraud prevention, financial reconciliation, and auditing. These records may include:</p>
+                <ul class="policy-list space-y-2 mb-6 ml-1 text-dark-green/80">
+                    <li>Order history</li>
+                    <li>Transaction history</li>
+                    <li>Settlement records</li>
+                    <li>Shop activity logs</li>
+                    <li>Chat messages associated with customer communications</li>
+                </ul>
+                <p class="mb-6 leading-relaxed">These retained records are preserved solely for compliance and audit purposes and cannot be used to restore a deleted account.</p>
+
+                <h3 class="text-xl font-bold mt-8 mb-4">Automatic Deletion Process</h3>
+                <p class="mb-4 leading-relaxed">Cubrin uses an automated background process that periodically reviews pending deletion requests. Once the 30-day recovery period has expired, eligible vendor accounts are permanently deleted or anonymized in accordance with this policy.</p>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- ===== MOBILE MENU SCRIPT ===== -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            // Toggle between hidden and block with animation
+            if (menu.classList.contains('open')) {
+                menu.style.maxHeight = menu.scrollHeight + 'px';
+                menu.style.opacity = '1';
+            } else {
+                menu.style.maxHeight = '0';
+                menu.style.opacity = '0';
+            }
+        });
+
+        // Close menu on link click (optional)
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('open');
+                menu.style.maxHeight = '0';
+                menu.style.opacity = '0';
+            });
+        });
+    </script>
+
+</body>
+</html>

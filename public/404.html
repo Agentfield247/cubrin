@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Page Not Found | Cubrin</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            "cubrin-dark": "#0a0a0a",
+                            "cubrin-neon": "#00ff66",
+                        },
+                        fontFamily: {
+                            heading: ["Inter", "sans-serif"],
+                            body: ["Inter", "sans-serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body
+        class="bg-cubrin-dark min-h-screen flex items-center justify-center font-body text-white relative overflow-hidden"
+    >
+        <div
+            class="absolute top-1/4 left-1/4 w-96 h-96 bg-cubrin-neon/20 rounded-full blur-[120px] pointer-events-none"
+        ></div>
+        <div
+            class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"
+        ></div>
+
+        <div
+            class="relative z-10 text-center px-6 py-16 max-w-lg w-full mx-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl shadow-2xl"
+        >
+            <h1
+                class="font-heading font-black text-7xl md:text-9xl tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-2"
+            >
+                404
+            </h1>
+            <h2 class="text-xl md:text-2xl font-bold mb-4">
+                Lost in the ecosystem?
+            </h2>
+            <p class="text-gray-400 text-sm md:text-base mb-8 px-4">
+                The page you are looking for doesn't exist, has been moved, or
+                is currently restricted. Let's get you back to familiar
+                territory.
+            </p>
+
+            <a
+                href="/"
+                class="inline-flex items-center gap-2 bg-cubrin-neon text-cubrin-dark px-8 py-3.5 rounded-xl font-bold transition-all hover:bg-white hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,102,0.4)]"
+            >
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    />
+                </svg>
+                Return to Homepage
+            </a>
+        </div>
+    </body>
+</html>
