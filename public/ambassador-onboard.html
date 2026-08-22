@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth" style="scroll-behavior: smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Apply to Become a Cubrin Ambassador — Cubrin</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=MuseoModerno:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Tailwind Custom Configuration -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            cream: "#FFFDF7",
+                            "dark-green": "#143D01",
+                            "dark-green-alt": "#0a4f1a",
+                            "neon-green": "#16FF67",
+                            "neon-yellow": "#EBFC04",
+                            "cubrin-green": "#16FF67",
+                        },
+                        fontFamily: {
+                            heading: [
+                                "MuseoModerno",
+                                "system-ui",
+                                "sans-serif",
+                            ],
+                            body: ["Inter", "system-ui", "sans-serif"],
+                            museo: ["MuseoModerno", "system-ui", "sans-serif"],
+                        },
+                        borderRadius: {
+                            "2xl": "1rem",
+                            "3xl": "1.5rem",
+                            "4xl": "2rem",
+                        },
+                        boxShadow: {
+                            "glow-neon":
+                                "0 0 40px rgba(22, 255, 103, 0.25), 0 0 80px rgba(22, 255, 103, 0.10)",
+                            "glow-neon-sm":
+                                "0 0 20px rgba(22, 255, 103, 0.15), 0 0 40px rgba(22, 255, 103, 0.06)",
+                            "card-soft":
+                                "0 8px 32px rgba(20, 61, 1, 0.08), 0 2px 8px rgba(20, 61, 1, 0.04)",
+                            "card-hover":
+                                "0 24px 56px rgba(20, 61, 1, 0.14), 0 8px 20px rgba(20, 61, 1, 0.08)",
+                            "button-glow":
+                                "0 8px 32px rgba(22, 255, 103, 0.35)",
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <!-- Custom Styles -->
+        <style>
+            .text-gradient-neon {
+                background: linear-gradient(135deg, #16ff67 0%, #ebfc04 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+            }
+
+            .text-gradient-neon-soft {
+                background: linear-gradient(135deg, #16ff67 30%, #d4f805 80%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .bg-dot-pattern {
+                background-image: radial-gradient(
+                    circle,
+                    rgba(20, 61, 1, 0.04) 1px,
+                    transparent 1px
+                );
+                background-size: 20px 20px;
+            }
+
+            .bg-dot-pattern-light {
+                background-image: radial-gradient(
+                    circle,
+                    rgba(255, 253, 247, 0.08) 1px,
+                    transparent 1px
+                );
+                background-size: 20px 20px;
+            }
+
+            @keyframes subtle-pulse {
+                0%,
+                100% {
+                    box-shadow:
+                        0 0 30px rgba(22, 255, 103, 0.15),
+                        0 0 60px rgba(22, 255, 103, 0.06);
+                }
+                50% {
+                    box-shadow:
+                        0 0 50px rgba(22, 255, 103, 0.28),
+                        0 0 90px rgba(22, 255, 103, 0.12);
+                }
+            }
+            .animate-glow-pulse {
+                animation: subtle-pulse 3s ease-in-out infinite;
+            }
+
+            @media (max-width: 640px) {
+                .hero-headline {
+                    font-size: clamp(2.2rem, 8vw, 3.5rem);
+                }
+            }
+
+            /* Form field system */
+            .field-input {
+                width: 100%;
+                background-color: #ffffff;
+                border: 1.5px solid rgba(20, 61, 1, 0.12);
+                border-radius: 1rem;
+                padding: 0.875rem 1rem;
+                font-size: 0.9375rem;
+                color: #143d01;
+                transition: all 0.2s ease;
+            }
+            .field-input::placeholder {
+                color: rgba(20, 61, 1, 0.32);
+            }
+            .field-input:focus {
+                outline: none;
+                border-color: #16ff67;
+                box-shadow: 0 0 0 4px rgba(22, 255, 103, 0.15);
+            }
+            .field-input.field-error {
+                border-color: #e0453c;
+                box-shadow: 0 0 0 4px rgba(224, 69, 60, 0.1);
+            }
+            .field-label {
+                display: block;
+                font-size: 0.8125rem;
+                font-weight: 700;
+                color: #143d01;
+                margin-bottom: 0.5rem;
+            }
+            .field-hint {
+                font-size: 0.75rem;
+                color: rgba(20, 61, 1, 0.45);
+                margin-top: 0.375rem;
+            }
+            .field-error-msg {
+                display: none;
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: #e0453c;
+                margin-top: 0.375rem;
+                align-items: center;
+                gap: 0.25rem;
+            }
+            .field-error-msg.show {
+                display: flex;
+            }
+            .field-group.has-error .field-error-msg {
+                display: flex;
+            }
+
+            .toggle-switch {
+                position: relative;
+                width: 48px;
+                height: 28px;
+                flex-shrink: 0;
+            }
+            .toggle-switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+            .toggle-track {
+                position: absolute;
+                cursor: pointer;
+                inset: 0;
+                background-color: rgba(20, 61, 1, 0.15);
+                border-radius: 999px;
+                transition: 0.2s;
+            }
+            .toggle-track::before {
+                content: "";
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                left: 4px;
+                top: 4px;
+                background-color: white;
+                border-radius: 50%;
+                transition: 0.2s;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            }
+            .toggle-switch input:checked + .toggle-track {
+                background-color: #16ff67;
+            }
+            .toggle-switch input:checked + .toggle-track::before {
+                transform: translateX(20px);
+            }
+
+            .step-collapse {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            .step-collapse.open {
+                max-height: 400px;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body class="font-body bg-cream text-dark-green antialiased min-h-screen">
+        <!-- ==================== NAVIGATION ==================== -->
+        <nav
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center relative z-40"
+        >
+            <div class="flex-1 flex justify-start">
+                <a href="/" class="flex-shrink-0 flex items-center">
+                    <img
+                        src="./cubrinlogo.svg"
+                        alt="Cubrin Logo"
+                        class="h-10 md:h-12 w-auto drop-shadow-sm"
+                    />
+                </a>
+            </div>
+
+            <div
+                class="hidden md:flex flex-1 justify-center space-x-8 text-sm font-semibold text-gray-700"
+            >
+                <a href="terms.html" class="hover:text-cubrin-green transition"
+                    >Legals</a
+                >
+                <a href="faqs.html" class="hover:text-cubrin-green transition"
+                    >FAQs</a
+                >
+                <a
+                    href="ambassador-apply.html"
+                    class="text-cubrin-green transition"
+                    aria-current="page"
+                    >Ambassadors</a
+                >
+                <a
+                    href="support.html"
+                    class="hover:text-cubrin-green transition"
+                    >Support</a
+                >
+            </div>
+
+            <div class="flex-1 flex justify-end items-center space-x-4">
+                <a
+                    href="comingsoon.html"
+                    class="hidden md:inline-flex items-center justify-center bg-[#143D01] text-[#16FF67] px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#16FF67] hover:text-[#143D01] transition-colors"
+                >
+                    Download Now
+                </a>
+
+                <button
+                    id="mobile-menu-btn"
+                    class="md:hidden text-gray-800 focus:outline-none"
+                    aria-label="Toggle menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                >
+                    <svg
+                        class="w-7 h-7"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div
+                id="mobile-menu"
+                class="hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex-col items-center py-6 space-y-6 md:hidden z-50 rounded-b-2xl"
+            >
+                <a
+                    href="terms.html"
+                    class="text-sm font-semibold text-gray-700 hover:text-cubrin-green transition"
+                    >Terms and Policy</a
+                >
+                <a
+                    href="faqs.html"
+                    class="text-sm font-semibold text-gray-700 hover:text-cubrin-green transition"
+                    >FAQs</a
+                >
+                <a
+                    href="ambassador-apply.html"
+                    class="text-sm font-semibold text-cubrin-green transition"
+                    >Ambassadors</a
+                >
+                <a
+                    href="support.html"
+                    class="text-sm font-semibold text-gray-700 hover:text-cubrin-green transition"
+                    >Contact</a
+                >
+                <a
+                    href="comingsoon.html"
+                    class="inline-flex items-center justify-center bg-[#143D01] text-[#16FF67] px-8 py-3 rounded-full text-sm font-bold hover:bg-[#16FF67] hover:text-[#143D01] transition-colors mt-2"
+                >
+                    Download Now
+                </a>
+            </div>
+        </nav>
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section
+            class="relative min-h-[60vh] sm:min-h-[70vh] flex items-center bg-dot-pattern overflow-hidden"
+        >
+            <div
+                class="absolute top-[-15%] right-[-10%] w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full bg-neon-green/4 blur-3xl pointer-events-none"
+            ></div>
+            <div
+                class="absolute bottom-[-10%] left-[-8%] w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full bg-neon-yellow/5 blur-3xl pointer-events-none"
+            ></div>
+
+            <div
+                class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 w-full"
+            >
+                <div class="max-w-3xl mx-auto text-center">
+
+
+                    <h1
+                        class="hero-headline font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl leading-[1.08] tracking-tight mb-5 md:mb-7 text-dark-green"
+                    >
+                        <span class="text-gradient-neon"
+                            >Become a Cubrin</span
+                        ><br />
+                        <span class="text-gradient-neon">Ambassador.</span>
+                    </h1>
+
+                    <p
+                        class="text-sm sm:text-base md:text-lg text-dark-green/60 max-w-xl mx-auto mb-8 leading-relaxed font-medium"
+                    >
+                        Tell us about your network and your area. Our team
+                        reviews every application by hand and gets back to
+                        you within
+                        <strong class="text-dark-green font-semibold"
+                            >48 hours</strong
+                        >.
+                    </p>
+
+                    <div class="flex justify-center">
+                        <a
+                            href="#apply-form"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-neon-green text-dark-green font-bold text-base md:text-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-button-glow hover:bg-neon-yellow group animate-glow-pulse"
+                        >
+                            Start Your Application
+                            <svg
+                                class="w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2.5"
+                                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 mt-10 text-xs md:text-sm text-dark-green/40 font-medium"
+                    >
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-neon-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                            Takes About 5 Minutes
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-neon-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                            Reviewed by a Real Person
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-neon-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                            No Fees, Ever
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none"
+            ></div>
+        </section>
+
+        <!-- ==================== APPLICATION FORM ==================== -->
+        <section id="apply-form" class="relative py-4 md:py-10 lg:py-14 bg-cream scroll-mt-20">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Success state (hidden by default) -->
+                <div id="success-panel" class="hidden">
+                    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-card-soft text-center border border-neon-green/20">
+                        <div class="w-16 h-16 rounded-2xl bg-neon-green/15 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-dark-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <h2 class="font-heading font-bold text-2xl md:text-3xl text-dark-green mb-3">
+                            Application Received
+                        </h2>
+                        <p class="text-dark-green/60 text-sm md:text-base mb-6 max-w-md mx-auto leading-relaxed" id="success-message">
+                            Your ambassador application has been submitted successfully. Our team will review it and get back to you within 48 hours.
+                        </p>
+                        <div class="inline-flex flex-col gap-2 bg-cream rounded-2xl p-5 text-left text-sm mb-6 border border-dark-green/5">
+                            <div class="flex justify-between gap-8"><span class="text-dark-green/50">Reference ID</span><span id="success-id" class="font-bold text-dark-green">—</span></div>
+                            <div class="flex justify-between gap-8"><span class="text-dark-green/50">Status</span><span class="font-bold text-neon-green bg-dark-green px-2.5 py-0.5 rounded-full text-xs uppercase tracking-wide">Pending</span></div>
+                            <div class="flex justify-between gap-8"><span class="text-dark-green/50">Confirmation email</span><span id="success-email-sent" class="font-bold text-dark-green">—</span></div>
+                        </div>
+                        <a href="/" class="inline-flex items-center justify-center px-7 py-3 rounded-full bg-dark-green text-neon-green font-bold text-sm hover:bg-neon-green hover:text-dark-green transition-colors">
+                            Back to Home
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form panel -->
+                <form id="ambassador-form" novalidate>
+                    <div class="text-center mb-8 md:mb-10">
+                        <span class="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-neon-green bg-neon-green/8 px-4 py-1.5 rounded-full mb-4">Ambassador Application</span>
+                        <h2 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-dark-green leading-tight">
+                            The <span class="text-gradient-neon-soft">Details</span>
+                        </h2>
+                    </div>
+
+                    <!-- API-level error banner -->
+                    <div id="api-error-banner" class="hidden mb-6 rounded-2xl border border-red-200 bg-red-50 px-5 py-4 flex items-start gap-3">
+                        <svg class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                        </svg>
+                        <p id="api-error-text" class="text-sm text-red-700 font-medium"></p>
+                    </div>
+
+                    <!-- ===== Section 1: Personal Info ===== -->
+                    <div class="bg-white rounded-3xl p-6 md:p-8 shadow-card-soft border border-dark-green/3 mb-5">
+                        <h3 class="font-heading font-bold text-lg md:text-xl text-dark-green mb-1">Personal Info</h3>
+                        <p class="text-xs text-dark-green/45 mb-6">How we'll identify and reach you.</p>
+
+                        <div class="space-y-5">
+                            <div class="field-group">
+                                <label class="field-label" for="full_name">Full name</label>
+                                <input class="field-input" type="text" id="full_name" name="full_name" maxlength="150" placeholder="e.g. Jane Doe" autocomplete="name" />
+                                <p class="field-error-msg"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span data-msg>Full name is required.</span></p>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div class="field-group">
+                                    <label class="field-label" for="email">Email address</label>
+                                    <input class="field-input" type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+                                    <p class="field-error-msg"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span data-msg>A valid email is required.</span></p>
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="phone_number">Phone number</label>
+                                    <input class="field-input" type="tel" id="phone_number" name="phone_number" placeholder="+2348034567890" autocomplete="tel" />
+                                    <p class="field-hint">International format, used for calls &amp; WhatsApp.</p>
+                                    <p class="field-error-msg"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span data-msg>Use international format, e.g. +2348034567890.</span></p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                                <div class="field-group">
+                                    <label class="field-label" for="city">City <span class="text-dark-green/30 font-normal">(optional)</span></label>
+                                    <input class="field-input" type="text" id="city" name="city" maxlength="100" placeholder="Lagos" autocomplete="address-level2" />
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="state">State <span class="text-dark-green/30 font-normal">(optional)</span></label>
+                                    <input class="field-input" type="text" id="state" name="state" maxlength="100" placeholder="Lagos" autocomplete="address-level1" />
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="country_code">Country code</label>
+                                    <input class="field-input uppercase" type="text" id="country_code" name="country_code" maxlength="2" value="NG" autocomplete="country" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== Section 2: Your Reach ===== -->
+                    <div class="bg-white rounded-3xl p-6 md:p-8 shadow-card-soft border border-dark-green/3 mb-5">
+                        <h3 class="font-heading font-bold text-lg md:text-xl text-dark-green mb-1">Your Reach</h3>
+                        <p class="text-xs text-dark-green/45 mb-6">Help us understand the size of your network.</p>
+
+                        <div class="space-y-5">
+                            <div class="field-group">
+                                <label class="field-label" for="total_shops_in_area">Estimated total shops in your area</label>
+                                <input class="field-input" type="number" id="total_shops_in_area" name="total_shops_in_area" min="1" max="10000" placeholder="e.g. 150" inputmode="numeric" />
+                                <p class="field-error-msg"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span data-msg>Enter a number between 1 and 10,000.</span></p>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div class="field-group">
+                                    <label class="field-label" for="shops_known_personally">Shop owners you know personally</label>
+                                    <input class="field-input" type="number" id="shops_known_personally" name="shops_known_personally" min="0" placeholder="e.g. 20" inputmode="numeric" />
+                                    <p class="field-error-msg"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span data-msg>Cannot be negative.</span></p>
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="shops_connected_to">Shop owners you're directly connected to</label>
+                                    <input class="field-input" type="number" id="shops_connected_to" name="shops_connected_to" min="0" placeholder="e.g. 35" inputmode="numeric" />
+                                    <p class="field-error-msg"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span data-msg>Cannot be negative.</span></p>
+                                </div>
+                            </div>
+                            <p id="reach-sum-hint" class="text-xs font-semibold text-dark-green/40">Combined reach: <span id="reach-sum">0</span> / 5,000 max</p>
+                        </div>
+                    </div>
+
+                    <!-- ===== Section 3: Your Pitch ===== -->
+                    <div class="bg-white rounded-3xl p-6 md:p-8 shadow-card-soft border border-dark-green/3 mb-5">
+                        <h3 class="font-heading font-bold text-lg md:text-xl text-dark-green mb-1">Your Pitch</h3>
+                        <p class="text-xs text-dark-green/45 mb-6">In your own words.</p>
+
+                        <div class="space-y-5">
+                            <div class="field-group">
+                                <label class="field-label" for="convince_shop_owner">How would you convince a shop owner to join Cubrin?</label>
+                                <textarea class="field-input" id="convince_shop_owner" name="convince_shop_owner" rows="4" maxlength="2000" placeholder="Walk us through your approach..."></textarea>
+                                <div class="flex justify-between items-start mt-1">
+                                    <p class="field-error-msg mt-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span data-msg>Please share how you'd convince a shop owner.</span></p>
+                                    <span class="field-hint" data-counter="convince_shop_owner">0 / 2000</span>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label class="field-label" for="why_ambassador">Why do you want to become an ambassador?</label>
+                                <textarea class="field-input" id="why_ambassador" name="why_ambassador" rows="4" maxlength="2000" placeholder="Tell us what draws you to this..."></textarea>
+                                <div class="flex justify-between items-start mt-1">
+                                    <p class="field-error-msg mt-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span data-msg>Please share why you want to become an ambassador.</span></p>
+                                    <span class="field-hint" data-counter="why_ambassador">0 / 2000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== Section 4: Social Presence ===== -->
+                    <div class="bg-white rounded-3xl p-6 md:p-8 shadow-card-soft border border-dark-green/3 mb-8">
+                        <h3 class="font-heading font-bold text-lg md:text-xl text-dark-green mb-1">Social Presence</h3>
+                        <p class="text-xs text-dark-green/45 mb-6">Optional, but it helps your application.</p>
+
+                        <div class="flex items-center justify-between gap-4 mb-1">
+                            <label for="active_on_social_media" class="text-sm font-semibold text-dark-green">I'm active on social media</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="active_on_social_media" name="active_on_social_media" />
+                                <span class="toggle-track"></span>
+                            </label>
+                        </div>
+
+                        <div id="handle-wrap" class="step-collapse">
+                            <div class="field-group pt-5">
+                                <label class="field-label" for="social_media_handle">Your handle</label>
+                                <input class="field-input" type="text" id="social_media_handle" name="social_media_handle" maxlength="150" placeholder="@yourhandle" />
+                                <p class="field-error-msg"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg><span data-msg>Add a handle since you're active on social media.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        id="submit-btn"
+                        class="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-neon-green text-dark-green font-bold text-base md:text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-button-glow hover:bg-neon-yellow disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:cursor-not-allowed"
+                    >
+                        <span id="submit-btn-text">Submit Application</span>
+                        <svg id="submit-spinner" class="hidden animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                        </svg>
+                    </button>
+                    <p class="text-center text-xs text-dark-green/35 mt-4">Limited to 5 submissions per hour, per applicant.</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- ==================== WHAT HAPPENS NEXT ==================== -->
+        <section class="relative py-16 md:py-24 bg-dark-green overflow-hidden mt-8">
+            <div class="absolute inset-0 bg-dot-pattern-light opacity-25 pointer-events-none"></div>
+            <div class="absolute top-[-15%] left-[-8%] w-[500px] h-[500px] rounded-full bg-neon-green/2 blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-[-12%] right-[-6%] w-[400px] h-[400px] rounded-full bg-neon-yellow/3 blur-3xl pointer-events-none"></div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                    <span class="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-neon-green bg-neon-green/12 px-4 py-1.5 rounded-full mb-4">What Happens Next</span>
+                    <h2 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-cream mb-3 leading-tight">
+                        From <span class="text-gradient-neon">Application to Approval</span>
+                    </h2>
+                </div>
+
+                <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-10 max-w-5xl mx-auto">
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-neon-green/30 via-neon-yellow/50 to-neon-green/30 -translate-y-1/2 z-0"></div>
+
+                    <div class="relative z-10 text-center group">
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-neon-green/20 to-neon-yellow/20 border-2 border-neon-green/40 flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:shadow-glow-neon group-hover:scale-105">
+                            <span class="font-heading font-extrabold text-2xl md:text-3xl text-neon-green leading-none">1</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg md:text-xl text-cream mb-2">You Submit</h3>
+                        <p class="text-cream/55 text-sm leading-relaxed max-w-xs mx-auto">Your application is saved and a confirmation is sent to your email right away.</p>
+                    </div>
+
+                    <div class="relative z-10 text-center group">
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-neon-yellow/20 to-neon-green/20 border-2 border-neon-yellow/40 flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:shadow-glow-neon group-hover:scale-105">
+                            <span class="font-heading font-extrabold text-2xl md:text-3xl text-neon-yellow leading-none">2</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg md:text-xl text-cream mb-2">We Review</h3>
+                        <p class="text-cream/55 text-sm leading-relaxed max-w-xs mx-auto">Our team checks your reach and pitch by hand — typically within 48 hours.</p>
+                    </div>
+
+                    <div class="relative z-10 text-center group">
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-neon-green/20 to-neon-green/25 border-2 border-neon-green/50 flex items-center justify-center mx-auto mb-5 transition-all duration-400 group-hover:shadow-glow-neon group-hover:scale-105 animate-glow-pulse">
+                            <span class="font-heading font-extrabold text-2xl md:text-3xl text-neon-green leading-none">3</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg md:text-xl text-cream mb-2">You're Onboarded</h3>
+                        <p class="text-cream/55 text-sm leading-relaxed max-w-xs mx-auto">Approved ambassadors get account access and can start earning right away.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FOOTER ==================== -->
+        <section class="bg-[#FDFBF7] relative z-10 pt-20 pb-8 overflow-hidden border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+                <div class="text-center max-w-4xl mx-auto relative mb-12">
+                    <div class="absolute -top-6 -left-4 md:-left-12 transform -rotate-12 animate-[bounce_4s_infinite]">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#143D01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-80">
+                            <path d="M12 2C8.68629 2 6 4.68629 6 8C6 11.3137 12 22 12 22C12 22 18 11.3137 18 8C18 4.68629 15.3137 2 12 2Z"></path>
+                            <circle cx="12" cy="8" r="3"></circle>
+                        </svg>
+                        <div class="absolute -top-4 -left-2 text-[#143D01] opacity-60">〰</div>
+                    </div>
+
+                    <div class="absolute -top-2 -right-4 md:-right-12 transform rotate-12 animate-[bounce_5s_infinite_reverse]">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#143D01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-80">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                    </div>
+
+                    <h2 class="font-museo font-black text-4xl md:text-5xl lg:text-6xl text-[#143D01] tracking-tight mb-4 leading-tight">
+                        Experience the Soft Life <br class="hidden md:block" />
+                        in Every Delivery
+                    </h2>
+                    <p class="text-[#143D01]/70 text-sm md:text-base font-medium max-w-2xl mx-auto">
+                        A place where cravings meet convenience, delivering the food you love to the people you share it with.
+                    </p>
+                </div>
+
+                <div class="flex justify-center items-center gap-6 mb-16">
+                    <a href="https://www.instagram.com/cubrin.app?igsh=MTNrdzJxbG1nMjcyNA%3D%3D&utm_source=qr" class="text-[#143D01] hover:text-cubrin-green transition-colors transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@cubrinapp" class="text-[#143D01] hover:text-cubrin-green transition-colors transform hover:scale-110">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@cubrin26" class="text-[#143D01] hover:text-cubrin-green transition-colors transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </a>
+                    <a href="https://x.com/cubrinapp?s=21" class="text-[#143D01] hover:text-cubrin-green transition-colors transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/share/1Eon6M7Zgf/?mibextid=wwXIfr" class="text-[#143D01] hover:text-cubrin-green transition-colors transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    </a>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 text-[#143D01] font-bold text-sm md:text-base">
+                    <div class="text-center md:text-left space-y-2 order-2 md:order-1">
+                        <p>Mon-Sun: 24/7 Support</p>
+                        <p>Always delivering happiness</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 order-1 md:order-2 w-full md:w-auto">
+                        <a href="partner.html" class="w-full sm:w-auto text-center px-6 py-3 md:py-2 rounded-full border-2 border-[#143D01]/15 hover:border-[#143D01] hover:bg-[#143D01] hover:text-white transition-all duration-300 shadow-sm">
+                            Join Cubrin as Partner
+                        </a>
+                        <a href="vendors.html" class="w-full sm:w-auto text-center px-6 py-3 md:py-2 rounded-full border-2 border-[#143D01]/15 hover:border-[#143D01] hover:bg-[#143D01] hover:text-white transition-all duration-300 shadow-sm">
+                            Join Cubrin as Vendor
+                        </a>
+                        <a href="ambassador-apply.html" class="w-full sm:w-auto text-center px-6 py-3 md:py-2 rounded-full border-2 border-[#143D01] bg-[#143D01] text-[#16FF67] hover:bg-[#16FF67] hover:text-[#143D01] transition-all duration-300 shadow-sm">
+                            Apply as Ambassador
+                        </a>
+                    </div>
+
+                    <div class="text-center md:text-right space-y-2 order-3">
+                        <p>Lagos, Nigeria</p>
+                        <a href="mailto:hello@cubrin.com" class="hover:text-cubrin-green transition-colors block">contact@cubrin.com</a>
+                    </div>
+                </div>
+
+                <div class="mt-16 pt-8 border-t border-[#143D01]/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[#143D01]/60 text-xs md:text-sm font-semibold">
+                    <p>&copy; 2026 Cubrin. All rights reserved.</p>
+
+                    <div class="flex items-center gap-4">
+                        <a href="terms.html" class="hover:text-[#143D01] transition-colors">Privacy Policy</a>
+                        <span class="w-1 h-1 bg-[#143D01]/30 rounded-full"></span>
+                        <a href="terms.html" class="hover:text-[#143D01] transition-colors">Terms of Service</a>
+                    </div>
+
+                    <div class="flex items-center gap-2 group">
+                        <span class="text-[#143D01]/60">Built by</span>
+                        <div class="flex items-start">
+                            <img src="./aillogo.svg" alt="AIL" class="h-4 md:h-5 w-auto object-contain group-hover:scale-105 transition-transform" />
+                            <span class="text-[10px] leading-none ml-0.5 text-[#143D01] font-bold">&reg;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SCRIPTS ==================== -->
+        <script>
+            // Mobile menu toggle
+            const menuBtn = document.getElementById("mobile-menu-btn");
+            const menu = document.getElementById("mobile-menu");
+            menuBtn.addEventListener("click", function () {
+                const isHidden = menu.classList.toggle("hidden");
+                menuBtn.setAttribute("aria-expanded", String(!isHidden));
+            });
+
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    const targetId = this.getAttribute("href");
+                    if (targetId === "#") return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const navHeight = 60;
+                        const targetPosition =
+                            target.getBoundingClientRect().top +
+                            window.pageYOffset -
+                            navHeight;
+                        window.scrollTo({ top: targetPosition, behavior: "smooth" });
+                        if (!menu.classList.contains("hidden")) {
+                            menu.classList.add("hidden");
+                            menuBtn.setAttribute("aria-expanded", "false");
+                        }
+                    }
+                });
+            });
+
+            // ===================== AMBASSADOR APPLICATION FORM =====================
+            (function () {
+                const API_URL = "https://api.cubrin.com/v1/admins/ambassadors/apply/index.php";
+
+                const form = document.getElementById("ambassador-form");
+                const submitBtn = document.getElementById("submit-btn");
+                const submitBtnText = document.getElementById("submit-btn-text");
+                const submitSpinner = document.getElementById("submit-spinner");
+                const apiErrorBanner = document.getElementById("api-error-banner");
+                const apiErrorText = document.getElementById("api-error-text");
+                const successPanel = document.getElementById("success-panel");
+
+                const activeSocialToggle = document.getElementById("active_on_social_media");
+                const handleWrap = document.getElementById("handle-wrap");
+                const handleInput = document.getElementById("social_media_handle");
+
+                // Toggle social handle field visibility
+                activeSocialToggle.addEventListener("change", function () {
+                    if (this.checked) {
+                        handleWrap.classList.add("open");
+                    } else {
+                        handleWrap.classList.remove("open");
+                        clearFieldError(handleInput);
+                    }
+                });
+
+                // Character counters
+                ["convince_shop_owner", "why_ambassador"].forEach(function (id) {
+                    const el = document.getElementById(id);
+                    const counter = document.querySelector('[data-counter="' + id + '"]');
+                    const update = function () {
+                        counter.textContent = el.value.length + " / 2000";
+                    };
+                    el.addEventListener("input", update);
+                    update();
+                });
+
+                // Live combined-reach hint
+                const knownInput = document.getElementById("shops_known_personally");
+                const connectedInput = document.getElementById("shops_connected_to");
+                const reachSumEl = document.getElementById("reach-sum");
+                const updateReachSum = function () {
+                    const sum = (parseInt(knownInput.value, 10) || 0) + (parseInt(connectedInput.value, 10) || 0);
+                    reachSumEl.textContent = sum;
+                    reachSumEl.parentElement.classList.toggle("text-red-500", sum > 5000);
+                };
+                knownInput.addEventListener("input", updateReachSum);
+                connectedInput.addEventListener("input", updateReachSum);
+
+                function setFieldError(input, message) {
+                    const group = input.closest(".field-group");
+                    if (!group) return;
+                    input.classList.add("field-error");
+                    group.classList.add("has-error");
+                    const msgEl = group.querySelector("[data-msg]");
+                    if (msgEl && message) msgEl.textContent = message;
+                }
+
+                function clearFieldError(input) {
+                    const group = input.closest(".field-group");
+                    if (!group) return;
+                    input.classList.remove("field-error");
+                    group.classList.remove("has-error");
+                }
+
+                function clearAllErrors() {
+                    form.querySelectorAll(".field-group").forEach(function (g) {
+                        g.classList.remove("has-error");
+                    });
+                    form.querySelectorAll(".field-input").forEach(function (i) {
+                        i.classList.remove("field-error");
+                    });
+                    apiErrorBanner.classList.add("hidden");
+                }
+
+                function isValidEmail(value) {
+                    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+                }
+
+                function isValidPhone(value) {
+                    // International format, e.g. +2348034567890 — plus sign, then 6 to 15 digits total
+                    return /^\+[1-9]\d{5,14}$/.test(value);
+                }
+
+                function validate() {
+                    clearAllErrors();
+                    let firstInvalid = null;
+                    const values = {};
+
+                    const fullName = document.getElementById("full_name");
+                    values.full_name = fullName.value.trim();
+                    if (!values.full_name) {
+                        setFieldError(fullName, "Full name is required.");
+                        firstInvalid = firstInvalid || fullName;
+                    }
+
+                    const email = document.getElementById("email");
+                    values.email = email.value.trim();
+                    if (!values.email || !isValidEmail(values.email)) {
+                        setFieldError(email, "A valid email is required.");
+                        firstInvalid = firstInvalid || email;
+                    }
+
+                    const phone = document.getElementById("phone_number");
+                    values.phone_number = phone.value.trim();
+                    if (!values.phone_number) {
+                        setFieldError(phone, "Phone number is required.");
+                        firstInvalid = firstInvalid || phone;
+                    } else if (!isValidPhone(values.phone_number)) {
+                        setFieldError(phone, "Use international format, e.g. +2348034567890.");
+                        firstInvalid = firstInvalid || phone;
+                    }
+
+                    const city = document.getElementById("city").value.trim();
+                    if (city) values.city = city;
+
+                    const state = document.getElementById("state").value.trim();
+                    if (state) values.state = state;
+
+                    const countryCode = document.getElementById("country_code").value.trim();
+                    values.country_code = countryCode || "NG";
+
+                    const totalShops = document.getElementById("total_shops_in_area");
+                    const totalShopsVal = parseInt(totalShops.value, 10);
+                    if (isNaN(totalShopsVal) || totalShopsVal < 1) {
+                        setFieldError(totalShops, "Total shops in area must be at least 1.");
+                        firstInvalid = firstInvalid || totalShops;
+                    } else if (totalShopsVal > 10000) {
+                        setFieldError(totalShops, "Total shops in area cannot exceed 10,000.");
+                        firstInvalid = firstInvalid || totalShops;
+                    } else {
+                        values.total_shops_in_area = totalShopsVal;
+                    }
+
+                    const known = document.getElementById("shops_known_personally");
+                    const knownVal = parseInt(known.value, 10);
+                    if (isNaN(knownVal) || knownVal < 0) {
+                        setFieldError(known, "Shops known personally cannot be negative.");
+                        firstInvalid = firstInvalid || known;
+                    } else {
+                        values.shops_known_personally = knownVal;
+                    }
+
+                    const connected = document.getElementById("shops_connected_to");
+                    const connectedVal = parseInt(connected.value, 10);
+                    if (isNaN(connectedVal) || connectedVal < 0) {
+                        setFieldError(connected, "Shops connected to cannot be negative.");
+                        firstInvalid = firstInvalid || connected;
+                    } else {
+                        values.shops_connected_to = connectedVal;
+                    }
+
+                    if (!isNaN(knownVal) && !isNaN(connectedVal) && knownVal + connectedVal > 5000) {
+                        setFieldError(connected, "Total reachable shops cannot exceed 5,000.");
+                        firstInvalid = firstInvalid || connected;
+                    }
+
+                    const convince = document.getElementById("convince_shop_owner");
+                    values.convince_shop_owner = convince.value.trim();
+                    if (!values.convince_shop_owner) {
+                        setFieldError(convince, "Please explain how you would convince a shop owner to join.");
+                        firstInvalid = firstInvalid || convince;
+                    }
+
+                    const why = document.getElementById("why_ambassador");
+                    values.why_ambassador = why.value.trim();
+                    if (!values.why_ambassador) {
+                        setFieldError(why, "Please explain why you want to become an ambassador.");
+                        firstInvalid = firstInvalid || why;
+                    }
+
+                    values.active_on_social_media = activeSocialToggle.checked;
+                    if (values.active_on_social_media) {
+                        const handleVal = handleInput.value.trim();
+                        if (!handleVal) {
+                            setFieldError(handleInput, "Social media handle is required since you indicated you are active on social media.");
+                            firstInvalid = firstInvalid || handleInput;
+                        } else {
+                            values.social_media_handle = handleVal;
+                        }
+                    }
+
+                    return { valid: !firstInvalid, values: values, firstInvalid: firstInvalid };
+                }
+
+                function showApiError(message) {
+                    apiErrorText.textContent = message;
+                    apiErrorBanner.classList.remove("hidden");
+                    apiErrorBanner.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+
+                function setLoading(isLoading) {
+                    submitBtn.disabled = isLoading;
+                    submitSpinner.classList.toggle("hidden", !isLoading);
+                    submitBtnText.textContent = isLoading ? "Submitting..." : "Submit Application";
+                }
+
+                form.addEventListener("submit", async function (e) {
+                    e.preventDefault();
+
+                    const result = validate();
+                    if (!result.valid) {
+                        if (result.firstInvalid) {
+                            result.firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+                            result.firstInvalid.focus({ preventScroll: true });
+                        }
+                        return;
+                    }
+
+                    setLoading(true);
+                    apiErrorBanner.classList.add("hidden");
+
+                    try {
+                        const response = await fetch(API_URL, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Accept": "application/json",
+                            },
+                            body: JSON.stringify(result.values),
+                        });
+
+                        let data;
+                        try {
+                            data = await response.json();
+                        } catch (parseErr) {
+                            throw new Error("Unexpected response from the server. Please try again.");
+                        }
+
+                        if (response.ok && data && data.success) {
+                            form.classList.add("hidden");
+                            successPanel.classList.remove("hidden");
+                            successPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+
+                            document.getElementById("success-message").textContent =
+                                data.message || "Your ambassador application has been submitted successfully.";
+                            if (data.data) {
+                                document.getElementById("success-id").textContent =
+                                    "#" + (data.data.application_id !== undefined ? data.data.application_id : "—");
+                                document.getElementById("success-email-sent").textContent =
+                                    data.data.email_sent ? "Sent" : "Not sent";
+                            }
+                        } else {
+                            const message =
+                                (data && data.message) ||
+                                (response.status === 429
+                                    ? "Too many requests. Please try again later."
+                                    : "Application submission failed. Please try again later.");
+                            showApiError(message);
+                        }
+                    } catch (err) {
+                        showApiError(
+                            "We couldn't reach the server. Please check your connection and try again."
+                        );
+                    } finally {
+                        setLoading(false);
+                    }
+                });
+            })();
+        </script>
+    </body>
+</html>
