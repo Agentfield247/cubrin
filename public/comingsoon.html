@@ -1,340 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Cubrin - Coming Soon</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cubrin — Download the App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=MuseoModerno:wght@700;900&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #FFFDF7;
+            color: #143D01;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .logo {
+            width: 120px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-family: 'MuseoModerno', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+        }
+        p {
+            color: #4b5563;
+            margin: 0 0 25px 0;
+        }
+        .store-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #143D01;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .store-btn:hover {
+            background: #1a4f02;
+            transform: translateY(-2px);
+        }
+        .store-btn.apple {
+            background: black;
+        }
+        .store-btn.apple:hover {
+            background: #1a1a1a;
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(22, 255, 103, 0.3);
+            border-top-color: #16FF67;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
 
-        <!-- Importing MuseoModerno Font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
-        />
+    <div id="loading">
+        <img src="cubrinlogo.svg" alt="Cubrin" class="logo" />
+        <div class="loading-spinner"></div>
+        <h1>Redirecting you to the app store…</h1>
+        <p>Please wait a moment.</p>
+    </div>
 
-        <style>
-            :root {
-                /* Cubrin Brand Colors */
-                --bg-cream: #fdfcf7;
-                --text-dark: #1b1e25;
-                --text-gray: #4b5563;
-                --btn-dark-green: #0a4f1a;
-                --gradient-start: #31ed5d;
-                --gradient-end: #d8ff14;
-                --input-bg: #ffffff;
-
-                --font-main: "MuseoModerno", sans-serif;
-            }
-
-            body {
-                background-color: var(--bg-cream);
-                color: var(--text-dark);
-                font-family: var(--font-main);
-                margin: 0;
-                padding: 0;
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-                overflow-x: hidden;
-            }
-
-            /* --- NAVIGATION --- */
-            .navbar {
-                padding: 30px 5%;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-            }
-
-            .logo {
-                height: 40px;
-                width: auto;
-            }
-
-            /* --- MAIN LAYOUT --- */
-            .container {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                max-width: 1200px;
-                margin: auto;
-                padding: 0 5%;
-                flex-grow: 1;
-                gap: 50px;
-            }
-
-            /* --- LEFT SIDE: TEXT & FORM --- */
-            .content-left {
-                flex: 1;
-                max-width: 600px;
-            }
-
-            .tagline {
-                display: inline-block;
-                background-color: rgba(49, 237, 93, 0.1);
-                color: var(--btn-dark-green);
-                padding: 8px 16px;
-                border-radius: 50px;
-                font-weight: 700;
-                font-size: 0.9rem;
-                letter-spacing: 0.5px;
-                margin-bottom: 20px;
-                border: 1px solid rgba(49, 237, 93, 0.3);
-            }
-
-            h1 {
-                font-size: 4.5rem;
-                font-weight: 900;
-                line-height: 1.1;
-                margin: 0 0 20px 0;
-                letter-spacing: -0.03em;
-            }
-
-            .text-gradient {
-                background: linear-gradient(
-                    90deg,
-                    var(--gradient-start),
-                    var(--gradient-end)
-                );
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                color: transparent;
-            }
-
-            p.description {
-                font-size: 1.25rem;
-                color: var(--text-gray);
-                font-weight: 500;
-                line-height: 1.6;
-                margin-bottom: 40px;
-                max-width: 500px;
-            }
-
-            /* --- WAITLIST FORM --- */
-            .waitlist-form {
-                display: flex;
-                gap: 15px;
-                max-width: 500px;
-                position: relative;
-            }
-
-            .waitlist-form input {
-                flex: 1;
-                padding: 18px 25px;
-                font-family: var(--font-main);
-                font-size: 1rem;
-                font-weight: 500;
-                border: 2px solid #e5e7eb;
-                border-radius: 50px;
-                background-color: var(--input-bg);
-                color: var(--text-dark);
-                outline: none;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-            }
-
-            .waitlist-form input::placeholder {
-                color: #9ca3af;
-            }
-
-            .waitlist-form input:focus {
-                border-color: var(--gradient-start);
-                box-shadow: 0 4px 20px rgba(49, 237, 93, 0.15);
-            }
-
-            .waitlist-form button {
-                padding: 0 35px;
-                font-family: var(--font-main);
-                font-size: 1rem;
-                font-weight: 700;
-                background-color: var(--btn-dark-green);
-                color: #ffffff;
-                border: none;
-                border-radius: 50px;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                white-space: nowrap;
-            }
-
-            .join-btn {
-                display: inline-block;
-                padding: 18px 45px;
-                font-family: var(--font-main);
-                font-size: 1.1rem;
-                font-weight: 700;
-                background-color: var(--btn-dark-green);
-                color: #ffffff;
-                text-decoration: none;
-                border-radius: 50px;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-                margin-top: 10px;
-            }
-
-            .join-btn:hover {
-                background-color: #073b12;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(10, 79, 26, 0.2);
-            }
-
-            /* Update mobile responsiveness for the new button */
-            @media (max-width: 768px) {
-                .join-btn {
-                    width: 100%;
-                    box-sizing: border-box;
-                }
-            }
-
-            /* --- RIGHT SIDE: IMAGE --- */
-            .content-right {
-                flex: 1;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-            }
-
-            /* Decorative Blob behind the bike */
-            .blob {
-                position: absolute;
-                width: 450px;
-                height: 450px;
-                background: linear-gradient(
-                    135deg,
-                    var(--gradient-start),
-                    var(--gradient-end)
-                );
-                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-                opacity: 0.15;
-                z-index: 0;
-                animation: blobMorph 8s ease-in-out infinite alternate;
-            }
-
-            .hero-img {
-                width: 100%;
-                max-width: 500px;
-                z-index: 1;
-                /* Floating animation to make the bike feel like it's moving */
-                animation: float 4s ease-in-out infinite;
-            }
-
-            /* --- ANIMATIONS --- */
-            @keyframes float {
-                0% {
-                    transform: translateY(0px) rotate(0deg);
-                }
-                50% {
-                    transform: translateY(-15px) rotate(1deg);
-                }
-                100% {
-                    transform: translateY(0px) rotate(0deg);
-                }
-            }
-
-            @keyframes blobMorph {
-                0% {
-                    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-                }
-                100% {
-                    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-                }
-            }
-
-            /* --- RESPONSIVE DESIGN --- */
-            @media (max-width: 992px) {
-                h1 {
-                    font-size: 3.5rem;
-                }
-                .container {
-                    gap: 30px;
-                }
-                .blob {
-                    width: 350px;
-                    height: 350px;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .container {
-                    flex-direction: column;
-                    text-align: center;
-                    padding-top: 20px;
-                    padding-bottom: 50px;
-                }
-                .content-left {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                }
-                h1 {
-                    font-size: 3rem;
-                }
-                p.description {
-                    margin-bottom: 30px;
-                }
-
-                .waitlist-form {
-                    flex-direction: column;
-                    width: 100%;
-                }
-
-                .waitlist-form button {
-                    padding: 18px 35px;
-                }
-
-                .content-right {
-                    margin-top: 40px;
-                }
-
-                .blob {
-                    width: 300px;
-                    height: 300px;
-                }
-                .hero-img {
-                    max-width: 350px;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Logo Navigation -->
-        <nav class="navbar">
-            <a href="index.html">
-                <img src="cubrinlogo.svg" alt="Cubrin Logo" class="logo" />
+    <div id="fallback" class="hidden">
+        <img src="cubrinlogo.svg" alt="Cubrin" class="logo" />
+        <h1>Download Cubrin</h1>
+        <p>Choose your platform to get the app.</p>
+        <div class="store-btns">
+            <a href="https://apps.apple.com/ng/app/cubrin/id6794402083" class="store-btn apple" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.19 2.31-.88 3.5-.8 1.49.09 2.58.62 3.2 1.48-2.61 1.54-2.18 4.7.42 5.76-.63 1.94-1.76 4.09-2.2 4.73zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                App Store
             </a>
-        </nav>
+            <a href="https://play.google.com/store/apps/details?id=com.cubrin.mobile&hl=en_ZA" class="store-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4ADE80" d="M3.13 2.1c-.24.23-.38.58-.38 1v17.8c0 .42.14.77.38 1l.05.05 9.4-9.4v-.1l-9.4-9.4-.05.05z"/><path fill="#FFC107" d="M12.58 12.55l3.23 3.23 1.03-.59 3.03-1.74c.86-.49.86-1.3 0-1.79l-3.03-1.74-1.03-.59-3.23 3.22z"/><path fill="#F44336" d="M12.58 12.55L3.13 22l-.05-.05 10.53-6.02-1.03-3.38z"/><path fill="#2196F3" d="M3.08 2.15L12.58 12.55l1.03-3.38L3.08 3.15c-.24-.14-.5-.14-.76 0l.76-1z"/></svg>
+                Google Play
+            </a>
+        </div>
+    </div>
 
-        <!-- Main Content -->
-        <main class="container">
-            <!-- Text & Form Section -->
-            <div class="content-left">
-                <h1>
-                    Your favorite spots are
-                    <span class="text-gradient">loading...</span>
-                </h1>
-                <p class="description">
-                    We are building the ultimate social commerce ecosystem. Find
-                    local food, split bills with friends, and get it delivered
-                    instantly.
-                </p>
-                <a href="https://refer.cubrin.com" class="join-btn"
-                    >Join Waitlist</a
-                >
-            </div>
+    <script>
+        function getMobileOperatingSystem() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            }
+            return "unknown";
+        }
 
-            <!-- Image Section -->
-            <div class="content-right">
-                <div class="blob"></div>
+        function redirectToStore() {
+            const os = getMobileOperatingSystem();
+            const appleLink = "https://apps.apple.com/ng/app/cubrin/id6794402083";
+            const androidLink = "https://play.google.com/store/apps/details?id=com.cubrin.mobile&hl=en_ZA";
 
-                <img
-                    src="bikeman.svg"
-                    alt="Delivery man on bike"
-                    class="hero-img"
-                />
-            </div>
-        </main>
-    </body>
+            if (os === "iOS") {
+                window.location.href = appleLink;
+            } else if (os === "Android") {
+                window.location.href = androidLink;
+            } else {
+                // Desktop or unknown: show fallback
+                document.getElementById("loading").classList.add("hidden");
+                document.getElementById("fallback").classList.remove("hidden");
+            }
+        }
+
+        window.onload = redirectToStore;
+    </script>
+</body>
 </html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download Cubrin</title>
+    <script>
+        function getMobileOperatingSystem() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            // iOS detection
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+            // Android detection
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            }
+            // Windows Phone detection (optional)
+            if (/windows phone/i.test(userAgent)) {
+                return "Windows Phone";
+            }
+            return "unknown";
+        }
+
+        function redirectToStore() {
+            const os = getMobileOperatingSystem();
+            const appleLink = "https://apps.apple.com/ng/app/cubrin/id6794402083";
+            const androidLink = "https://play.google.com/store/apps/details?id=com.cubrin.mobile&hl=en_ZA";
+
+            if (os === "iOS") {
+                window.location.href = appleLink;
+            } else if (os === "Android") {
+                window.location.href = androidLink;
+            } else {
+                // Desktop or unknown: show a landing page with both options
+                document.getElementById("fallback").classList.remove("hidden");
+                document.getElementById("loading").classList.add("hidden");
+            }
+        }
+
+        window.onload = redirectToStore;
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFDF7;
+            color: #143D01;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+        }
+        .hidden { display: none; }
+        .store-btns {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .store-btn {
+            background: #143D01;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .store-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <h1>Redirecting to the app store…</h1>
+        <p>Please wait a moment.</p>
+    </div>
+    <div id="fallback" class="hidden">
+        <h1>Download Cubrin</h1>
+        <p>Choose your platform:</p>
+        <div class="store-btns">
+            <a href="https://apps.apple.com/ng/app/cubrin/id6794402083" class="store-btn">Download for iOS</a>
+            <a href="https://play.google.com/store/apps/details?id=com.cubrin.mobile&hl=en_ZA" class="store-btn">Download for Android</a>
+        </div>
+    </div>
+</body>
+</html>
