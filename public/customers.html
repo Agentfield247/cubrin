@@ -1329,7 +1329,7 @@
                 const btn = document.getElementById("ob-btn");
                 const errDiv = document.getElementById("onboard-error");
                 const errText = document.getElementById("onboard-error-text");
-                const succDiv = document.getElementById("onboard-success");
+                // const succDiv = document.getElementById("onboard-success");
                 const form = document.getElementById("onboard-form");
 
                 const ambassadorCode = document
@@ -1345,7 +1345,7 @@
                 btn.innerHTML =
                     '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Processing...';
                 errDiv.classList.add("hidden");
-                succDiv.classList.add("hidden");
+                // succDiv.classList.add("hidden");
 
                 // Get the phone number and format it
                 const phoneInput = document.getElementById("cust-phone");
@@ -1381,8 +1381,7 @@
                     });
                     const data = await res.json();
                     if (data.success) {
-                        form.classList.add("hidden");
-                        succDiv.classList.remove("hidden");
+                        window.location.href = '/download.html';
                     } else {
                         throw new Error(data.message || "Registration failed");
                     }

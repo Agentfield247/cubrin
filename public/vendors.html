@@ -1192,6 +1192,30 @@
                 }
             })();
 
+            // ─── Vendor app store redirection ──────────────────────────────
+            function redirectToVendorStore() {
+                const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+                const platform = navigator.platform || '';
+
+                // iOS detection
+                const isIOS = /iPad|iPhone|iPod/.test(ua) || (platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                // Android detection
+                const isAndroid = /android/i.test(ua);
+
+                const APPLE_LINK = 'https://apps.apple.com/ng/app/cubrin-vendors/id6794402147';
+                const ANDROID_LINK = 'https://play.google.com/store/apps/details?id=com.cubrinvendors.mobile&hl=en';
+
+                if (isIOS) {
+                    window.location.href = APPLE_LINK;
+                } else if (isAndroid) {
+                    window.location.href = ANDROID_LINK;
+                } else {
+                    // For desktop/unknown, we could show a fallback or redirect to a download page.
+                    // For now, we redirect to Android (web-friendly) – but you can change to your vendor download page.
+                    window.location.href = ANDROID_LINK;
+                }
+            }
+
             // Auto-format phone number with +234
             function formatPhoneNumber(input) {
                 // Remove all non-digit characters
@@ -1247,7 +1271,7 @@
                 const btn = document.getElementById("ob-btn"),
                     errDiv = document.getElementById("onboard-error"),
                     errText = document.getElementById("onboard-error-text"),
-                    succDiv = document.getElementById("onboard-success"),
+                    // succDiv = document.getElementById("onboard-success"),
                     form = document.getElementById("onboard-form");
 
                 const ambassadorCode = document
@@ -1280,7 +1304,7 @@
                 btn.innerHTML =
                     '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Processing...';
                 errDiv.classList.add("hidden");
-                succDiv.classList.add("hidden");
+                // succDiv.classList.add("hidden");
 
                 const payload = {
                     ambassador_code: ambassadorCode,
@@ -1308,8 +1332,8 @@
                     });
                     const data = await res.json();
                     if (data.success) {
-                        form.classList.add("hidden");
-                        succDiv.classList.remove("hidden");
+                        // ✅ Redirect to vendor app store based on device
+                        redirectToVendorStore();
                     } else {
                         throw new Error(data.message || "Registration failed");
                     }
