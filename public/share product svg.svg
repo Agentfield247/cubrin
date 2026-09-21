@@ -1,0 +1,37 @@
+<svg width="340" height="360" viewBox="0 0 340 360" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Card Background (Matches the off-white Cubrin vibe) -->
+    <rect width="340" height="360" rx="24" fill="#FFFFFF"/>
+    <rect x="0.5" y="0.5" width="339" height="359" rx="23.5" stroke="#F3F4F6"/>
+
+    <!-- Header: Store Icon -->
+    <rect x="16" y="16" width="44" height="44" rx="14" fill="#F9FAFB"/>
+    <path d="M26 27H42M28 27V24C28 21.7909 29.7909 20 32 20H36C38.2091 20 40 21.7909 40 24V27M26 27L24 38C23.9 39.5 25 40 26 40H42C43 40 44.1 39.5 44 38L42 27" stroke="#143D01" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Header: Store Text -->
+    <text x="72" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#111827">Kicks Hub Lagos</text>
+    <text x="72" y="51" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#9CA3AF">Shared a product</text>
+
+    <!-- Header: Right Chevron -->
+    <path d="M310 30L316 38L310 46" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Product Image (Wide aspect to fit chat bounds gracefully) -->
+    <defs>
+        <clipPath id="imageClip">
+            <rect x="16" y="76" width="308" height="150" rx="16"/>
+        </clipPath>
+    </defs>
+    <image x="16" y="76" width="308" height="150" preserveAspectRatio="xMidYMid slice" clip-path="url(#imageClip)" href="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&amp;w=600"/>
+
+    <!-- Price & Title (Directly referencing your ₦1,500.00 font styling) -->
+    <text x="16" y="265" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="900" fill="#143D01" letter-spacing="-0.5">₦45,000.00</text>
+    <text x="16" y="285" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#9CA3AF">Nike Air Force 1 '07 - White</text>
+
+    <!-- Action Pill 1: Order Now -->
+    <rect x="16" y="302" width="148" height="42" rx="21" fill="#143D01"/>
+    <text x="90" y="328" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Order Now</text>
+
+    <!-- Action Pill 2: Gift (Styled like the green "Batman paid" log in your image) -->
+    <rect x="176" y="302" width="148" height="42" rx="21" fill="#F0FDF4"/>
+    <path d="M217 320V326M225 320V326M217 320H225M217 320C214 320 215 316 218 316C220.5 316 221 319 221 320M225 320C228 320 227 316 224 316C221.5 316 221 319 221 320M213 326H229V332C229 333.105 228.105 334 227 334H215C213.895 334 213 333.105 213 332V326Z" stroke="#143D01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="252" y="327" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#143D01" text-anchor="middle">Gift</text>
+</svg>
