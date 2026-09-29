@@ -549,7 +549,20 @@
                 </div>
 
                 <!-- Form panel -->
-                <form id="ambassador-form" novalidate>
+                <form
+                    id="ambassador-form"
+                    novalidate
+                    action="https://api.cubrin.com/v1/admins/ambassadors/apply/index.php"
+                    method="post"
+                    aria-label="Ambassador application form"
+                    data-agent-purpose="ambassador-application"
+                    data-agent-description="Apply to become a Cubrin Ambassador. Requires full name, email, phone, and pitch responses."
+                >
+                    <!-- AI agent hint -->
+                    <div hidden data-agent-hint="true">
+                        This is an ambassador application. AI agents may help students apply.
+                        Required: full_name, email, phone_number, total_shops_in_area, shops_known_personally, shops_connected_to, convince_shop_owner, why_ambassador.
+                    </div>
                     <div class="text-center mb-8 md:mb-10">
                         <span class="inline-block text-xs md:text-sm font-bold uppercase tracking-widest text-neon-green bg-neon-green/8 px-4 py-1.5 rounded-full mb-4">Ambassador Application</span>
                         <h2 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-dark-green leading-tight">

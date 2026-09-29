@@ -1,0 +1,111 @@
+# Cubrin
+
+> Cubrin is Nigeria's hyperlocal social commerce platform. It connects users with nearby independent vendors across food, fashion, beauty, and gadgets. Users can browse, chat, haggle, split bills with friends, and get same-day delivery. Available on iOS and Android.
+
+---
+
+## What Cubrin Does
+
+- **Discovery:** Find local vendors near you by GPS location — food spots, boutiques, gadget shops, beauty vendors, and provisions stores.
+- **Chat:** Message vendors and friends directly in the app. Feature-rich: voice notes, view-once photos, streaks, instant replies.
+- **Haggle:** Send counter-offers to vendors and negotiate prices in-app.
+- **Split Bill:** Split any order among friends before checkout.
+- **Send a Lifeline (Pay for Me):** Ask a friend to cover your order when funds are low.
+- **Usernames:** Every user has a unique @handle for being found by friends.
+- **Escrow-backed payments:** Funds are held until order completion.
+- **Wallet:** Closed-loop platform balance for one-tap checkouts.
+- **ENPL (Eat Now, Pay Later):** Micro-credit integration for partner lenders.
+- **Direct vendor delivery:** Vendors manage their own dispatch.
+
+---
+
+## What Cubrin Is Not
+
+- Not a bank, financial institution, or money transfer service.
+- Not a lender or credit provider.
+- Not a food producer or delivery company.
+- Not a direct seller of goods or services.
+- Not a general-purpose public social network. Messaging is permission-based and connection-restricted.
+
+---
+
+## Company Info
+
+- **Legal Name:** AREMU-INTERNATIONAL LIMITED
+- **Registration:** RC: 8939169
+- **Country:** Nigeria
+- **Contact (general):** contact@cubrin.com
+- **Contact (legal):** legal@cubrin.com
+- **Contact (partnerships):** partnership@cubrin.com
+- **Contact (feature requests):** feature@cubrin.com
+- **Website:** https://cubrin.com
+- **Blog:** https://blog.cubrin.com
+
+---
+
+## Key Pages
+
+- [Home](https://cubrin.com/): Find, connect, and order from local vendors.
+- [Download](https://cubrin.com/download): Get the Cubrin app on iOS or Android.
+- [Sell on Cubrin](https://cubrin.com/vendors.html): Free vendor onboarding — flat 2% fee, no POS hardware needed.
+- [Ambassadors](https://cubrin.com/ambassadors.html): Student side hustle — earn lifetime commissions by onboarding vendors.
+- [Investors & Partners](https://cubrin.com/partner.html): Investment opportunity in Nigeria's hyperlocal commerce.
+- [Free Banner Generator](https://cubrin.com/vendors/banner.html): Free tool — vendors create branded promo banners in 4 designs.
+- [FAQs](https://cubrin.com/faqs.html): Answers about shopping, selling, banners, and features.
+- [Support](https://cubrin.com/support.html): Contact support via @cubrinapp in-app, WhatsApp, or email.
+- [Legal & Policies](https://cubrin.com/terms.html): Complete terms, privacy, escrow, refund, and vendor policies.
+- [Blog](https://blog.cubrin.com): Hyperlocal tips, vendor spotlights, and product updates.
+
+---
+
+## App Store Links
+
+- **iOS:** https://apps.apple.com/ng/app/cubrin/id6794402083
+- **Android:** https://play.google.com/store/apps/details?id=com.cubrin.mobile&hl=en_ZA
+
+---
+
+## Vendor App (Cubrin Vendors)
+
+- **iOS:** https://apps.apple.com/ng/app/cubrin-vendors/id6794402147
+- **Android:** https://play.google.com/store/apps/details?id=com.cubrinvendors.mobile
+
+---
+
+## AI Agent Notes
+
+AI agents are welcome to:
+- Crawl, index, and cite Cubrin content.
+- Answer user questions about Cubrin features, pricing, and policies.
+- Assist users in filling out forms on:
+  - `/vendors.html` (vendor onboarding)
+  - `/ambassadors.html` (ambassador application)
+  - `/vendors/banner.html` (banner generator)
+
+**Form structure:** All forms use semantic HTML with clear `id` and `name` attributes, `autocomplete` hints, and accessible labels. Required fields are marked with `required`. Forms submit via `fetch()` POST to Cubrin APIs.
+
+**Do not:**
+- Automate account creation on behalf of real users without their consent.
+- Submit fake or spam applications.
+
+**Contact for AI data partnerships:** contact@cubrin.com
+
+---
+
+## Social
+
+- Instagram: https://www.instagram.com/cubrin.app
+- X (Twitter): https://x.com/cubrinapp
+- TikTok: https://www.tiktok.com/@cubrin26
+- YouTube: https://www.youtube.com/@cubrinapp
+- Facebook: https://www.facebook.com/share/1Eon6M7Zgf/
+
+---
+
+## Sitemaps
+
+- Master sitemap index: https://cubrin.com/sitemap.xml
+- Main site sitemap: https://cubrin.com/sitemap-main.xml
+- Blog sitemap: https://blog.cubrin.com/sitemap.xml
+
+Last updated: 2026-09-22

@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Cubrin - Search Results</title>
+        <title>Search Results — Cubrin</title>
+        <meta name="description" content="Find local vendors near you on Cubrin. Food, beauty, fashion, gadgets — all delivered." />
+        <meta name="robots" content="noindex, follow" />
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
@@ -21,310 +23,221 @@
     </head>
     <body class="bg-white min-h-screen flex flex-col font-sans">
         <header class="border-b border-gray-100 sticky top-0 bg-white z-50">
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4"
-            >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
                 <div class="flex items-center gap-3 md:gap-6 relative">
                     <a href="index.html" class="flex-shrink-0">
-                        <img
-                            src="./cubrinlogo.svg"
-                            alt="Cubrin"
-                            class="h-7 md:h-8 w-auto"
-                        />
+                        <img src="./cubrinlogo.svg" alt="Cubrin" class="h-7 md:h-8 w-auto" />
                     </a>
 
-                    <div
-                        id="location-trigger"
-                        class="flex items-center gap-1.5 md:gap-2 cursor-pointer hover:bg-gray-50 p-1.5 md:p-2 rounded-lg transition-colors"
-                    >
-                        <svg
-                            class="w-5 h-5 text-[#143D01]"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
-                            ></path>
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                            ></path>
+                    <div id="location-trigger" class="flex items-center gap-1.5 md:gap-2 cursor-pointer hover:bg-gray-50 p-1.5 md:p-2 rounded-lg transition-colors">
+                        <svg class="w-5 h-5 text-[#143D01]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                         <div class="flex flex-col">
-                            <p
-                                class="text-[9px] md:text-[10px] font-bold text-gray-500 uppercase tracking-wider leading-none mb-0.5"
-                            >
-                                Delivery To
-                            </p>
-                            <p
-                                class="text-xs md:text-sm font-bold text-gray-900 truncate max-w-[100px] md:max-w-[150px] leading-none"
-                                id="current-location-display"
-                            >
-                                Locating...
-                            </p>
+                            <p class="text-[9px] md:text-[10px] font-bold text-gray-500 uppercase tracking-wider leading-none mb-0.5">Delivery To</p>
+                            <p class="text-xs md:text-sm font-bold text-gray-900 truncate max-w-[100px] md:max-w-[150px] leading-none" id="current-location-display">Locating...</p>
                         </div>
-                        <svg
-                            class="w-3 h-3 md:w-4 md:h-4 text-gray-400"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M19 9l-7 7-7-7"
-                            ></path>
+                        <svg class="w-3 h-3 md:w-4 md:h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
 
-                    <div
-                        id="location-dropdown"
-                        class="hidden absolute top-full left-0 md:left-12 mt-2 w-64 md:w-72 bg-white rounded-xl shadow-2xl border border-gray-100 z-[100] p-3 flex-col"
-                    >
+                    <div id="location-dropdown" class="hidden absolute top-full left-0 md:left-12 mt-2 w-72 md:w-80 bg-white rounded-xl shadow-2xl border border-gray-100 z-[100] p-3 flex-col">
                         <div class="relative mb-2">
-                            <svg
-                                class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                ></path>
+                            <svg class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
-                            <input
-                                type="text"
-                                id="location-search"
-                                placeholder="Search state or city..."
-                                class="w-full bg-gray-50 border-gray-200 focus:bg-white focus:border-[#143D01] rounded-lg pl-9 pr-3 py-2 text-sm outline-none transition-colors border"
-                            />
+                            <input type="text" id="location-search" placeholder="Search ward, LGA, or city..." class="w-full bg-gray-50 border-gray-200 focus:bg-white focus:border-[#143D01] rounded-lg pl-9 pr-3 py-2 text-sm outline-none transition-colors border" />
                         </div>
-                        <ul
-                            id="location-list"
-                            class="max-h-48 overflow-y-auto hide-scroll flex flex-col gap-1"
-                        ></ul>
+                        <ul id="location-list" class="max-h-64 overflow-y-auto hide-scroll flex flex-col gap-1"></ul>
                     </div>
                 </div>
 
                 <div class="flex-1 max-w-2xl hidden md:block">
-                    <div
-                        class="relative flex items-center w-full h-12 rounded-lg bg-gray-50 border border-transparent focus-within:bg-white focus-within:border-gray-200 overflow-hidden transition-colors"
-                    >
-                        <div
-                            class="grid place-items-center h-full w-12 text-gray-400"
-                        >
-                            <svg
-                                class="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                />
+                    <div class="relative flex items-center w-full h-12 rounded-lg bg-gray-50 border border-transparent focus-within:bg-white focus-within:border-gray-200 overflow-hidden transition-colors">
+                        <div class="grid place-items-center h-full w-12 text-gray-400">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
-                        <input
-                            class="peer h-full w-full outline-none text-sm text-gray-700 bg-transparent pr-2"
-                            type="text"
-                            id="search"
-                            placeholder="Food, drinks, groceries etc"
-                        />
+                        <input class="peer h-full w-full outline-none text-sm text-gray-700 bg-transparent pr-2" type="text" id="search" placeholder="Search shops, food, drinks, groceries..." />
                     </div>
                 </div>
 
                 <div class="flex items-center gap-4 flex-shrink-0 ml-auto">
-                    <a
-                        href="comingsoon.html"
-                        class="bg-[#143D01] text-white px-5 py-2 md:px-6 md:py-2.5 rounded-full font-bold hover:bg-[#1a4f02] transition-colors items-center gap-2 text-sm md:text-base whitespace-nowrap"
-                    >
-                        Download App
-                    </a>
+                    <a href="comingsoon.html" class="bg-[#143D01] text-white px-5 py-2 md:px-6 md:py-2.5 rounded-full font-bold hover:bg-[#1a4f02] transition-colors items-center gap-2 text-sm md:text-base whitespace-nowrap">Download App</a>
                 </div>
             </div>
 
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-3 overflow-x-auto hide-scroll border-t border-gray-100"
-            >
-                <button
-                    class="flex items-center gap-2 whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-                >
-                    <svg
-                        class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
-                        ></path>
-                    </svg>
-                    All Filters
-                </button>
-                <button
-                    class="whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-                >
-                    Discounts
-                </button>
-                <button
-                    class="whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-                >
-                    Open now
-                </button>
-                <button
-                    class="whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-                >
-                    Pickup
-                </button>
-                <button
-                    class="whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-                >
-                    Under 30 mins
-                </button>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-3 overflow-x-auto hide-scroll border-t border-gray-100">
+                <button data-filter="all" class="filter-btn active whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50">All Filters</button>
+                <button data-filter="promotion" class="filter-btn whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50">Discounts</button>
+                <button data-filter="open" class="filter-btn whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50">Open now</button>
+                <button data-filter="verified" class="filter-btn whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50">Verified</button>
+                <button data-filter="rating" class="filter-btn whitespace-nowrap px-4 py-1.5 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50">Top Rated</button>
             </div>
         </header>
 
         <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div
-                id="loading-state"
-                class="flex flex-col items-center justify-center py-32"
-            >
-                <div
-                    class="w-12 h-12 border-4 border-gray-200 border-t-[#143D01] rounded-full animate-spin mb-4"
-                ></div>
-                <p class="text-gray-500 font-medium">
-                    Finding the best spots near you...
-                </p>
+            <!-- Loading -->
+            <div id="loading-state" class="flex flex-col items-center justify-center py-32">
+                <div class="w-12 h-12 border-4 border-gray-200 border-t-[#143D01] rounded-full animate-spin mb-4"></div>
+                <p class="text-gray-500 font-medium">Finding the best spots near you...</p>
             </div>
 
-            <div
-                id="empty-state"
-                class="hidden flex-col items-center justify-center text-center py-20"
-            >
+            <!-- Empty -->
+            <div id="empty-state" class="hidden flex-col items-center justify-center text-center py-20">
                 <div class="w-64 h-64 md:w-80 md:h-80 mb-8 relative">
-                    <img
-                        src="./bikeman.svg"
-                        alt="Coming soon"
-                        class="w-full h-full object-contain"
-                    />
+                    <img src="./bikeman.svg" alt="Coming soon" class="w-full h-full object-contain" />
                 </div>
-                <h1
-                    class="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight leading-tight"
-                >
+                <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight leading-tight">
                     We're not here yet, but <br class="hidden sm:block" />
                     we're coming soon!
                 </h1>
-                <p
-                    class="text-gray-500 font-medium max-w-md mx-auto mb-8 text-sm md:text-base"
-                >
-                    Check back later or join our waitlist to get notified when
-                    we're live in your city.
+                <p class="text-gray-500 font-medium max-w-md mx-auto mb-8 text-sm md:text-base" id="empty-state-message">
+                    Check back later or join our waitlist to get notified when we're live in your city.
                 </p>
-                <button
-                    class="bg-[#143D01] text-white px-8 py-3.5 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2 shadow-lg shadow-[#143D01]/20"
-                >
+                <a href="index.html#register-form" class="bg-[#143D01] text-white px-8 py-3.5 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2 shadow-lg shadow-[#143D01]/20">
                     Join the waitlist
-                    <svg
-                        class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        ></path>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
-                </button>
+                </a>
             </div>
 
+            <!-- Results -->
             <div id="results-state" class="hidden w-full">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6 font-sans">
-                    Featured Restaurants
-                </h2>
-                <div
-                    id="shops-grid"
-                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-                ></div>
+                <div class="flex items-baseline justify-between mb-6 flex-wrap gap-3">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 font-sans" id="results-heading">Shops near you</h2>
+                        <p class="text-sm text-gray-500 mt-1" id="results-subtitle"></p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <label for="sort-select" class="text-xs font-bold uppercase tracking-wider text-gray-400">Sort</label>
+                        <select id="sort-select" class="text-sm font-semibold text-gray-700 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 outline-none focus:border-[#143D01]">
+                            <option value="distance">Nearest</option>
+                            <option value="travel_time">Fastest delivery</option>
+                            <option value="rating">Top rated</option>
+                            <option value="reviews">Most reviewed</option>
+                            <option value="joined">Newest</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="shops-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+                <!-- Suggestions (when few shops found) -->
+                <div id="suggestions-section" class="hidden mt-16 pt-10 border-t border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Explore nearby areas</h3>
+                    <p class="text-sm text-gray-500 mb-6">We found shops in these areas too.</p>
+                    <div id="suggestions-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+                </div>
             </div>
         </main>
 
         <style>
-            .hide-scroll::-webkit-scrollbar {
-                display: none;
-            }
-            .hide-scroll {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-            }
+            .hide-scroll::-webkit-scrollbar { display: none; }
+            .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+            .filter-btn.active { background: #143D01; color: white; border-color: #143D01; }
         </style>
 
         <script>
             document.addEventListener("DOMContentLoaded", async () => {
+                // ─── Config ───
+                const DISCOVERY_API = "https://api.cubrin.com/v1/users/shop/discovery/index.php";
+                const ACCESS_KEY = "a7f9k2m8p3q5r7t9v2w4x6y8z1b3"; // replace with real access_key if you have one
+
+                // ─── DOM refs ───
                 const loadingState = document.getElementById("loading-state");
                 const emptyState = document.getElementById("empty-state");
                 const resultsState = document.getElementById("results-state");
                 const shopsGrid = document.getElementById("shops-grid");
-                const locationDisplay = document.getElementById(
-                    "current-location-display",
-                );
-
-                const locationTrigger =
-                    document.getElementById("location-trigger");
-                const locationDropdown =
-                    document.getElementById("location-dropdown");
-                const locationSearch =
-                    document.getElementById("location-search");
+                const locationDisplay = document.getElementById("current-location-display");
+                const locationTrigger = document.getElementById("location-trigger");
+                const locationDropdown = document.getElementById("location-dropdown");
+                const locationSearch = document.getElementById("location-search");
                 const locationList = document.getElementById("location-list");
+                const resultsHeading = document.getElementById("results-heading");
+                const resultsSubtitle = document.getElementById("results-subtitle");
+                const suggestionsSection = document.getElementById("suggestions-section");
+                const suggestionsGrid = document.getElementById("suggestions-grid");
+                const sortSelect = document.getElementById("sort-select");
 
-                // ==========================================
-                // 1. LOCATION DROPDOWN LOGIC
-                // ==========================================
-                // Default locations to show when dropdown opens
+                // ─── State ───
+                let queryLocation = null;
+                let userCoords = { lat: null, lng: null };
+                let userState = null;
+                let currentShops = [];
+                let currentSuggestions = [];
+                let activeFilter = "all";
+
+                // ─── Session-based location (from homepage) ───
+                try {
+                    const saved = sessionStorage.getItem("cubrin_search_location");
+                    if (saved) {
+                        const parsed = JSON.parse(saved);
+                        userCoords.lat = parsed.lat;
+                        userCoords.lng = parsed.lng;
+                        userState = parsed.state;
+                    }
+                } catch (e) { /* ignore */ }
+
+                // ─── URL query param wins over session ───
+                const urlParams = new URLSearchParams(window.location.search);
+                queryLocation = urlParams.get("loc");
+
+                if (!queryLocation) {
+                    // No location — get from session, or prompt
+                    try {
+                        const saved = sessionStorage.getItem("cubrin_search_location");
+                        if (saved) {
+                            const parsed = JSON.parse(saved);
+                            queryLocation = parsed.canonical || parsed.query;
+                        }
+                    } catch (e) { /* ignore */ }
+                }
+
+                if (!queryLocation) {
+                    loadingState.classList.add("hidden");
+                    emptyState.classList.remove("hidden");
+                    emptyState.classList.add("flex");
+                    locationDisplay.textContent = "Select location";
+                    document.getElementById("empty-state-message").textContent = "Please select a location to see nearby shops.";
+                    return;
+                }
+
+                // ─── Try to use browser geolocation as fallback ───
+                if (!userCoords.lat && "geolocation" in navigator) {
+                    try {
+                        const pos = await new Promise((resolve, reject) => {
+                            navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 5000 });
+                        });
+                        userCoords.lat = pos.coords.latitude;
+                        userCoords.lng = pos.coords.longitude;
+                    } catch (e) { /* user denied or timeout */ }
+                }
+
+                // ─── Load shops ───
+                await loadShops();
+
+                // ─── Location dropdown ───
                 const popularLocations = [
-                    "Lagos, Lagos State",
-                    "Ikeja, Lagos State",
-                    "Lekki, Lagos State",
-                    "Surulere, Lagos State",
-                    "Ibadan, Oyo State",
-                    "Abuja, FCT",
-                    "Port Harcourt, Rivers State",
-                    "Kano, Kano State",
-                    "Malete, Kwara State",
-                    "Ilorin, Kwara State",
+                    "Lagos", "Ikeja", "Lekki", "Surulere", "Yaba", "Ibadan",
+                    "Abuja", "Port Harcourt", "Kano", "Malete", "Ilorin", "Abeokuta"
                 ];
 
                 function renderLocations(locations) {
                     locationList.innerHTML = "";
-                    if (locations.length === 0) {
-                        locationList.innerHTML = `<li class="p-2 text-sm text-gray-500 text-center">No locations found</li>`;
+                    if (!locations.length) {
+                        locationList.innerHTML = `<li class="p-3 text-sm text-gray-500 text-center">No locations found</li>`;
                         return;
                     }
                     locations.forEach((loc) => {
                         const li = document.createElement("li");
-                        li.className =
-                            "p-2 hover:bg-gray-50 rounded-lg cursor-pointer text-sm text-gray-700 font-medium transition-colors";
+                        li.className = "p-2.5 hover:bg-cubrin-green/5 rounded-lg cursor-pointer text-sm text-gray-700 font-medium transition-colors";
                         li.textContent = loc;
                         li.onclick = () => {
-                            // On click, immediately redirect to search for this new city
+                            sessionStorage.removeItem("cubrin_search_location");
                             window.location.href = `results.html?loc=${encodeURIComponent(loc)}`;
                         };
                         locationList.appendChild(li);
@@ -337,150 +250,263 @@
                     locationDropdown.classList.toggle("flex");
                     renderLocations(popularLocations);
                     locationSearch.value = "";
-                    locationSearch.focus();
+                    setTimeout(() => locationSearch.focus(), 50);
                 });
 
-                // Filter custom state/city list as user types
                 locationSearch.addEventListener("input", (e) => {
-                    const query = e.target.value.toLowerCase();
-                    const filtered = popularLocations.filter((loc) =>
-                        loc.toLowerCase().includes(query),
-                    );
+                    const q = e.target.value.toLowerCase();
+                    const filtered = popularLocations.filter((l) => l.toLowerCase().includes(q));
                     renderLocations(filtered);
                 });
 
-                // Hide dropdown if user clicks outside of it
                 document.addEventListener("click", (e) => {
-                    if (
-                        !locationTrigger.contains(e.target) &&
-                        !locationDropdown.contains(e.target)
-                    ) {
+                    if (!locationTrigger.contains(e.target) && !locationDropdown.contains(e.target)) {
                         locationDropdown.classList.add("hidden");
                         locationDropdown.classList.remove("flex");
                     }
                 });
 
-                // ==========================================
-                // 2. FETCH SHOP RESULTS LOGIC
-                // ==========================================
-                const urlParams = new URLSearchParams(window.location.search);
-                const queryLocation = urlParams.get("loc");
+                // ─── Sort ───
+                sortSelect.addEventListener("change", () => {
+                    loadShops();
+                });
 
-                if (!queryLocation) {
-                    loadingState.classList.add("hidden");
-                    emptyState.classList.remove("hidden");
-                    emptyState.classList.add("flex");
-                    locationDisplay.textContent = "Unknown Location";
-                    return;
+                // ─── Filters ───
+                document.querySelectorAll(".filter-btn").forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+                        btn.classList.add("active");
+                        activeFilter = btn.dataset.filter;
+                        applyFilters();
+                    });
+                });
+
+                function applyFilters() {
+                    let filtered = [...currentShops];
+                    if (activeFilter === "open") {
+                        filtered = filtered.filter((s) => s.status?.is_open);
+                    } else if (activeFilter === "verified") {
+                        filtered = filtered.filter((s) => s.status?.verification === "verified");
+                    } else if (activeFilter === "rating") {
+                        filtered = filtered.filter((s) => (s.status?.average_rating || 0) >= 4.0);
+                    } else if (activeFilter === "promotion") {
+                        filtered = filtered.filter((s) => s.promotion?.has_promotion);
+                    }
+                    renderShopGrid(filtered);
+                    updateResultsSubtitle(filtered.length);
                 }
 
-                locationDisplay.textContent = queryLocation;
+                // ═══════════════════════════════════════════════
+                // CORE: Load shops via Cubrin discovery API
+                // ═══════════════════════════════════════════════
+                async function loadShops() {
+                    loadingState.classList.remove("hidden");
+                    emptyState.classList.add("hidden");
+                    resultsState.classList.add("hidden");
 
-                try {
-                    // Convert Text Location to Coordinates using OpenStreetMap
-                    const geocodeRes = await fetch(
-                        `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(queryLocation)}`,
-                    );
-                    const geocodeData = await geocodeRes.json();
+                    try {
+                        const sortBy = sortSelect.value || "distance";
+                        const body = {
+                            location: queryLocation,
+                            user_state: userState,
+                            user_latitude: userCoords.lat,
+                            user_longitude: userCoords.lng,
+                            max_distance: 25,
+                            pagination: { page: 1, limit: 24 },
+                            filters: {
+                                sort_by: sortBy,
+                                sort_order: sortBy === "distance" || sortBy === "travel_time" ? "ASC" : "DESC"
+                            }
+                        };
 
-                    if (geocodeData.length === 0) {
-                        throw new Error(
-                            "Could not find coordinates for this location",
-                        );
-                    }
+                        // Only attach access_key if we actually have a real one
+                        if (ACCESS_KEY && ACCESS_KEY.length > 20) {
+                            body.access_key = ACCESS_KEY;
+                        }
 
-                    const lat = parseFloat(geocodeData[0].lat);
-                    const lng = parseFloat(geocodeData[0].lon);
-
-                    // Fetch from QuadriFX's API
-                    const response = await fetch(
-                        "https://api.cubrin.com/v1/users/shop/discovery/index.php",
-                        {
+                        const response = await fetch(DISCOVERY_API, {
                             method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                                Authorization:
-                                    "Bearer a7f9k2m8p3q5r7t9v2w4x6y8z1b3",
-                            },
-                            body: JSON.stringify({
-                                user_latitude: lat,
-                                user_longitude: lng,
-                                pagination: { page: 1, limit: 12 },
-                            }),
-                        },
-                    );
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(body)
+                        });
 
-                    const result = await response.json();
-                    loadingState.classList.add("hidden");
+                        const data = await response.json();
+                        loadingState.classList.add("hidden");
 
-                    if (result.success && result.data.shops.length > 0) {
-                        renderShopGrid(result.data.shops);
+                        if (!data.success) {
+                            throw new Error(data.message || "Failed to load shops");
+                        }
+
+                        const lv = data.data.location_validation;
+                        const found = data.data.found;
+                        const suggestions = data.data.suggestions;
+
+                        // Update location display with canonical name
+                        if (lv?.found) {
+                            const displayName = lv.parent ? `${lv.name}, ${lv.parent}` : lv.name;
+                            locationDisplay.textContent = displayName;
+                            document.title = `${lv.name} Shops — Cubrin`;
+                        } else {
+                            locationDisplay.textContent = queryLocation;
+                        }
+
+                        currentShops = found?.shops || [];
+                        currentSuggestions = suggestions?.shops || [];
+
+                        // Update heading
+                        if (lv?.found) {
+                            resultsHeading.textContent = `Shops in ${lv.name}`;
+                        } else {
+                            resultsHeading.textContent = `Shops near ${queryLocation}`;
+                        }
+
+                        if (currentShops.length === 0 && currentSuggestions.length === 0) {
+                            // Truly nothing — show empty state
+                            emptyState.classList.remove("hidden");
+                            emptyState.classList.add("flex");
+                            document.getElementById("empty-state-message").textContent =
+                                lv?.message || `We couldn't find shops in "${queryLocation}" yet. Try another area or join the waitlist.`;
+                            return;
+                        }
+
+                        if (currentShops.length === 0 && currentSuggestions.length > 0) {
+                            // No shops in the exact location, but there are suggestions
+                            resultsState.classList.remove("hidden");
+                            resultsHeading.textContent = `No shops in "${lv?.name || queryLocation}" yet`;
+                            resultsSubtitle.textContent = "But we found shops in these nearby areas:";
+                            shopsGrid.innerHTML = "";
+                            renderSuggestions();
+                            return;
+                        }
+
+                        // We have shops — render them
                         resultsState.classList.remove("hidden");
-                    } else {
+                        applyFilters();
+                        updateResultsSubtitle(currentShops.length);
+
+                        if (currentSuggestions.length > 0) {
+                            renderSuggestions();
+                        } else {
+                            suggestionsSection.classList.add("hidden");
+                        }
+
+                    } catch (error) {
+                        console.error("Failed to load shops:", error);
+                        loadingState.classList.add("hidden");
                         emptyState.classList.remove("hidden");
                         emptyState.classList.add("flex");
+                        document.getElementById("empty-state-message").textContent =
+                            "Something went wrong. Please try again in a moment.";
                     }
-                } catch (error) {
-                    console.error("Failed to load shops:", error);
-                    loadingState.classList.add("hidden");
-                    emptyState.classList.remove("hidden");
-                    emptyState.classList.add("flex");
                 }
 
-                // ==========================================
-                // 3. RENDER CARDS FUNCTION
-                // ==========================================
+                function updateResultsSubtitle(count) {
+                    if (count === 0) {
+                        resultsSubtitle.textContent = "No shops match the current filter.";
+                    } else if (count === 1) {
+                        resultsSubtitle.textContent = "1 shop found";
+                    } else {
+                        resultsSubtitle.textContent = `${count} shops found`;
+                    }
+                }
+
+                function renderSuggestions() {
+                    if (!currentSuggestions.length) {
+                        suggestionsSection.classList.add("hidden");
+                        return;
+                    }
+                    suggestionsSection.classList.remove("hidden");
+                    suggestionsGrid.innerHTML = "";
+                    currentSuggestions.slice(0, 8).forEach((shop) => {
+                        suggestionsGrid.insertAdjacentHTML("beforeend", buildShopCard(shop));
+                    });
+                }
+
                 function renderShopGrid(shops) {
                     shopsGrid.innerHTML = "";
-
+                    if (!shops.length) {
+                        shopsGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-12">No shops match your filter.</p>`;
+                        return;
+                    }
                     shops.forEach((shop) => {
-                        const coverPhoto =
-                            shop.media.cover_photo ||
-                            "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600";
-                        const rating = shop.status.average_rating || "New";
-                        const time =
-                            shop.location.travel_time_text || "15-25 mins";
-
-                        const closedOverlay = shop.status.is_open
-                            ? ""
-                            : `
-                            <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px] flex flex-col items-center justify-center text-white z-10 transition-opacity duration-300">
-                                <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
-                                <span class="font-bold tracking-widest text-sm uppercase">Closed</span>
-                            </div>
-                        `;
-
-                        const shopCard = `
-                            <div class="group cursor-pointer flex flex-col">
-                                <div class="relative w-full h-44 sm:h-48 rounded-2xl overflow-hidden mb-3 bg-gray-100">
-                                    ${closedOverlay}
-                                    <img src="${coverPhoto}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="${shop.name}" />
-
-                                    <button class="absolute top-3 right-3 bg-white p-2 rounded-full shadow-sm hover:scale-110 transition-transform z-20">
-                                        <svg class="w-4 h-4 text-gray-500 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                                    </button>
-                                </div>
-
-                                <h3 class="font-bold text-gray-900 text-lg truncate">${shop.name}</h3>
-
-                                <div class="flex items-center text-xs sm:text-sm text-gray-700 font-medium gap-3 mt-1">
-                                    <span class="flex items-center gap-1">
-                                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                                        ₦1,500
-                                    </span>
-                                    <span class="flex items-center gap-1">
-                                        <span class="text-yellow-400 text-base leading-none">⭐</span>
-                                        ${rating}
-                                    </span>
-                                    <span class="flex items-center gap-1 text-gray-500">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                        ${time}
-                                    </span>
-                                </div>
-                            </div>
-                        `;
-                        shopsGrid.insertAdjacentHTML("beforeend", shopCard);
+                        shopsGrid.insertAdjacentHTML("beforeend", buildShopCard(shop));
                     });
+                }
+
+                // ═══════════════════════════════════════════════
+                // Shop card builder
+                // ═══════════════════════════════════════════════
+                function buildShopCard(shop) {
+                    const coverPhoto =
+                        shop.media?.cover_photo ||
+                        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop";
+                    const rating = shop.status?.average_rating
+                        ? shop.status.average_rating.toFixed(1)
+                        : "New";
+                    const reviews = shop.status?.total_reviews || 0;
+                    const time = shop.location?.travel_time_text || "";
+                    const distance = shop.location?.distance_km
+                        ? `${shop.location.distance_km.toFixed(1)} km`
+                        : "";
+                    const isOpen = shop.status?.is_open;
+                    const isVerified = shop.status?.verification === "verified";
+                    const hasPromo = shop.promotion?.has_promotion;
+                    const shopLink = `shop.html?ref=${shop.shop_ref}`;
+
+                    const closedOverlay = isOpen
+                        ? ""
+                        : `<div class="absolute inset-0 bg-black/55 backdrop-blur-[2px] flex flex-col items-center justify-center text-white z-10">
+                              <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                              <span class="font-bold tracking-widest text-xs uppercase">Closed</span>
+                           </div>`;
+
+                    const verifiedBadge = isVerified
+                        ? `<div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm rounded-full px-2.5 py-1 flex items-center gap-1 z-20 shadow-sm">
+                              <svg class="w-3.5 h-3.5 text-[#143D01]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                              <span class="text-[10px] font-bold uppercase tracking-wider text-[#143D01]">Verified</span>
+                           </div>`
+                        : "";
+
+                    const promoBadge = hasPromo
+                        ? `<div class="absolute bottom-3 left-3 bg-cubrin-yellow text-[#143D01] rounded-full px-2.5 py-1 flex items-center gap-1 z-20 shadow-sm">
+                              <span class="text-[10px] font-bold uppercase tracking-wider">🏷️ Promo</span>
+                           </div>`
+                        : "";
+
+                    const meta = [];
+                    if (rating !== "New") {
+                        meta.push(`<span class="flex items-center gap-1"><span class="text-yellow-400">⭐</span><span class="font-semibold text-gray-800">${rating}</span>${reviews ? `<span class="text-gray-400">(${reviews})</span>` : ""}</span>`);
+                    } else {
+                        meta.push(`<span class="text-gray-500 font-medium">New</span>`);
+                    }
+                    if (time) meta.push(`<span class="flex items-center gap-1 text-gray-500"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>${time}</span>`);
+                    if (distance) meta.push(`<span class="text-gray-500">${distance}</span>`);
+
+                    const category = shop.primary_category?.name
+                        ? `<p class="text-xs text-gray-500 mt-0.5">${shop.primary_category.name}</p>`
+                        : "";
+
+                    return `
+                        <a href="${shopLink}" class="group cursor-pointer flex flex-col">
+                            <div class="relative w-full h-44 sm:h-48 rounded-2xl overflow-hidden mb-3 bg-gray-100">
+                                ${closedOverlay}
+                                ${verifiedBadge}
+                                ${promoBadge}
+                                <img src="${coverPhoto}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="${shop.name}" loading="lazy" />
+
+                                <button type="button" onclick="event.preventDefault(); event.stopPropagation(); this.querySelector('svg').classList.toggle('fill-current'); this.querySelector('svg').classList.toggle('text-red-500');" class="absolute top-3 right-3 bg-white p-2 rounded-full shadow-sm hover:scale-110 transition-transform z-20">
+                                    <svg class="w-4 h-4 text-gray-500 hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                </button>
+                            </div>
+
+                            <h3 class="font-bold text-gray-900 text-lg truncate">${shop.name}</h3>
+                            ${category}
+
+                            <div class="flex items-center text-xs sm:text-sm gap-3 mt-1 flex-wrap">
+                                ${meta.join("")}
+                            </div>
+                        </a>
+                    `;
                 }
             });
         </script>

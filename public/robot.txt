@@ -1,6 +1,21 @@
-# --- MAX VISIBILITY FOR ALL AI CRAWLERS ---
+# ═══════════════════════════════════════════════════════════
+# Cubrin robots.txt
+# ═══════════════════════════════════════════════════════════
 
-# OpenAI / ChatGPT
+# ─── STANDARD CRAWLERS ───
+User-agent: *
+Allow: /
+
+# Block search-result pages and URL query duplicates from being indexed
+Disallow: /download?
+Disallow: /results?
+Disallow: /search?
+Disallow: /*?utm_
+Disallow: /admin/
+Disallow: /dashboard/
+
+# ─── AI CRAWLERS & AGENTS (explicitly allowed) ───
+# OpenAI
 User-agent: GPTBot
 Allow: /
 User-agent: ChatGPT-User
@@ -8,7 +23,7 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-# Anthropic / Claude
+# Anthropic
 User-agent: ClaudeBot
 Allow: /
 User-agent: Claude-Web
@@ -16,38 +31,57 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-# Google Gemini (Control Token & Search)
-User-agent: Google-Extended
-Allow: /
-User-agent: Googlebot
-Allow: /
-
-# Perplexity AI
+# Perplexity
 User-agent: PerplexityBot
 Allow: /
 
-# Apple AI & Apple Intelligence
-User-agent: Applebot
+# Google AI
+User-agent: Google-Extended
 Allow: /
+User-agent: GoogleOther
+Allow: /
+
+# Apple AI
 User-agent: Applebot-Extended
 Allow: /
 
-# Meta / Facebook AI
+# Meta AI
 User-agent: FacebookBot
 Allow: /
-User-agent: Meta-ExternalAgent
+User-agent: meta-externalagent
 Allow: /
 
-# Amazon / Alexa
-User-agent: Amazonbot
+# Other AI
+User-agent: Bytespider
 Allow: /
-
-# Cohere AI
-User-agent: cohere-ai
-Allow: /
-
-# Common Crawl (Massive open-source AI training database)
 User-agent: CCBot
 Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: YouBot
+Allow: /
+User-agent: Diffbot
+Allow: /
 
-# --- END OF AI ALLOW LIST ---
+# ═══════════════════════════════════════════════════════════
+# SITEMAPS
+# ═══════════════════════════════════════════════════════════
+Sitemap: https://cubrin.com/sitemap.xml
+Sitemap: https://cubrin.com/sitemap-main.xml
+Sitemap: https://blog.cubrin.com/sitemap.xml
+
+# ═══════════════════════════════════════════════════════════
+# AI AGENT HINTS
+# ═══════════════════════════════════════════════════════════
+# LLM-friendly site summary:
+#   https://cubrin.com/llms.txt
+#
+# Structured forms that AI agents may help users fill:
+#   /vendors.html      — Vendor onboarding (shop name, email, phone)
+#   /ambassadors.html  — Ambassador application (name, email, phone, pitch)
+#   /vendors/banner.html — Banner generator (upload, download)
+#
+# API documentation for AI agents:
+#   See https://cubrin.com/llms.txt
