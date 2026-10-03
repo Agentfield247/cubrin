@@ -145,7 +145,7 @@
             document.addEventListener("DOMContentLoaded", async () => {
                 // ─── Config ───
                 const DISCOVERY_API = "https://api.cubrin.com/v1/users/shop/discovery/index.php";
-                const ACCESS_KEY = "a7f9k2m8p3q5r7t9v2w4x6y8z1b3"; // replace with real access_key if you have one
+                const ACCESS_KEY = "a7f9k2m8p3q5r7t9v2w4x6y8z1b3";
 
                 // ─── DOM refs ───
                 const loadingState = document.getElementById("loading-state");
@@ -187,7 +187,6 @@
                 queryLocation = urlParams.get("loc");
 
                 if (!queryLocation) {
-                    // No location — get from session, or prompt
                     try {
                         const saved = sessionStorage.getItem("cubrin_search_location");
                         if (saved) {
@@ -206,7 +205,7 @@
                     return;
                 }
 
-                // ─── Try to use browser geolocation as fallback ───
+                // ─── Browser geolocation fallback ───
                 if (!userCoords.lat && "geolocation" in navigator) {
                     try {
                         const pos = await new Promise((resolve, reject) => {
@@ -271,6 +270,17 @@
                     loadShops();
                 });
 
+                // ─── Text Search Input in Header ───
+                const searchInput = document.getElementById("search");
+                let searchQuery = "";
+
+                if (searchInput) {
+                    searchInput.addEventListener("input", (e) => {
+                        searchQuery = e.target.value.toLowerCase().trim();
+                        applyFilters();
+                    });
+                }
+
                 // ─── Filters ───
                 document.querySelectorAll(".filter-btn").forEach((btn) => {
                     btn.addEventListener("click", () => {
@@ -283,6 +293,17 @@
 
                 function applyFilters() {
                     let filtered = [...currentShops];
+
+                    if (searchQuery) {
+                        filtered = filtered.filter((s) => {
+                            const name = (s.name || "").toLowerCase();
+                            const desc = (s.description || "").toLowerCase();
+                            const cat = (s.primary_category?.title || s.primary_category?.name || "").toLowerCase();
+                            const tags = (s.tags || "").toLowerCase();
+                            return name.includes(searchQuery) || desc.includes(searchQuery) || cat.includes(searchQuery) || tags.includes(searchQuery);
+                        });
+                    }
+
                     if (activeFilter === "open") {
                         filtered = filtered.filter((s) => s.status?.is_open);
                     } else if (activeFilter === "verified") {
@@ -319,7 +340,6 @@
                             }
                         };
 
-                        // Only attach access_key if we actually have a real one
                         if (ACCESS_KEY && ACCESS_KEY.length > 20) {
                             body.access_key = ACCESS_KEY;
                         }
@@ -341,27 +361,41 @@
                         const found = data.data.found;
                         const suggestions = data.data.suggestions;
 
-                        // Update location display with canonical name
+                        // Build clean display name without redundant repetition
+                        let displayName = queryLocation;
                         if (lv?.found) {
-                            const displayName = lv.parent ? `${lv.name}, ${lv.parent}` : lv.name;
-                            locationDisplay.textContent = displayName;
-                            document.title = `${lv.name} Shops — Cubrin`;
+                            if (lv.parent) {
+                                if (lv.parent.toLowerCase().includes(lv.name.toLowerCase())) {
+                                    displayName = lv.parent;
+                                } else {
+                                    displayName = `${lv.name}, ${lv.parent}`;
+                                }
+                            } else {
+                                displayName = lv.name;
+                            }
+                        }
+                        locationDisplay.textContent = displayName;
+                        document.title = `${displayName} Shops — Cubrin`;
+
+                        const rawFound = found?.shops || [];
+                        const rawSuggestions = suggestions?.shops || [];
+
+                        // If found.shops has items, use them.
+                        // If found.shops is empty but suggestions has shops (e.g. backend searched by state/LGA),
+                        // promote suggestions to currentShops so they appear right in the main grid!
+                        if (rawFound.length > 0) {
+                            currentShops = rawFound;
+                            currentSuggestions = rawSuggestions;
+                        } else if (rawSuggestions.length > 0) {
+                            currentShops = rawSuggestions;
+                            currentSuggestions = [];
                         } else {
-                            locationDisplay.textContent = queryLocation;
+                            currentShops = [];
+                            currentSuggestions = [];
                         }
 
-                        currentShops = found?.shops || [];
-                        currentSuggestions = suggestions?.shops || [];
-
-                        // Update heading
-                        if (lv?.found) {
-                            resultsHeading.textContent = `Shops in ${lv.name}`;
-                        } else {
-                            resultsHeading.textContent = `Shops near ${queryLocation}`;
-                        }
-
+                        // Only show empty state if truly 0 shops exist anywhere
                         if (currentShops.length === 0 && currentSuggestions.length === 0) {
-                            // Truly nothing — show empty state
                             emptyState.classList.remove("hidden");
                             emptyState.classList.add("flex");
                             document.getElementById("empty-state-message").textContent =
@@ -369,18 +403,9 @@
                             return;
                         }
 
-                        if (currentShops.length === 0 && currentSuggestions.length > 0) {
-                            // No shops in the exact location, but there are suggestions
-                            resultsState.classList.remove("hidden");
-                            resultsHeading.textContent = `No shops in "${lv?.name || queryLocation}" yet`;
-                            resultsSubtitle.textContent = "But we found shops in these nearby areas:";
-                            shopsGrid.innerHTML = "";
-                            renderSuggestions();
-                            return;
-                        }
-
-                        // We have shops — render them
                         resultsState.classList.remove("hidden");
+                        resultsHeading.textContent = `Shops in ${displayName}`;
+
                         applyFilters();
                         updateResultsSubtitle(currentShops.length);
 
@@ -404,9 +429,9 @@
                     if (count === 0) {
                         resultsSubtitle.textContent = "No shops match the current filter.";
                     } else if (count === 1) {
-                        resultsSubtitle.textContent = "1 shop found";
+                        resultsSubtitle.textContent = "1 shop available for delivery";
                     } else {
-                        resultsSubtitle.textContent = `${count} shops found`;
+                        resultsSubtitle.textContent = `${count} shops available for delivery`;
                     }
                 }
 
@@ -433,6 +458,18 @@
                     });
                 }
 
+                // ─── Storefront URL resolver ───
+                function getStorefrontUrl(shop) {
+                    const slug = (shop.slug || "").trim().toLowerCase();
+                    if (slug) {
+                        if (window.location.hostname.includes("localhost") || window.location.hostname === "127.0.0.1") {
+                            return `http://${slug}.localhost:3000`;
+                        }
+                        return `https://${slug}.cubrin.com`;
+                    }
+                    return shop.shop_ref ? `https://shops.cubrin.com/site/${shop.shop_ref}` : "#";
+                }
+
                 // ═══════════════════════════════════════════════
                 // Shop card builder
                 // ═══════════════════════════════════════════════
@@ -440,8 +477,9 @@
                     const coverPhoto =
                         shop.media?.cover_photo ||
                         "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop";
-                    const rating = shop.status?.average_rating
-                        ? shop.status.average_rating.toFixed(1)
+                    const hasRating = (shop.status?.average_rating || 0) > 0;
+                    const rating = hasRating
+                        ? Number(shop.status.average_rating).toFixed(1)
                         : "New";
                     const reviews = shop.status?.total_reviews || 0;
                     const time = shop.location?.travel_time_text || "";
@@ -451,7 +489,7 @@
                     const isOpen = shop.status?.is_open;
                     const isVerified = shop.status?.verification === "verified";
                     const hasPromo = shop.promotion?.has_promotion;
-                    const shopLink = `shop.html?ref=${shop.shop_ref}`;
+                    const shopLink = getStorefrontUrl(shop);
 
                     const closedOverlay = isOpen
                         ? ""
@@ -482,8 +520,9 @@
                     if (time) meta.push(`<span class="flex items-center gap-1 text-gray-500"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>${time}</span>`);
                     if (distance) meta.push(`<span class="text-gray-500">${distance}</span>`);
 
-                    const category = shop.primary_category?.name
-                        ? `<p class="text-xs text-gray-500 mt-0.5">${shop.primary_category.name}</p>`
+                    const catName = shop.primary_category?.title || shop.primary_category?.name || "";
+                    const category = catName
+                        ? `<p class="text-xs text-gray-500 mt-0.5">${catName}</p>`
                         : "";
 
                     return `
